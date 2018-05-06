@@ -17,6 +17,33 @@ export const MENU = [
             roles: []
           }
         }
+      },
+      {
+        path: r.manage,
+        data: {
+          menu: {
+            title: 'Manage',
+            icon: null,
+            selected: true,
+            expanded: false,
+            order: 0,
+            roles: []
+          }
+        },
+        children: [
+          {
+            path: r.droneFilters,
+            data: {
+              menu: {
+                title: 'Drone Filters',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: []
+              }
+            }
+          }
+        ]
       }
     ]
   }

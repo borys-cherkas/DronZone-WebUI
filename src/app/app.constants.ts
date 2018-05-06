@@ -5,6 +5,8 @@ export let AppEnums = {
     login: 'login',
     register: 'register',
     home: 'home',
+    manage: 'manage',
+    droneFilters: 'drone-filters',
     currentUser: 'current-user',
     details: 'details',
     list: 'list'

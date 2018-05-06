@@ -4,6 +4,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/register/registration.component";
 import {PagesComponent} from "./pages.component";
+import {ManageDroneFiltersComponent} from "./components/droneCharacteristics/manage-drone-filters.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
       {path: r.home, component: HomeComponent},
       {path: r.login, component: LoginComponent},
       {path: r.register, component: RegistrationComponent},
+
+      {path: r.manage + '/' + r.droneFilters, component: ManageDroneFiltersComponent},
 
       // {path: r.kindsOfSport, redirectTo: r.kindsOfSport + '/' + r.list, pathMatch: 'full'},
       // {path: r.kindsOfSport + '/' + r.list, component: KindsOfSportListComponent},

@@ -1,0 +1,53 @@
+<div id="app-manage-drone-filter-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>Drone Filter List</h2>
+      </div>
+    </div>
+
+    <br/>
+    <hr/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-danger" (click)="createNew()">Create New</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Drone Type</td>
+          <td>Max Available Weigth</td>
+          <td>Drone Weigth</td>
+          <td>Max Speed</td>
+          <td>Actions</td>
+          </thead>
+          <tbody>
+          <tr *ngFor="let filter of fitlers">
+            <td>{{filter.id}}</td>
+            <td>{{filter.name}}</td>
+            <td>{{filter.type}}</td>
+            <td>{{filter.maxAvailableWeigth}}</td>
+            <td>{{filter.weigth}}</td>
+            <td>{{filter.maxSpeed}}</td>
+            <td>
+              <button class="btn btn-success" (click)="showDetails(filter)">Details</button>
+              <button class="btn btn-warning" (click)="edit(filter)">Edit</button>
+              <button class="btn btn-danger" (click)="delete(filter)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-add-drone-filter-modal #addFitlerModal></app-add-drone-filter-modal>
+
