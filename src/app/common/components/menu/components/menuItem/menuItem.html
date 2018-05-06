@@ -1,0 +1,37 @@
+<li *ngIf="!menuItem.hidden" [title]="menuItem.title"
+    [ngClass]="{'al-sidebar-list-item': !child,'app-sidebar-sublist-item': child,'selected': menuItem.selected && !menuItem.expanded,'with-sub-menu': menuItem.children,'app-sidebar-item-expanded': menuItem.expanded}">
+
+
+  <a *ngIf="!menuItem.children  || menuItem.children.length == 0" (mouseenter)="onHoverItem($event, item)"
+     (click)="navigateUrl(menuItem)"
+     routerLinkActive="active" [target]="menuItem.target" class="al-sidebar-list-link">
+    <i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"></i>
+    <span class="item-title">{{ menuItem.title }}</span>
+    <img *ngIf="menuItem.img && menuItem.selected" [src]="menuItem.img"/>
+    <img *ngIf="menuItem.img && !menuItem.selected" [src]="menuItem.unactiveimg"/>
+
+    <span style="display: table-cell">
+    <span class="label label-danger label-notification"
+          *ngIf="menuItem.notificationCount && menuItem.notificationCount.notificationCount">
+      {{menuItem.notificationCount.notificationCount}}
+    </span>
+    </span>
+  </a>
+
+  <a *ngIf="menuItem.children && menuItem.children.length > 0" (mouseenter)="onHoverItem($event, item)"
+     (click)="onToggleSubMenu($event, menuItem)" class="al-sidebar-list-link">
+    <i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"></i><span>{{ menuItem.title }}</span>
+    <img *ngIf="menuItem.img && menuItem.selected" [src]="menuItem.img"/>
+    <img *ngIf="menuItem.img && !menuItem.selected" [src]="menuItem.unactiveimg"/>
+    <b class="fa fa-angle-down" [ngClass]="{'fa-angle-up': menuItem.expanded}"></b>
+  </a>
+
+  <ul *ngIf="menuItem.children" class="al-sidebar-sublist" [ngClass]="{'slide-right': menuItem.slideRight}">
+    <app-menu-item [menuItem]="subItem"
+                   [child]="true"
+                   (itemHover)="onHoverItem($event)"
+                   (toggleSubMenu)="onToggleSubMenu($event, subItem)"
+                   *ngFor="let subItem of menuItem.children"></app-menu-item>
+  </ul>
+
+</li>

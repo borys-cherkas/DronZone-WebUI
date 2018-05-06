@@ -1,0 +1,107 @@
+@import "../styles/sass/conf/conf";
+@import "../styles/sass/bootstrap-overrides/overrides";
+@import "../styles/sass/typography";
+@import "../styles/sass/buttons";
+@import "../styles/sass/modals";
+@import "../styles/sass/layout";
+@import "../styles/sass/table";
+@import "../styles/sass/form";
+
+span.k {
+  font-family: "sans-serif";
+}
+
+/* Overrides */
+.app-container {
+  height: 100%;
+}
+
+.action-create {
+  font-size: 35px;
+  cursor: pointer;
+  color: $info;
+
+  &:hover {
+    font-size: 45px;
+  }
+}
+
+.action-icon {
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+  color: $info;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+p.error {
+  margin-top: 6px;
+  padding: 0 3px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  line-height: normal;
+  font-size: 13px;
+  color: #ff5027;
+
+  i {
+    font-size: 1.3em;
+  }
+}
+
+app-sidebar {
+  background-color: #123456;
+}
+
+.table-header {
+  .table-header-filters {
+    text-align: right;
+
+    label {
+      font-size: 15px;
+    }
+
+    select {
+      min-width: 250px;
+      width: auto;
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+}
+
+.card {
+  > .card-header {
+    //    background: #1f282d;
+    border-radius: 0;
+  }
+
+  > .card-body {
+    background-color: #aaaaaa;
+    //box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+  }
+
+  &.card-bordered {
+    > .card-body {
+      //border-top: 10px solid #3498db;
+    }
+  }
+
+  > .card-footer {
+    background-color: $body-bg;
+  }
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.form-control {
+  border-radius: 2px;
+}
+
+p.validation-error {
+  margin-bottom: 0;
+}

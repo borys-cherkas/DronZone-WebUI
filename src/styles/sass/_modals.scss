@@ -1,0 +1,101 @@
+@import 'conf/conf';
+
+$text-color: #ffffff;
+
+.modal {
+  text-align: center;
+  padding: 0;
+  z-index: 1030;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+
+  .modal-dialog {
+    width: 650px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+
+    .modal-content {
+      border-top: 5px solid $primary;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
+      .modal-header {
+        padding: 5px 0;
+        margin: 0 10px;
+
+        .close {
+          padding-right: 5px;
+          padding-top: 4px;
+          font-size: 26px;
+        }
+
+        h4 {
+          color: $primary;
+          font-size: 20px;
+          padding-left: 10px;
+        }
+      }
+
+      .modal-body {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 0px;
+
+        textarea {
+          resize: none;
+        }
+      }
+
+      .modal-footer {
+        border-top: none;
+        text-align: right;
+        padding: 0px 15px 10px 0px;
+      }
+    }
+  }
+
+}
+
+.modal.fade {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.modal.in .modal-dialog {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-backdrop, .modal-backdrop.fade, .modal-backdrop.in {
+  opacity: 0.5;
+}

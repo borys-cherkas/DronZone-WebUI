@@ -1,0 +1,63 @@
+$alertTextColor: #fff;
+$alertSuccess: #48c055;
+$alertWarning: rgb(251, 184, 31);
+$alertError: #fb6820;
+$alertFault: #c77cf8;
+
+.action-notifier {
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+
+  .alert {
+    border-radius: 2px;
+    margin-bottom: 0;
+    font-size: 15px;
+    border: 0;
+    padding-right: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-family: Arial, sans-serif;
+    line-height: 22px;
+
+    i {
+      padding-right: 10px;
+      font-size: 18px;
+    }
+
+    &.alert-warning {
+      background-color: $alertWarning;
+      color: $alertTextColor;
+    }
+
+    &.alert-success {
+      background-color: $alertSuccess;
+      color: $alertTextColor;
+    }
+
+    &.alert-danger {
+      background-color: $alertError;
+      color: $alertTextColor;
+    }
+
+    &.alert-fault {
+      background-color: $alertFault;
+      color: $alertTextColor;
+    }
+
+    button {
+      position: relative;
+      //right: -5px;
+      color: rgb(255, 255, 255);
+      opacity: 1;
+      top: -3px;
+    }
+
+    & a {
+      color: $alertTextColor;
+      border-bottom: 1px dashed;
+    }
+  }
+
+}

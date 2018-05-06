@@ -1,0 +1,17 @@
+<aside class="test-sidebar">
+
+  <div class="logo-box-container">
+    <div class="logo-box" (click)="goToHomePage()">
+      <div>Sportorent</div>
+    </div>
+  </div>
+
+  <ul id="al-sidebar-list" class="al-sidebar-list">
+    <app-menu-item
+      [menuItem]="item"
+      (itemHover)="hoverItem($event)"
+      (toggleSubMenu)="toggleSubMenu($event)"
+      *ngFor="let item of menuItems"
+    ></app-menu-item>
+  </ul>
+</aside>
