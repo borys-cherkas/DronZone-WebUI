@@ -8,10 +8,10 @@ export class DroneFilterResource extends ResourceBase  {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'getAll': 'droneFilters/getDroneCharacteristics',
+      'getAll': 'droneFilters/getDroneFilters',
       'create': 'droneFilters/create',
       'update': 'droneFilters/update',
-      'delete': 'droneFilters/delete/{id}'
+      'delete': 'droneFilters/delete'
     });
   }
 
@@ -30,8 +30,8 @@ export class DroneFilterResource extends ResourceBase  {
     return this.http.put(url, entity);
   }
 
-  delete(id: string): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['update'], {id: id});
-    return this.http.delete(url);
+  delete(id: number): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['delete'], {});
+    return this.http.post(url, {id: id});
   }
 }

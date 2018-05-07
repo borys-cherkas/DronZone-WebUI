@@ -32,12 +32,12 @@
           <tr *ngFor="let filter of fitlers">
             <td>{{filter.id}}</td>
             <td>{{filter.name}}</td>
-            <td>{{filter.type}}</td>
+            <td>{{getDroneTypePresentation(filter.droneType)}}</td>
             <td>{{filter.maxAvailableWeigth}}</td>
-            <td>{{filter.weigth}}</td>
-            <td>{{filter.maxSpeed}}</td>
+            <td>{{filter.maxDroneWeigth}}</td>
+            <td>{{filter.maxDroneSpeed}}</td>
             <td>
-              <button class="btn btn-success" (click)="showDetails(filter)">Details</button>
+              <!--<button class="btn btn-success" (click)="showDetails(filter)">Details</button>-->
               <button class="btn btn-warning" (click)="edit(filter)">Edit</button>
               <button class="btn btn-danger" (click)="delete(filter)">Delete</button>
             </td>
@@ -48,6 +48,8 @@
     </div>
   </div>
 </div>
+
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>
 
 <app-add-drone-filter-modal #addFitlerModal></app-add-drone-filter-modal>
 

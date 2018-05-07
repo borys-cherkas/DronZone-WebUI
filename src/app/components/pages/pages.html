@@ -4,7 +4,10 @@
   <div class="al-content">
     <app-action-notifier></app-action-notifier>
     <div id="content-data-holder">
-      <router-outlet></router-outlet>
+      <router-outlet>
+        <app-confirmation-modal #confirmationModal></app-confirmation-modal>
+      </router-outlet>
+
     </div>
   </div>
 </div>

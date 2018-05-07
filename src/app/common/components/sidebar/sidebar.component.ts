@@ -8,7 +8,7 @@ import * as $ from 'jquery';
 import {IUserInfo} from "../../../models/interfaces/IUserInfo";
 
 // Do not forget to register Components in Declarations sections of App.module
-@Component({
+@ Component({
   selector: 'app-sidebar',
   styleUrls: ['./sidebar.scss'],
   templateUrl: './sidebar.html',

@@ -1,8 +1,8 @@
 export interface IDroneFilter {
   id: number;
   name: string;
-  type: number;
+  droneType: number;
   maxAvailableWeigth: number;
-  weigth: number;
-  maxSpeed: number;
+  maxDroneWeigth: number;
+  maxDroneSpeed: number;
 }

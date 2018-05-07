@@ -4,7 +4,8 @@ import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/register/registration.component";
 import {PagesComponent} from "./pages.component";
-import {ManageDroneFiltersComponent} from "./components/droneCharacteristics/manage-drone-filters.component";
+import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-drone-filters.component";
+
 
 const r = AppEnums.routes;
 const routes: Routes = [

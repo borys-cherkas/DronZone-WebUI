@@ -28,8 +28,22 @@ export let AppEnums = {
   },
 
   personTypeReverse: {
-    0: 'ordinaryIdentity',
-    1: 'legalIdentity'
+    '0': 'Ordinary Identity',
+    '1': 'Legal Identity'
+  },
+
+  droneType: {
+    individual: 0,
+    military: 1,
+    police: 2,
+    delivery: 3,
+  },
+
+  droneTypeReverse: {
+    '0': 'Individual',
+    '1': 'Military',
+    '2': 'Police',
+    '3': 'Delivery'
   },
 
   alertType: {

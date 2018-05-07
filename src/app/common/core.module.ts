@@ -19,6 +19,7 @@ import {PreloaderService} from "./services/preloaderService";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MomentFormatDatePipe} from "./pipes/momentDateFormat.pipe";
 import {MomentFormatDateTimePipe} from "./pipes/momentDateTimeFormat.pipe";
+import {ConfirmationModalComponent} from "./components/confirmation-modal/confirmation-modal.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,9 @@ import {MomentFormatDateTimePipe} from "./pipes/momentDateTimeFormat.pipe";
     PageTopBarComponent,
     ProfileTopBarComponent,
     ActionNotifierComponent,
+
+    ConfirmationModalComponent,
+
     ScrollPositionDirective,
 
     RouterContainerComponent,
@@ -59,6 +63,7 @@ import {MomentFormatDateTimePipe} from "./pipes/momentDateTimeFormat.pipe";
     PageTopBarComponent,
     ProfileTopBarComponent,
     ActionNotifierComponent,
+    ConfirmationModalComponent,
     ScrollPositionDirective,
 
     RouterContainerComponent,
