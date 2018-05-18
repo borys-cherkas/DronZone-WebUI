@@ -5,7 +5,9 @@ import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/register/registration.component";
 import {PagesComponent} from "./pages.component";
 import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-drone-filters.component";
-
+import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
+import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
+import {AreaRequestsListComponent} from "./components/areas/area-requests-list/area-requests-list.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -19,7 +21,11 @@ const routes: Routes = [
       {path: r.login, component: LoginComponent},
       {path: r.register, component: RegistrationComponent},
 
-      {path: r.manage + '/' + r.droneFilters, component: ManageDroneFiltersComponent},
+      {path: r.areas + '/' + r.list, component: UserAreasListComponent},
+      {path: r.areas + '/' + r.edit, component: AddAreaPageComponent},
+      {path: r.areas + '/' + r.areaRequests, component: AreaRequestsListComponent},
+
+      {path: r.manage + '/' + r.list, component: ManageDroneFiltersComponent},
 
       // {path: r.kindsOfSport, redirectTo: r.kindsOfSport + '/' + r.list, pathMatch: 'full'},
       // {path: r.kindsOfSport + '/' + r.list, component: KindsOfSportListComponent},

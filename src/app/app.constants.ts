@@ -1,15 +1,26 @@
 export let AppEnums = {
 
   routes: {
-    content: 'content',
     login: 'login',
     register: 'register',
-    home: 'home',
+
+    content: 'content',
     manage: 'manage',
-    droneFilters: 'drone-filters',
+    areas: 'areas',
+
+    home: 'home',
+
+    // areas
+    areaRequests: 'area-requests',
+
+    // manage
+
     currentUser: 'current-user',
+
+    // generic
     details: 'details',
-    list: 'list'
+    list: 'list',
+    edit: 'edit',
   },
 
   storageTypes: {

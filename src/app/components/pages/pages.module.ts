@@ -11,6 +11,10 @@ import {RegistrationComponent} from "./components/register/registration.componen
 import {DroneFilterResource} from "../../common/resources/drone-filter.resource";
 import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-drone-filters.component";
 import {AddDroneFilterModalComponent} from "./components/drone-filters/add-filter-modal/add-drone-filter-modal.component";
+import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
+import {AreaResource} from "../../common/resources/areas.resource";
+import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
+import {AreaRequestsListComponent} from "./components/areas/area-requests-list/area-requests-list.component";
 
 @NgModule({
   declarations: [
@@ -20,13 +24,13 @@ import {AddDroneFilterModalComponent} from "./components/drone-filters/add-filte
     LoginComponent,
     RegistrationComponent,
 
+    UserAreasListComponent,
+    AddAreaPageComponent,
+    AreaRequestsListComponent,
+
     ManageDroneFiltersComponent,
 
-    // AthleticFieldListComponent,
-    // AthleticFieldDetailsComponent,
-
     AddDroneFilterModalComponent
-    // PayBillModalComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,8 @@ import {AddDroneFilterModalComponent} from "./components/drone-filters/add-filte
     pagesRouting
   ],
   providers: [
-    DroneFilterResource
+    DroneFilterResource,
+    AreaResource
   ]
 })
 export class PagesModule {

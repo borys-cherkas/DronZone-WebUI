@@ -19,6 +19,57 @@ export const MENU = [
         }
       },
       {
+        path: r.areas,
+        data: {
+          menu: {
+            title: 'Areas',
+            icon: null,
+            selected: true,
+            expanded: false,
+            order: 0,
+            roles: [AppEnums.roles.user, AppEnums.roles.admin]
+          }
+        },
+        children: [
+          {
+            path: r.areaRequests,
+            data: {
+              menu: {
+                title: 'Area Requests',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.admin]
+              }
+            }
+          },
+          {
+            path: r.list,
+            data: {
+              menu: {
+                title: 'Your Areas',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.user]
+              }
+            }
+          },
+          {
+            path: r.edit,
+            data: {
+              menu: {
+                title: 'Add Area',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.user]
+              }
+            }
+          }
+        ]
+      },
+      {
         path: r.manage,
         data: {
           menu: {
@@ -27,19 +78,19 @@ export const MENU = [
             selected: true,
             expanded: false,
             order: 0,
-            roles: []
+            roles: [AppEnums.roles.admin]
           }
         },
         children: [
           {
-            path: r.droneFilters,
+            path: r.list,
             data: {
               menu: {
                 title: 'Drone Filters',
                 icon: null,
                 expanded: false,
                 order: 0,
-                roles: [AppEnums.roles.admin, AppEnums.roles.user]
+                roles: [AppEnums.roles.admin]
               }
             }
           }
