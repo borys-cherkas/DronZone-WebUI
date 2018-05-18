@@ -63,7 +63,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   private updateMenuItems(userInfo: IUserInfo) {
     const unfilteredRoutes = $.extend(true, [], MENU);
-    const userRole = userInfo && userInfo.roles ? userInfo.roles[0] : '';
+    const userRole = userInfo && userInfo.roles ? userInfo.roles : '';
 
     this.routes = unfilteredRoutes;
     const filtered = this.filterRoute(unfilteredRoutes, userRole);

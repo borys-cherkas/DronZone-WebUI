@@ -60,5 +60,6 @@ export class UserService {
   public clearUserInfo() {
     this.storageService.remove('userInfo');
     this.userInfo = null;
+    this.onUserChanged.emit(this.userInfo);
   }
 }

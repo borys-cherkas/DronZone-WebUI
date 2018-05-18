@@ -39,7 +39,7 @@ export const MENU = [
                 icon: null,
                 expanded: false,
                 order: 0,
-                roles: []
+                roles: [AppEnums.roles.admin, AppEnums.roles.user]
               }
             }
           }
