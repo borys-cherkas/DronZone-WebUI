@@ -3,16 +3,29 @@
 $angle-left: "\f100";
 $angle-right: "\f101";
 
-.test-sidebar {
+.al-sidebar {
   width: $sidebar-width;
   //top: $top-height;
   left: 0;
   z-index: 1001;
   display: block;
   min-height: 100%;
-  background-color: darkgreen;
+  background-color: $sidebar;
   height: 100%;
   position: fixed;
+
+  &.test {
+    .logo-box {
+      background: #42579A !important;
+    }
+
+    .menu-collapsed {
+      .logo-box {
+        background: #42579A !important;
+      }
+    }
+
+  }
 }
 
 .al-sidebar-list {
@@ -41,13 +54,13 @@ $angle-right: "\f101";
   margin-right: 10px;
 
   &.selected:not(.with-sub-menu) {
-    background-color: darkolivegreen;
-    border-color: orangered;
+    background-color: $side-bat-selected-bg;
+    border-color: #3c8dbc;
 
-    a.oral-sidebar-list-link {
-      color: yellow;
+    a.al-sidebar-list-link {
+      color: $side-bat-selected-color;
       b {
-        color: orange;
+        color: $side-bat-selected-color;
       }
     }
   }
@@ -60,7 +73,7 @@ $angle-right: "\f101";
 }
 
 .app-sidebar-item-expanded {
-  background-color: red;
+  background-color: $side-bat-selected-bg;
   > ul.al-sidebar-sublist {
     display: none;
     //display: block !important;
@@ -70,7 +83,7 @@ $angle-right: "\f101";
 .al-sidebar-list-item, .app-sidebar-sublist-item {
   &.app-sidebar-item-expanded {
     > .al-sidebar-list-link {
-      color: red;
+      color: $side-bat-selected-color;
       b {
         transform: rotate(180deg);
         color: $side-bat-selected-color;
@@ -98,14 +111,14 @@ a.al-sidebar-list-link:not([href]):not([tabindex]) {
     display: none;
   }
 
+  text-transform: uppercase;
   display: block;
   height: 42px;
   padding-left: 18px;
   text-shadow: none;
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
-  color: greenyellow;
-  font-weight: bold;
+  color: $sidebar-text;
   line-height: 42px;
   white-space: nowrap;
   overflow: hidden;
@@ -113,7 +126,7 @@ a.al-sidebar-list-link:not([href]):not([tabindex]) {
   &:hover {
     color: #fff;
     b {
-      color: #0093FA;
+      color: #fff;
     }
   }
   i {
@@ -181,15 +194,15 @@ a.al-sidebar-list-link:not([href]):not([tabindex]) {
       height: auto;
       line-height: 29px;
       &:hover {
-        color: red !important;
+        color: #fff !important;
       }
     }
     &.selected:not(.with-sub-menu) > a {
       border: none;
       padding-top: 5px;
       padding-bottom: 5px;
-      background-color: red;
-      color:green;
+      background-color: $side-bar-selected-submenu-bg;
+      color: $side-bat-selected-color;
       &:hover {
         color: $side-bat-selected-color;
       }

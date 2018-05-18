@@ -5,7 +5,7 @@ import * as $ from 'jquery';
 @Injectable()
 export class PreloaderService {
   public showGlobalPreloader() {
-     $('#preloader').addClass('operation-loader').show();
+    $('#preloader').addClass('operation-loader').show();
   }
 
   public hideGlobalPreloader() {

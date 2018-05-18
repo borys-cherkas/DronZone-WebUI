@@ -1,8 +1,8 @@
-<nav class="navbar navbar-default navbar-fixed-top" style="background: lightgray">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="shifted-right">
       <div class="d-inline-block">
-        <button class="btn btn-success" [routerLink]="['/', routes.content, routes.home]">Home</button>
+        <button class="btn btn-info" [routerLink]="['/', routes.content, routes.home]">Home</button>
       </div>
 
       <div ngbDropdown class="d-inline-block" *ngIf="isAuthenticated">
@@ -14,7 +14,7 @@
       </div>
 
       <div *ngIf="!isAuthenticated" class="d-inline-block">
-        <button class="btn btn-success" [routerLink]="['/', routes.content, routes.login]">Login</button>
+        <button class="btn btn-info" [routerLink]="['/', routes.content, routes.login]">Login</button>
       </div>
     </div>
   </div>

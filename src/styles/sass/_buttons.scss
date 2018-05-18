@@ -84,7 +84,7 @@ button.btn.btn-default {
   color: $content-text;
   @include buttonColor(transparent, $border);
   &:active, &:target {
-    background-color: rgba(5, 0, 10, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     color: $default-text;
   }
 }
@@ -92,7 +92,7 @@ button.btn.btn-default {
 button.btn.btn-success {
   @include buttonColor($success, $success);
   &:active, &:target {
-    background-color: rgba(5, 0, 10, 0.2);
+    background-color: $success-dark;
   }
 }
 
