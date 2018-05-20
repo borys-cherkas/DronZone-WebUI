@@ -1,0 +1,24 @@
+<div id="app-add-area-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>Add Area Request</h2>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+      <label for="name"><strong>Area Name</strong></label>
+      <p id="name">{{area.name}}</p>
+    </div>
+
+    <div class="form-group">
+      <label for="googleMap"><strong>Zone on the map</strong></label>
+      <div #gmap style="width:100%;height:400px" id="googleMap"></div>
+    </div>
+  </div>
+</div>
+
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>

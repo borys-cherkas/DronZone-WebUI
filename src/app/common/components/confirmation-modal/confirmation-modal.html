@@ -8,19 +8,25 @@
 
   <div class="modal-body">
     <div class="row">
-      <div class="col-md-12">{{message}}</div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-4">
-        <button class="btn btn-success" (click)="confirm()">Yes</button>
+      <div class="col-md-12">
+        <h5>{{message}}</h5>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-warning" (click)="discard()">No</button>
-      </div>
-      <div class="col-md-2"></div>
     </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-2"></div>-->
+      <!--<div class="col-md-4">-->
+        <!--<button class="btn btn-success" (click)="confirm()">Yes</button>-->
+      <!--</div>-->
+      <!--<div class="col-md-4">-->
+        <!--<button class="btn btn-warning" (click)="discard()">No</button>-->
+      <!--</div>-->
+      <!--<div class="col-md-2"></div>-->
+    <!--</div>-->
   </div>
 
-  <div class="modal-footer"></div>
+  <div class="modal-footer">
+    <button class="btn btn-success" (click)="confirm()">Yes</button>
+    <button class="btn btn-warning" (click)="discard()">No</button>
+
+  </div>
 </ng-template>

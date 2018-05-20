@@ -48,7 +48,6 @@ export class AddAreaPageComponent implements OnInit {
           lng: position.coords.longitude
         };
 
-        self.notificationService.showSuccess("Got location");
         self.map.setCenter(currentPosition);
 
         const bounds = {
@@ -57,6 +56,7 @@ export class AddAreaPageComponent implements OnInit {
           east: position.coords.longitude + 0.1,
           west: position.coords.longitude - 0.1
         };
+
         // Define a rectangle and set its editable property to true.
         self.rectangle = new google.maps.Rectangle({
           bounds: bounds,
@@ -65,22 +65,25 @@ export class AddAreaPageComponent implements OnInit {
         });
         self.rectangle.setMap(self.map);
       }, function() {
-        self.notificationService.showSuccess("Didn't get location");
+        self.notificationService.showError("Didn't get location");
       });
     }
   }
 
-  public checkPoints() {
+  public saveArea() {
     const userBounds = this.rectangle.bounds;
     this.entity.west = userBounds.b.b;
     this.entity.east = userBounds.b.f;
     this.entity.south = userBounds.f.b;
     this.entity.north = userBounds.f.f;
 
-    this.areaResource.create(this.entity).then(resp => {
+    this.preloaderService.showGlobalPreloader();
+    return this.areaResource.create(this.entity).then(resp => {
+      this.preloaderService.hideGlobalPreloader();
       this.notificationService.showSuccess("Zone has been added successfully.");
       this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.list]);
     }, err => {
+      this.preloaderService.hideGlobalPreloader();
       console.error(err);
       this.notificationService.showError("Some error has been occured. Check console for details.");
     })

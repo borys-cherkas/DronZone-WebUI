@@ -8,6 +8,7 @@ import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-dro
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
 import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
 import {AreaRequestsListComponent} from "./components/areas/area-requests-list/area-requests-list.component";
+import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path: r.areas + '/' + r.list, component: UserAreasListComponent},
       {path: r.areas + '/' + r.edit, component: AddAreaPageComponent},
       {path: r.areas + '/' + r.areaRequests, component: AreaRequestsListComponent},
+      {path: r.areas + '/' + r.details + '/:areaId', component: AreaDetailsPageComponent},
 
       {path: r.manage + '/' + r.list, component: ManageDroneFiltersComponent},
 

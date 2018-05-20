@@ -52,10 +52,12 @@ $angle-right: "\f101";
   padding: 0;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  border-left: 2px solid #666B73;
 
   &.selected:not(.with-sub-menu) {
     background-color: $side-bat-selected-bg;
-    border-color: #3c8dbc;
 
     a.al-sidebar-list-link {
       color: $side-bat-selected-color;
@@ -181,6 +183,7 @@ a.al-sidebar-list-link:not([href]):not([tabindex]) {
     display: block;
     float: none;
     padding: 0;
+    padding-left: 10px;
     border-bottom: none;
     position: relative;
     a:not([href]):not([tabindex]) {
@@ -204,7 +207,7 @@ a.al-sidebar-list-link:not([href]):not([tabindex]) {
       background-color: $side-bar-selected-submenu-bg;
       color: $side-bat-selected-color;
       &:hover {
-        color: $side-bat-selected-color;
+        color: $side-bat-selected-hovered-color;
       }
     }
 

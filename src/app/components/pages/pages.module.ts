@@ -15,6 +15,7 @@ import {UserAreasListComponent} from "./components/areas/user-areas-list/user-ar
 import {AreaResource} from "../../common/resources/areas.resource";
 import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
 import {AreaRequestsListComponent} from "./components/areas/area-requests-list/area-requests-list.component";
+import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {AreaRequestsListComponent} from "./components/areas/area-requests-list/a
 
     UserAreasListComponent,
     AddAreaPageComponent,
+    AreaDetailsPageComponent,
     AreaRequestsListComponent,
 
     ManageDroneFiltersComponent,

@@ -8,29 +8,35 @@ export class AreaResource extends ResourceBase  {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'getAll': 'zones/getAll',
+      'getById': 'zones/getById/{zoneId}',
+      'getAllUserZones': 'zones/getAllUserZones',
       'create': 'zones/add',
       'update': 'zones/update',
       'delete': 'zones/delete'
     });
   }
 
-  getAll(): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['getAll'], {});
+  public getById(zoneId: string): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getById'], { zoneId: zoneId });
     return this.http.get(url);
   }
 
-  create(entity: any): Promise<any> {
+  public getAll(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getAllUserZones'], {});
+    return this.http.get(url);
+  }
+
+  public create(entity: any): Promise<any> {
     const url = this.buildUrl(this.urlOptions['create'], {});
     return this.http.post(url, entity);
   }
 
-  update(entity: any): Promise<any> {
+  public pdate(entity: any): Promise<any> {
     const url = this.buildUrl(this.urlOptions['update'], {});
     return this.http.put(url, entity);
   }
 
-  delete(id: number): Promise<any> {
+  public delete(id: number): Promise<any> {
     const url = this.buildUrl(this.urlOptions['delete'], {});
     return this.http.post(url, {id: id});
   }
