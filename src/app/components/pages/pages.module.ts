@@ -14,8 +14,11 @@ import {AddDroneFilterModalComponent} from "./components/drone-filters/add-filte
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
 import {AreaResource} from "../../common/resources/areas.resource";
 import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
-import {AreaRequestsListComponent} from "./components/areas/area-requests-list/area-requests-list.component";
 import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
+import {AttachDronePageComponent} from "./components/drones/add-drone/attach-drone-page.component";
+import {DroneResource} from "../../common/resources/drones.resource";
+import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
+import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import {AreaDetailsPageComponent} from "./components/areas/area-details/area-det
     UserAreasListComponent,
     AddAreaPageComponent,
     AreaDetailsPageComponent,
-    AreaRequestsListComponent,
+
+    AttachDronePageComponent,
+    UserDroneListPageComponent,
+    DroneDetailsPageComponent,
 
     ManageDroneFiltersComponent,
 
@@ -45,7 +51,8 @@ import {AreaDetailsPageComponent} from "./components/areas/area-details/area-det
   ],
   providers: [
     DroneFilterResource,
-    AreaResource
+    AreaResource,
+    DroneResource
   ]
 })
 export class PagesModule {

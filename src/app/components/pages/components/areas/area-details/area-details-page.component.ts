@@ -92,6 +92,4 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
     });
 
   }
-
-  Point
 }

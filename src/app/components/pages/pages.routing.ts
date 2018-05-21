@@ -7,8 +7,10 @@ import {PagesComponent} from "./pages.component";
 import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-drone-filters.component";
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
 import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
-import {AreaRequestsListComponent} from "./components/areas/area-requests-list/area-requests-list.component";
 import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
+import {AttachDronePageComponent} from "./components/drones/add-drone/attach-drone-page.component";
+import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
+import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -24,19 +26,13 @@ const routes: Routes = [
 
       {path: r.areas + '/' + r.list, component: UserAreasListComponent},
       {path: r.areas + '/' + r.edit, component: AddAreaPageComponent},
-      {path: r.areas + '/' + r.areaRequests, component: AreaRequestsListComponent},
       {path: r.areas + '/' + r.details + '/:areaId', component: AreaDetailsPageComponent},
 
-      {path: r.manage + '/' + r.list, component: ManageDroneFiltersComponent},
+      {path: r.drones + '/' + r.list, component: UserDroneListPageComponent},
+      {path: r.drones + '/' + r.edit, component: AttachDronePageComponent},
+      {path: r.drones + '/' + r.details + '/:areaId', component: DroneDetailsPageComponent},
 
-      // {path: r.kindsOfSport, redirectTo: r.kindsOfSport + '/' + r.list, pathMatch: 'full'},
-      // {path: r.kindsOfSport + '/' + r.list, component: KindsOfSportListComponent},
-      //
-      // {path: r.sportField + '/' + r.list + '/:kindOfSportId', component: AthleticFieldListComponent},
-      // {path: r.sportField + '/' + r.details + '/:athleticFieldId', component: AthleticFieldDetailsComponent},
-      //
-      // {path: r.reservation + '/' + r.list + '/' + r.currentUser, component: UserReservationsListComponent},
-      // {path: r.reservation + '/' + r.details + '/:reservationId', component: ReservationDetailsComponent}
+      {path: r.manage + '/' + r.list, component: ManageDroneFiltersComponent}
     ]
   }
 ];

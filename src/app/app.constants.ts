@@ -14,8 +14,10 @@ export let AppEnums = {
     areaRequests: 'area-requests',
 
     // manage
-
     currentUser: 'current-user',
+
+    // drones
+    drones: 'drones',
 
     // generic
     details: 'details',

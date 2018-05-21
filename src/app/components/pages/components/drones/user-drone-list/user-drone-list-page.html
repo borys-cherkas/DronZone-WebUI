@@ -1,0 +1,45 @@
+<div id="app-user-drone-list-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>Drones List</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-info" (click)="createNew()">Add New Drone By Code</button>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Type</td>
+          <td>Actions</td>
+          </thead>
+          <tbody>
+          <tr *ngFor="let drone  of drones">
+            <td>{{drone.id}}</td>
+            <td>{{drone.name}}</td>
+            <td>{{drone.type}}</td>
+            <td>
+              <button class="btn btn-success" (click)="showDetails(drone.id)">Details</button>
+              <!--<button class="btn btn-warning" (click)="edit(area)">Edit</button>-->
+              <button class="btn btn-danger" (click)="delete(drone.id)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>

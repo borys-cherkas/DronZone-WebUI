@@ -32,18 +32,6 @@ export const MENU = [
         },
         children: [
           {
-            path: r.areaRequests,
-            data: {
-              menu: {
-                title: 'Area Requests',
-                icon: null,
-                expanded: false,
-                order: 0,
-                roles: [AppEnums.roles.admin]
-              }
-            }
-          },
-          {
             path: r.list,
             data: {
               menu: {
@@ -60,6 +48,45 @@ export const MENU = [
             data: {
               menu: {
                 title: 'Add Area',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.user]
+              }
+            }
+          }
+        ]
+      },
+      {
+        path: r.drones,
+        data: {
+          menu: {
+            title: 'Drones',
+            icon: null,
+            selected: true,
+            expanded: false,
+            order: 0,
+            roles: [AppEnums.roles.user, AppEnums.roles.admin]
+          }
+        },
+        children: [
+          {
+            path: r.list,
+            data: {
+              menu: {
+                title: 'Your Drones',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.user]
+              }
+            }
+          },
+          {
+            path: r.edit,
+            data: {
+              menu: {
+                title: 'Attach Drone',
                 icon: null,
                 expanded: false,
                 order: 0,

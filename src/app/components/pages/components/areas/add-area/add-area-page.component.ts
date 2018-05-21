@@ -11,7 +11,7 @@ import {AppEnums} from "../../../../../app.constants";
 declare const google;
 
 @Component({
-  selector: 'app-user-areas-page',
+  selector: 'app-add-drone-page',
   styleUrls: ['./add-area-page.scss'],
   templateUrl: './add-area-page.html'
 })
@@ -89,4 +89,4 @@ export class AddAreaPageComponent implements OnInit {
     })
 
   }
-Point}
+}
