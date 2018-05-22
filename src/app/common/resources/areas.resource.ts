@@ -36,7 +36,7 @@ export class AreaResource extends ResourceBase  {
     return this.http.put(url, entity);
   }
 
-  public delete(id: number): Promise<any> {
+  public delete(id: string): Promise<any> {
     const url = this.buildUrl(this.urlOptions['delete'], {});
     return this.http.post(url, {id: id});
   }

@@ -1,12 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {BaseModalComponent} from "../../../../../common/base/baseModal.component";
+import {BaseModalComponent} from "../../../../../../common/base/baseModal.component";
 import {NgForm} from "@angular/forms";
-import {NotificationService} from "../../../../../common/services/notificationService";
-import {IDroneFilter} from "../../../../../models/interfaces/drone-filter";
-import {DroneFilterResource} from "../../../../../common/resources/drone-filter.resource";
-import {AppEnums} from "../../../../../app.constants";
-import {PreloaderService} from "../../../../../common/services/preloaderService";
+import {NotificationService} from "../../../../../../common/services/notificationService";
+import {AppEnums} from "../../../../../../app.constants";
+import {PreloaderService} from "../../../../../../common/services/preloaderService";
+import {AreaFilterResource} from "../../../../../../common/resources/area-filter.resource";
+import {AddAreaFilterViewModel, IAreaFilter} from "../../../../../../models/interfaces/area-filter";
+import {Zone} from "../../../../../../models/interfaces/area.models";
 
 @Component({
   selector: 'app-add-drone-filter-modal',
@@ -14,38 +15,28 @@ import {PreloaderService} from "../../../../../common/services/preloaderService"
   styleUrls: ['./add-drone-filter-modal.scss']
 })
 
-export class AddDroneFilterModalComponent extends BaseModalComponent<IDroneFilter> {
+export class AddDroneFilterModalComponent extends BaseModalComponent<any> {
+  @Input('area') private area: Zone;
+
   public $submitted = false;
 
   constructor(modalService: NgbModal,
-              private droneFilterResource: DroneFilterResource,
+              private areaFilterResource: AreaFilterResource,
               private preloaderService: PreloaderService,
               private notificationService: NotificationService) {
     super(modalService);
   }
 
-  public get availableDroneTypes() {
-    const types = AppEnums.droneType;
-    const typePresentations = AppEnums.droneTypeReverse;
-    const result = [];
-
-    for (const key in types) {
-      const type = types[key];
-      result.push({
-        value: type,
-        display: typePresentations[type]
-      });
-    }
-
-    return result;
+  public getDroneTypePresentation(droneType: number): string {
+    return AppEnums.droneTypeReverse[droneType];
   }
 
   public showAdd() {
     this.$submitted = false;
-    return this.showModalWithEntity({} as IDroneFilter);
+    return this.showModalWithEntity({areaId: this.area.id} as AddAreaFilterViewModel);
   }
 
-  public showEdit(entity: IDroneFilter) {
+  public showEdit(entity: IAreaFilter) {
     this.$submitted = false;
     return this.showModalWithEntity(entity);
   }
@@ -66,7 +57,7 @@ export class AddDroneFilterModalComponent extends BaseModalComponent<IDroneFilte
 
   public save(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
-    return this.droneFilterResource.update(this.entity).then((response: any) => {
+    return this.areaFilterResource.update(this.entity).then((response: any) => {
       this.preloaderService.hideGlobalPreloader();
       this.notificationService.showSuccess("Filter has been updated successfully.");
       this.successClose();
@@ -80,7 +71,7 @@ export class AddDroneFilterModalComponent extends BaseModalComponent<IDroneFilte
 
   public create(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
-    return this.droneFilterResource.create(this.entity).then((response: any) => {
+    return this.areaFilterResource.create(this.entity).then((response: any) => {
       this.preloaderService.hideGlobalPreloader();
       this.notificationService.showSuccess("Filter has been added successfully.");
       this.successClose();

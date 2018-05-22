@@ -5,8 +5,8 @@ import {NotificationService} from "../../../../../common/services/notificationSe
 import {ConfirmationModalComponent} from "../../../../../common/components/confirmation-modal/confirmation-modal.component";
 import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {Zone} from "../../../../../models/interfaces/area.models";
-import {IDroneFilter} from "../../../../../models/interfaces/drone-filter";
 import {AppEnums} from "../../../../../app.constants";
+import {IAreaFilter} from "../../../../../models/interfaces/area-filter";
 
 @Component({
   selector: 'app-user-areas-page',
@@ -50,25 +50,26 @@ export class UserAreasListComponent implements OnInit {
       ['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit]);
   }
 
-  // public edit(filter: IDroneFilter) {
-  //   this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit]);
-  // }
-
-
-  public delete(filter: IDroneFilter) {
+  public delete(zone: Zone) {
     const self = this;
-    return this.confirmationModal.showConfirmation("Are you sure you want delete this filter?").then(isDiscarded => {
+    return this.confirmationModal.showConfirmation("Are you sure you want delete this area?").then(isDiscarded => {
       if (!isDiscarded) {
-        return this.preformDelete(filter);
+        return this.preformDelete(zone);
       }
     }, err => {
       // clicked on backdrop
     });
   }
 
-  public preformDelete(filter: IDroneFilter) {
-    return this.areaResource.delete(filter.id).then(_ => {
+  public preformDelete(zone: Zone) {
+    this.preloaderService.showGlobalPreloader();
+    return this.areaResource.delete(zone.id).then(_ => {
+      this.preloaderService.hideGlobalPreloader();
       return this.loadAvailableAreas();
+    }, err => {
+      this.preloaderService.hideGlobalPreloader();
+      console.error(err);
+      this.notificationService.showError("Some error has been occured. Check console for details.")
     })
   }
 }

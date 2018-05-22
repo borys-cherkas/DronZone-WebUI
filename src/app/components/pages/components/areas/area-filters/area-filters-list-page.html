@@ -1,27 +1,26 @@
-<div id="app-manage-drone-filter-page">
+<div id="app-area-filters-list-page">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <br/><br/>
-        <h2>Drone Filter List</h2>
+        <h2>Area Filter List</h2>
+        <h6>Area Name: <strong>{{area?.name}}</strong></h6>
       </div>
     </div>
 
-    <br/>
     <hr/>
 
-    <div class="row">
-      <div class="col-md-12">
-        <button class="btn btn-danger" (click)="createNew()">Create New</button>
-      </div>
-    </div>
+    <button class="btn btn-info" (click)="createNew()">Create New</button>
+    <button class="btn btn-info" (click)="goToArea()">Go To Area</button>
+
+    <br/>
+    <br/>
 
     <div class="row">
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
           <td>Id</td>
-          <td>Name</td>
           <td>Drone Type</td>
           <td>Max Available Weigth</td>
           <td>Drone Weigth</td>
@@ -29,9 +28,8 @@
           <td>Actions</td>
           </thead>
           <tbody>
-          <tr *ngFor="let filter of fitlers">
+          <tr *ngFor="let filter of filters">
             <td>{{filter.id}}</td>
-            <td>{{filter.name}}</td>
             <td>{{getDroneTypePresentation(filter.droneType)}}</td>
             <td>{{filter.maxAvailableWeigth}}</td>
             <td>{{filter.maxDroneWeigth}}</td>
@@ -51,5 +49,5 @@
 
 <app-confirmation-modal #confirmationModal></app-confirmation-modal>
 
-<app-add-drone-filter-modal #addFitlerModal></app-add-drone-filter-modal>
+<app-add-drone-filter-modal #addFitlerModal [area]="area"></app-add-drone-filter-modal>
 

@@ -11,7 +11,10 @@ export class DroneResource extends ResourceBase  {
       'getById': 'userDrones/getById/{droneId}',
       'getUserDrones': 'userDrones/getUserDrones',
       'registerByCode': 'userDrones/registerByCode',
-      'delete': 'userDrones/deleteFromPerson'
+      'delete': 'userDrones/deleteFromPerson',
+
+      'getDetachedDrones': 'adminDrones/getDetachedDrones',
+      'generateDronePack': 'adminDrones/generateDrones',
     });
   }
 
@@ -22,6 +25,16 @@ export class DroneResource extends ResourceBase  {
 
   public getUserDrones(): Promise<any> {
     const url = this.buildUrl(this.urlOptions['getUserDrones'], {});
+    return this.http.get(url);
+  }
+
+  public generateDronePack(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['generateDronePack'], {});
+    return this.http.post(url, {});
+  }
+
+  public getDetachedDrones(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getDetachedDrones'], {});
     return this.http.get(url);
   }
 

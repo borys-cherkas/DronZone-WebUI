@@ -8,11 +8,11 @@ import {DroneListItem} from "../../../../../models/viewModels/drone/droneInfo";
 import {DroneResource} from "../../../../../common/resources/drones.resource";
 
 @Component({
-  selector: 'app-user-drone-list-page',
-  styleUrls: ['./user-drone-list-page.scss'],
-  templateUrl: './user-drone-list-page.html'
+  selector: 'app-admin-drone-list-page',
+  styleUrls: ['./admin-drone-list-page.scss'],
+  templateUrl: './admin-drone-list-page.html'
 })
-export class UserDroneListPageComponent implements OnInit {
+export class AdminDroneListPageComponent implements OnInit {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
 
   public drones: Array<DroneListItem> = new Array<DroneListItem>();
@@ -23,13 +23,13 @@ export class UserDroneListPageComponent implements OnInit {
               private notificationService: NotificationService) {}
 
   public ngOnInit() {
-    return this.loadUserDrones();
+    return this.loadAllDetachedDrones();
   }
 
 
-  private loadUserDrones(): Promise<any> {
+  private loadAllDetachedDrones(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
-    return this.droneResource.getUserDrones().then(response => {
+    return this.droneResource.getDetachedDrones().then(response => {
       this.preloaderService.hideGlobalPreloader();
 
       this.drones = response;
@@ -44,26 +44,15 @@ export class UserDroneListPageComponent implements OnInit {
       ['/', AppEnums.routes.content, AppEnums.routes.drones, AppEnums.routes.details, droneId]);
   }
 
-  public createNew() {
-    return this.router.navigate(
-      ['/', AppEnums.routes.content, AppEnums.routes.drones, AppEnums.routes.edit]);
-  }
+  public generate() {
 
-  public delete(droneId: string) {
-    const self = this;
-    return this.confirmationModal.showConfirmation("Are you sure you want detach this drone?").then(isDiscarded => {
-      if (!isDiscarded) {
-        return this.preformDelete(droneId);
-      }
+    return this.droneResource.generateDronePack().then(response => {
+      this.preloaderService.hideGlobalPreloader();
+      return this.loadAllDetachedDrones();
     }, err => {
-      // clicked on backdrop
+      this.preloaderService.hideGlobalPreloader();
+      this.notificationService.showError("Some error occurred while loading data.  See console for details.");
     });
-  }
-
-  public preformDelete(droneId: string) {
-    return this.droneResource.delete(droneId).then(_ => {
-      return this.loadUserDrones();
-    })
   }
 
   public getDroneTypePresentation(droneType: number): string {

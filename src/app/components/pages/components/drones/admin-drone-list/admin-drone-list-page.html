@@ -1,4 +1,4 @@
-<div id="app-user-drone-list-page">
+<div id="app-admin-drone-list-page">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-info" (click)="createNew()">Add New Drone By Code</button>
+        <button class="btn btn-info" (click)="generate()">Generate Drones</button>
       </div>
     </div>
 
@@ -19,19 +19,17 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>Id</td>
+          <td>Code</td>
           <td>Type</td>
-          <td>Actions</td>
+          <!--<td>Actions</td>-->
           </thead>
           <tbody>
           <tr *ngFor="let drone  of drones">
-            <td>{{drone.id}}</td>
+            <td>{{drone.code}}</td>
             <td>{{getDroneTypePresentation(drone.type)}}</td>
-            <td>
+            <!--<td>-->
               <!--<button class="btn btn-success" (click)="showDetails(drone.id)">Details</button>-->
-              <!--<button class="btn btn-warning" (click)="edit(area)">Edit</button>-->
-              <button class="btn btn-warning" (click)="delete(drone.id)">Detach</button>
-            </td>
+            <!--</td>-->
           </tr>
           </tbody>
         </table>

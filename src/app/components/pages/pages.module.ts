@@ -8,9 +8,9 @@ import {FormsModule} from "@angular/forms";
 import {CoreModule} from "../../common/core.module";
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/register/registration.component";
-import {DroneFilterResource} from "../../common/resources/drone-filter.resource";
-import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-drone-filters.component";
-import {AddDroneFilterModalComponent} from "./components/drone-filters/add-filter-modal/add-drone-filter-modal.component";
+import {AreaFilterResource} from "../../common/resources/area-filter.resource";
+import {AreaFiltersListPageComponent} from "./components/areas/area-filters/area-filters-list-page.component";
+import {AddDroneFilterModalComponent} from "./components/areas/area-filters/add-filter-modal/add-drone-filter-modal.component";
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
 import {AreaResource} from "../../common/resources/areas.resource";
 import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
@@ -19,6 +19,7 @@ import {AttachDronePageComponent} from "./components/drones/add-drone/attach-dro
 import {DroneResource} from "../../common/resources/drones.resource";
 import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
 import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
+import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
 
 @NgModule({
   declarations: [
@@ -32,11 +33,12 @@ import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone
     AddAreaPageComponent,
     AreaDetailsPageComponent,
 
+    AdminDroneListPageComponent,
     AttachDronePageComponent,
     UserDroneListPageComponent,
     DroneDetailsPageComponent,
 
-    ManageDroneFiltersComponent,
+    AreaFiltersListPageComponent,
 
     AddDroneFilterModalComponent
   ],
@@ -50,7 +52,7 @@ import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone
     pagesRouting
   ],
   providers: [
-    DroneFilterResource,
+    AreaFilterResource,
     AreaResource,
     DroneResource
   ]

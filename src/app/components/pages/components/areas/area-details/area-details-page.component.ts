@@ -23,8 +23,8 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
   private rectangle: any;
   private map: google.maps.Map;
 
+  public area: Zone = new Zone();
   private areaId: string;
-  private area: Zone = new Zone();
   private subscription: Subscription;
 
   constructor(private router: Router,
@@ -50,6 +50,10 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  public goToFilters() {
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaFilters, this.areaId])
   }
 
   private updateMap() {

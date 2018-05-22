@@ -4,19 +4,19 @@ import {SysConfig} from "../../../environments/sysConfig";
 import {HttpServiceWrapper} from "../base/httpServiceWrapper";
 
 @Injectable()
-export class DroneFilterResource extends ResourceBase  {
+export class AreaFilterResource extends ResourceBase  {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'getAll': 'droneFilters/getDroneFilters',
-      'create': 'droneFilters/create',
-      'update': 'droneFilters/update',
-      'delete': 'droneFilters/delete'
+      'getAreaFilters': 'areaFilters/getAreaFilters/{areaId}',
+      'create': 'areaFilters/create',
+      'update': 'areaFilters/update',
+      'delete': 'areaFilters/delete'
     });
   }
 
-  getAll(): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['getAll'], {});
+  getAreaFilters(areaId: string): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getAreaFilters'], {areaId: areaId});
     return this.http.get(url);
   }
 

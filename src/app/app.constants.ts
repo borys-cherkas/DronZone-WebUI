@@ -12,12 +12,14 @@ export let AppEnums = {
 
     // areas
     areaRequests: 'area-requests',
+    areaFilters: 'area-filters',
 
     // manage
     currentUser: 'current-user',
 
     // drones
     drones: 'drones',
+    generateDrones: 'generate-drones',
 
     // generic
     details: 'details',

@@ -4,13 +4,14 @@ import {HomeComponent} from "./components/home/home.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/register/registration.component";
 import {PagesComponent} from "./pages.component";
-import {ManageDroneFiltersComponent} from "./components/drone-filters/manage-drone-filters.component";
+import {AreaFiltersListPageComponent} from "./components/areas/area-filters/area-filters-list-page.component";
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
 import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
 import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
 import {AttachDronePageComponent} from "./components/drones/add-drone/attach-drone-page.component";
 import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
 import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
+import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -24,15 +25,24 @@ const routes: Routes = [
       {path: r.login, component: LoginComponent},
       {path: r.register, component: RegistrationComponent},
 
-      {path: r.areas + '/' + r.list, component: UserAreasListComponent},
-      {path: r.areas + '/' + r.edit, component: AddAreaPageComponent},
-      {path: r.areas + '/' + r.details + '/:areaId', component: AreaDetailsPageComponent},
-
-      {path: r.drones + '/' + r.list, component: UserDroneListPageComponent},
-      {path: r.drones + '/' + r.edit, component: AttachDronePageComponent},
-      {path: r.drones + '/' + r.details + '/:areaId', component: DroneDetailsPageComponent},
-
-      {path: r.manage + '/' + r.list, component: ManageDroneFiltersComponent}
+      {
+        path: r.areas,
+        children: [
+          {path: r.list, component: UserAreasListComponent},
+          {path: r.edit, component: AddAreaPageComponent},
+          {path: r.details + '/:areaId', component: AreaDetailsPageComponent},
+          {path: r.areaFilters + '/:areaId', component: AreaFiltersListPageComponent},
+        ]
+      },
+      {
+        path: r.drones,
+        children: [
+          {path: r.generateDrones, component: AdminDroneListPageComponent},
+          {path: r.list, component: UserDroneListPageComponent},
+          {path: r.edit, component: AttachDronePageComponent},
+          {path: r.details + '/:droneId', component: DroneDetailsPageComponent}
+        ]
+      }
     ]
   }
 ];
