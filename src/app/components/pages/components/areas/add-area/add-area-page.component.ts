@@ -19,6 +19,7 @@ export class AddAreaPageComponent implements OnInit {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
   @ViewChild('gmap') gmapElement: any;
 
+  public $submitted: boolean = false;
   public entity: AddZoneViewModel = new AddZoneViewModel();
 
   private rectangle: any;
@@ -71,6 +72,8 @@ export class AddAreaPageComponent implements OnInit {
   }
 
   public saveArea() {
+    this.$submitted = true;
+
     const userBounds = this.rectangle.bounds;
     this.entity.west = userBounds.b.b;
     this.entity.east = userBounds.b.f;

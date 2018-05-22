@@ -12,9 +12,13 @@ export class SysConfig {
   }
 
   public constructor() {
-    this.url = 'localhost';
-    this.port = '53507';
-    this.protocol = 'http';
+    // this.url = 'localhost';
+    // this.port = '53507';
+    // this.protocol = 'http';
+    this.url = 'dronzone.azurewebsites.net';
+    this.port = '';
+    this.protocol = 'https';
+
 
     if (this.port) {
       this.baseUrl = `${this.protocol}://${this.url}:${this.port}`;
