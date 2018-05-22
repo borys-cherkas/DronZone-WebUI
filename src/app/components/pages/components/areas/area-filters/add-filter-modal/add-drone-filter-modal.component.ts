@@ -27,8 +27,20 @@ export class AddDroneFilterModalComponent extends BaseModalComponent<any> {
     super(modalService);
   }
 
-  public getDroneTypePresentation(droneType: number): string {
-    return AppEnums.droneTypeReverse[droneType];
+  public get availableDroneTypes() {
+    const types = AppEnums.droneType;
+    const typePresentations = AppEnums.droneTypeReverse;
+    const result = [];
+
+    for (const key in types) {
+      const type = types[key];
+      result.push({
+        value: type,
+        display: typePresentations[type]
+      });
+    }
+
+    return result;
   }
 
   public showAdd() {
