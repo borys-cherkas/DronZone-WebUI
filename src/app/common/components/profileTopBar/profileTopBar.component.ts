@@ -4,6 +4,7 @@ import {UserService} from "../../services/userService";
 import {AuthService} from "../../services/authService";
 import {IUserInfo} from "../../../models/interfaces/IUserInfo";
 import {AppEnums} from "../../../app.constants";
+import {TranslateService} from "@ngx-translate/core";
 
 // Do not forget to register Components in Declarations sections of App.module
 @Component({
@@ -14,6 +15,7 @@ import {AppEnums} from "../../../app.constants";
 })
 export class ProfileTopBarComponent implements OnDestroy, OnInit {
   constructor(private userService: UserService,
+              private translate: TranslateService,
               private authService: AuthService) {
 
   }

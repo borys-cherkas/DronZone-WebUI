@@ -3,13 +3,13 @@
     <div class="row">
       <div class="col-md-12">
         <br/><br/>
-        <h2>Areas List</h2>
+        <h2>{{ 'Area List Title' | translate }}</h2>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-info" (click)="createNew()">Create New</button>
+        <button class="btn btn-info" (click)="createNew()">{{'Create New' | translate}}</button>
       </div>
     </div>
 
@@ -19,20 +19,19 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>Id</td>
-          <td>Name</td>
-          <td>Confirmed</td>
-          <td>Actions</td>
+          <td>{{'Table Header.Id' | translate}}</td>
+          <td>{{'Table Header.Name' | translate}}</td>
+          <td>{{'Table Header.Confirmed' | translate}}</td>
+          <td>{{'Table Header.Actions' | translate}}</td>
           </thead>
           <tbody>
           <tr *ngFor="let area of areas">
             <td>{{area.id}}</td>
             <td>{{area.name}}</td>
-            <td>{{area.isConfirmed ? 'Yes' : 'No'}}</td>
+            <td>{{(area.isConfirmed ? 'Yes' : 'No') | translate}}</td>
             <td>
-              <button class="btn btn-success" (click)="showDetails(area.id)">Details</button>
-              <!--<button class="btn btn-warning" (click)="edit(area)">Edit</button>-->
-              <button class="btn btn-danger" (click)="delete(area)">Delete</button>
+              <button class="btn btn-success" (click)="showDetails(area.id)">{{'Details' | translate}}</button>
+              <button class="btn btn-danger" (click)="delete(area)">{{'Delete' | translate}}</button>
             </td>
           </tr>
           </tbody>

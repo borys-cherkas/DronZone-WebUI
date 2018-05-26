@@ -20,6 +20,9 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MomentFormatDatePipe} from "./pipes/momentDateFormat.pipe";
 import {MomentFormatDateTimePipe} from "./pipes/momentDateTimeFormat.pipe";
 import {ConfirmationModalComponent} from "./components/confirmation-modal/confirmation-modal.component";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -49,7 +52,16 @@ import {ConfirmationModalComponent} from "./components/confirmation-modal/confir
     HttpModule,
     JsonpModule,
 
-    NgbModule
+    NgbModule,
+
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     MenuService,
@@ -76,3 +88,9 @@ import {ConfirmationModalComponent} from "./components/confirmation-modal/confir
 })
 export class CoreModule {
 }
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+

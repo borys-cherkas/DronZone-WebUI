@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <br/><br/>
-        <h2>Add Area Request</h2>
+        <h2>{{'Add Area Page.Page Title' | translate}}</h2>
       </div>
     </div>
 
@@ -12,28 +12,28 @@
 
     <form #addZoneForm="ngForm">
       <div class="form-group">
-        <label for="nameInput"><strong>Area Name</strong></label>
+        <label for="nameInput"><strong>{{'Add Area Page.Add Area Form.Area Name' | translate}}</strong></label>
         <input type="text" class="form-control" id="nameInput" placeholder="Enter area name"
                name="nameInputName" #nameInput="ngModel" [(ngModel)]="entity.zoneName" required>
 
         <div class="form-control-feedback">
           <span class="text-danger align-middle" *ngIf="nameInput.errors && $submitted">
             <p [hidden]="!nameInput.errors.required" class="validation-error">
-              <i class="fa fa-close"></i> This field is required
+              <i class="fa fa-close"></i> {{'Form Validation.Field Is Required' | translate}}
             </p>
           </span>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="googleMap"><strong>Zone on the map</strong></label>
+        <label for="googleMap"><strong>{{ 'Add Area Page.Add Area Form.Zone Name' | translate }}</strong></label>
         <div #gmap style="width:100%;height:400px" id="googleMap"></div>
       </div>
     </form>
 
     <hr/>
 
-    <button class="btn btn-warning" (click)="saveArea()">Save Area</button>
+    <button class="btn btn-warning" (click)="saveArea()">{{'Add Area Page.Add Area Form.Save Button' | translate}}</button>
 
   </div>
 </div>

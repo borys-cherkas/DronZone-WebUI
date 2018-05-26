@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation, Input, Output, EventEmitter} from '@angular/core';
 import {Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 // Do not forget to register Components in Declarations sections of App.module
 @Component({
@@ -10,7 +11,8 @@ import {Router} from "@angular/router";
 })
 export class MenuItemComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private translate: TranslateService) {
+    translate.setDefaultLang('en');
   }
 
   @Input() menuItem: any;
@@ -21,6 +23,10 @@ export class MenuItemComponent {
 
   public onHoverItem($event): void {
     this.itemHover.emit($event);
+  }
+
+  public getMenuItemTranslateTitle(menuItem) {
+   return "Menu Items." + menuItem.title;
   }
 
   public onToggleSubMenu($event, item): boolean {

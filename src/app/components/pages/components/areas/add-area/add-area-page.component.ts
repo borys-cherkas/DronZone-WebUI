@@ -7,6 +7,7 @@ import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {} from "@types/googlemaps";
 import {AddZoneViewModel} from "../../../../../models/viewModels/addZoneViewModel";
 import {AppEnums} from "../../../../../app.constants";
+import {TranslateService} from "@ngx-translate/core";
 
 declare const google;
 
@@ -29,8 +30,9 @@ export class AddAreaPageComponent implements OnInit {
   constructor(private router: Router,
               private preloaderService: PreloaderService,
               private areaResource: AreaResource,
+              private translate: TranslateService,
               private notificationService: NotificationService) {
-
+    // translate.setDefaultLang("en");
   }
 
   public ngOnInit() {

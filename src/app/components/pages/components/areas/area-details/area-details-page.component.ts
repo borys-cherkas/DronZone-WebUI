@@ -9,6 +9,7 @@ import {AddZoneViewModel} from "../../../../../models/viewModels/addZoneViewMode
 import {AppEnums} from "../../../../../app.constants";
 import {Subscription} from "rxjs/Subscription";
 import {Zone} from "../../../../../models/interfaces/area.models";
+import {TranslateService} from "@ngx-translate/core";
 
 declare const google;
 
@@ -31,6 +32,7 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
               private preloaderService: PreloaderService,
               private areaResource: AreaResource,
               private route: ActivatedRoute,
+              private translate: TranslateService,
               private notificationService: NotificationService) {
 
   }

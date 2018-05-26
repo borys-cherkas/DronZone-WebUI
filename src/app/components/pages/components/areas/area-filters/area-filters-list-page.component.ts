@@ -10,6 +10,7 @@ import {Subscription} from "rxjs/Subscription";
 import {IAreaFilter} from "../../../../../models/interfaces/area-filter";
 import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {Zone} from "../../../../../models/interfaces/area.models";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-area-filters-list-page',
@@ -31,6 +32,7 @@ export class AreaFiltersListPageComponent implements OnInit {
               private areaFilterResource: AreaFilterResource,
               private areaResource: AreaResource,
               private route: ActivatedRoute,
+              private translate: TranslateService,
               private notificationService: NotificationService) {}
 
   public ngOnInit() {

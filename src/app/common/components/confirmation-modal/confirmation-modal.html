@@ -1,6 +1,6 @@
 <ng-template #modalContent let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title">Confirmation</h4>
+    <h4 class="modal-title">{{"Confirmation Modal.Page Title" | translate}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="discard()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -12,21 +12,11 @@
         <h5>{{message}}</h5>
       </div>
     </div>
-    <!--<div class="row">-->
-      <!--<div class="col-md-2"></div>-->
-      <!--<div class="col-md-4">-->
-        <!--<button class="btn btn-success" (click)="confirm()">Yes</button>-->
-      <!--</div>-->
-      <!--<div class="col-md-4">-->
-        <!--<button class="btn btn-warning" (click)="discard()">No</button>-->
-      <!--</div>-->
-      <!--<div class="col-md-2"></div>-->
-    <!--</div>-->
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-success" (click)="confirm()">Yes</button>
-    <button class="btn btn-warning" (click)="discard()">No</button>
+    <button class="btn btn-success" (click)="confirm()">{{"Yes" | translate}}</button>
+    <button class="btn btn-warning" (click)="discard()">{{"No" | translate}}</button>
 
   </div>
 </ng-template>

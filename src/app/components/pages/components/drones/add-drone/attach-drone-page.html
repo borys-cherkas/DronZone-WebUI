@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <br/><br/>
-        <h2>Attach Drone</h2>
+        <h2>{{"Attach Drone Page.Page Title" | translate}}</h2>
       </div>
     </div>
 
@@ -12,7 +12,7 @@
 
     <form #addDroneForm="ngForm">
       <div class="form-group">
-        <label for="nameInput"><strong>Drone Code</strong></label>
+        <label for="nameInput"><strong>{{"Attach Drone Page.Form.Drone Code" | translate}}</strong></label>
         <input type="text" class="form-control" id="nameInput" placeholder="Enter code attached to your drone"
                name="nameInputName" #nameInput="ngModel" [(ngModel)]="droneCode" required>
 
@@ -20,7 +20,7 @@
         <div class="form-control-feedback">
           <span class="text-danger align-middle" *ngIf="nameInput.errors && $submitted">
             <p [hidden]="!nameInput.errors.required" class="validation-error">
-              <i class="fa fa-close"></i> This field is required
+              <i class="fa fa-close"></i> {{"Form Validation.Field Is Required" | translate}}
             </p>
           </span>
         </div>
@@ -29,7 +29,7 @@
 
     <hr/>
 
-    <button class="btn btn-warning" (click)="addDrone()">Add</button>
+    <button class="btn btn-warning" (click)="addDrone()">{{"Save" | translate}}</button>
 
   </div>
 </div>

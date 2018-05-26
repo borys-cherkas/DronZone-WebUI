@@ -7,6 +7,7 @@ import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {Zone} from "../../../../../models/interfaces/area.models";
 import {AppEnums} from "../../../../../app.constants";
 import {IAreaFilter} from "../../../../../models/interfaces/area-filter";
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-areas-page',
@@ -21,12 +22,18 @@ export class UserAreasListComponent implements OnInit {
   constructor(private router: Router,
               private preloaderService: PreloaderService,
               private areaResource: AreaResource,
-              private notificationService: NotificationService) {}
+              private translate: TranslateService,
+              private notificationService: NotificationService) {
+    translate.setDefaultLang('en');
+  }
 
   public ngOnInit() {
     this.loadAvailableAreas();
   }
 
+  private switchLanguage(language: string) {
+    this.translate.use(language);
+  }
 
   private loadAvailableAreas(): Promise<any> {
     this.preloaderService.showGlobalPreloader();

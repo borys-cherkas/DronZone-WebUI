@@ -3,15 +3,15 @@
     <div class="row">
       <div class="col-md-12">
         <br/><br/>
-        <h2>Area Filter List</h2>
-        <h6>Area Name: <strong>{{area?.name}}</strong></h6>
+        <h2>  {{ "Filter List Page.Page Title"| translate }}</h2>
+        <h6>{{ "Filter List Page.Area Name Title"| translate }}: <strong>{{area?.name}}</strong></h6>
       </div>
     </div>
 
     <hr/>
 
-    <button class="btn btn-info" (click)="createNew()">Create New</button>
-    <button class="btn btn-info" (click)="goToArea()">Go To Area</button>
+    <button class="btn btn-info" (click)="createNew()">{{"Create New" | translate}}</button>
+    <button class="btn btn-info" (click)="goToArea()">{{"Filter List Page.Go To Area" | translate}}</button>
 
     <br/>
     <br/>
@@ -20,12 +20,12 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>Id</td>
-          <td>Drone Type</td>
-          <td>Max Available Weigth</td>
-          <td>Drone Weigth</td>
-          <td>Max Speed</td>
-          <td>Actions</td>
+          <td>{{"Table Header.Id" | translate}}</td>
+          <td>{{"Table Header.Drone Type" | translate}}</td>
+          <td>{{"Table Header.Max Available Weigth" | translate}}</td>
+          <td>{{"Table Header.Drone Weigth" | translate}}</td>
+          <td>{{"Table Header.Max Speed" | translate}}</td>
+          <td>{{"Table Header.Actions" | translate}}</td>
           </thead>
           <tbody>
           <tr *ngFor="let filter of filters">
@@ -36,8 +36,8 @@
             <td>{{filter.maxDroneSpeed}}</td>
             <td>
               <!--<button class="btn btn-success" (click)="showDetails(filter)">Details</button>-->
-              <button class="btn btn-warning" (click)="edit(filter)">Edit</button>
-              <button class="btn btn-danger" (click)="delete(filter)">Delete</button>
+              <button class="btn btn-warning" (click)="edit(filter)">{{"Edit" | translate}}</button>
+              <button class="btn btn-danger" (click)="delete(filter)">{{"Delete" | translate}}</button>
             </td>
           </tr>
           </tbody>

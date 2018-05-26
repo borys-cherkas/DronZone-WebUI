@@ -5,7 +5,7 @@ import {CommonModule} from "@angular/common";
 import {pagesRouting} from "./pages.routing";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
-import {CoreModule} from "../../common/core.module";
+import {CoreModule, HttpLoaderFactory} from "../../common/core.module";
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationComponent} from "./components/register/registration.component";
 import {AreaFilterResource} from "../../common/resources/area-filter.resource";
@@ -20,6 +20,9 @@ import {DroneResource} from "../../common/resources/drones.resource";
 import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
 import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -49,7 +52,16 @@ import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/
 
     NgbModule,
 
-    pagesRouting
+    pagesRouting,
+
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     AreaFilterResource,

@@ -1,0 +1,115 @@
+{
+  "Table Header": {
+    "Id": "Identified",
+    "Name": "Name",
+    "Confirmed": "Confirmed",
+    "Actions": "Actions",
+
+    "Drone Type": "Drone Type",
+    "Max Available Weigth": "Max Available Weigth",
+    "Drone Weigth": "Drone Weigth",
+    "Max Speed": "Max Speed"
+  },
+
+  "Menu Items": {
+    "Home": "Home",
+
+    "Areas": "Areas",
+    "Your Areas": "Your Areas",
+    "Add Area": "Add Area",
+
+    "Drones": "Drones",
+    "Your Drones": "Your Drones",
+    "Attach Drone": "Attach Drone",
+    "Generate Drones": "Generate Drones"
+  },
+
+  "Top Bar": {
+    "Home Button Title": "Home",
+    "Profile Button Title": "Profile",
+    "Logout Button Title": "Logout",
+    "Login Button Title": "Login"
+  },
+
+  "Add Area Page": {
+    "Page Title": "Add Area Request",
+    "Add Area Form": {
+      "Area Name": "Area Name",
+      "Zone Name": "Zone on the map",
+      "Save Button": "Save Area"
+    }
+  },
+
+  "Area Details Page": {
+    "Page Title": "Area Details",
+    "Go To Area Filters": "Go to area filters",
+    "Area Details": {
+      "Area Name": "Area Name",
+      "Zone Name": "Zone on the map"
+    }
+  },
+
+  "Filter List Page": {
+    "Page Title": "Area Filter List",
+    "Area Name Title": "Area Name",
+    "Go To Area": "Go to area",
+    "Area Details": {
+      "Area Name": "Area Name",
+      "Zone Name": "Zone on the map"
+    }
+  },
+
+  "Add Filter Modal": {
+    "Page Title": "Add/Edit Area Filter",
+    "Form": {
+      "Drone Type": "Drone Type",
+      "Max Available Weigth": "Max Available Weigth",
+      "Drone Weigth": "Drone Weigth",
+      "Max Drone Speed": "Max Drone Speed",
+      "Zone Name": "Zone on the map"
+    }
+  },
+
+  "Drone List Page": {
+    "Page Title": "Drones List",
+    "Add Drone": "Add drone by code",
+    "Detach": "Detach",
+    "Form": {
+      "Drone Code": "Drone Code"
+    }
+  },
+
+  "Confirmation Modal": {
+    "Page Title": "Confirmation"
+  },
+
+  "Attach Drone Page": {
+    "Page Title": "Attach Drone",
+    "Form": {
+      "Drone Code": "Drone Code"
+    }
+  },
+
+  "Form Validation": {
+    "Field Is Required": "This field is required}"
+  },
+
+  "Drone Types": {
+    "Individual": "Individual",
+    "Military": "Military",
+    "Police": "Police",
+    "Delivery": "Delivery"
+  },
+
+  "Yes": "Yes",
+  "No": "No",
+
+  "Details": "Details",
+  "Delete": "Delete",
+  "Save": "Save",
+  "Cancel": "Cancel",
+
+  "Area List Title": "Area List",
+  "Create New": "Create New",
+  "Edit": "Edit"
+}

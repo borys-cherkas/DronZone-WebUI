@@ -6,7 +6,7 @@
      (click)="navigateUrl(menuItem)"
      routerLinkActive="active" [target]="menuItem.target" class="al-sidebar-list-link">
     <i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"></i>
-    <span class="item-title">{{ menuItem.title }}</span>
+    <span class="item-title">{{ getMenuItemTranslateTitle(menuItem) | translate }}</span>
     <img *ngIf="menuItem.img && menuItem.selected" [src]="menuItem.img"/>
     <img *ngIf="menuItem.img && !menuItem.selected" [src]="menuItem.unactiveimg"/>
 
