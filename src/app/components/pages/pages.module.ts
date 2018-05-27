@@ -20,7 +20,6 @@ import {DroneResource} from "../../common/resources/drones.resource";
 import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
 import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 

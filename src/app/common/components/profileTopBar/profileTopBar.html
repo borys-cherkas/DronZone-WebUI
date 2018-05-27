@@ -1,6 +1,17 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="shifted-right">
+
+
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-info" id="langDropdown" ngbDropdownToggle>{{"Top Bar.Language Button Title" | translate}}</button>
+        <div ngbDropdownMenu aria-labelledby="langDropdown">
+          <button class="dropdown-item" (click)="switchLanguage('en')">{{"Langs.English" | translate}}</button>
+          <button class="dropdown-item" (click)="switchLanguage('ua')">{{"Langs.Ukranian" | translate}}</button>
+          <button class="dropdown-item" (click)="switchLanguage('ru')">{{"Langs.Russian" | translate}}</button>
+        </div>
+      </div>
+
       <div class="d-inline-block">
         <button class="btn btn-info" [routerLink]="['/', routes.content, routes.home]">
           {{"Top Bar.Home Button Title" | translate}}

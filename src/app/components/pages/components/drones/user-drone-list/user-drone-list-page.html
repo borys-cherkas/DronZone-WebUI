@@ -26,7 +26,7 @@
           <tbody>
           <tr *ngFor="let drone  of drones">
             <td>{{drone.id}}</td>
-            <td>{{getDroneTypePresentation(drone.type) | translate}}</td>
+            <td>{{("Drone Types." + getDroneTypePresentation(drone.type)) | translate}}</td>
             <td>
               <button class="btn btn-warning" (click)="delete(drone.id)">{{"Drone List Page.Detach" | translate}}</button>
             </td>

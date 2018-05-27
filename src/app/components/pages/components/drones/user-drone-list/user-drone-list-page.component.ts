@@ -35,7 +35,7 @@ export class UserDroneListPageComponent implements OnInit {
       this.drones = response;
     }, err => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showError("Some error occurred while loading data.  See console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
   }
 

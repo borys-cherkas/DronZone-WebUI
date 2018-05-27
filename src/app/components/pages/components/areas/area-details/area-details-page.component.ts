@@ -94,7 +94,7 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
-      this.notificationService.showError("Some error has been occured. Check console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
 
   }

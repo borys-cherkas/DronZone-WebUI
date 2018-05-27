@@ -3,8 +3,8 @@
   <div class="alert alert-dismissable" [ngClass]="getAlertClass()">
     <button aria-hidden="true" class="close" type="button" (click)="hideNotification()">×</button>
     <i class="fa" [ngClass]="getIconClass()"></i>
-    <span *ngIf="!link"><strong>{{alertText}}</strong></span>
-    <a *ngIf="link" [routerLink]="link" (click)="hideNotification()"><span><strong>{{alertText}}</strong></span></a>
+    <span *ngIf="!link"><strong>{{("Notifications." + alertText) | translate}}</strong></span>
+    <a *ngIf="link" [routerLink]="link" (click)="hideNotification()"><span><strong>{{("Notifications." + alertText) | translate}}</strong></span></a>
   </div>
 
 </div>

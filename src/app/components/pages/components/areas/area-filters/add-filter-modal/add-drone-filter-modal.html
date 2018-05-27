@@ -10,7 +10,7 @@
     <form #addFilterForm="ngForm">
       <div class="form-group">
         <label for="droneTypeInput">{{"Add Filter Modal.Form.Drone Type" | translate}}</label>
-        <select type="text" class="form-control" id="droneTypeInput" placeholder="Select drone type"
+        <select type="text" class="form-control" id="droneTypeInput"
                name="droneTypeInputName" #droneTypeInput="ngModel" [(ngModel)]="entity.droneType" required>
           <option *ngFor="let opt of availableDroneTypes" value="{{opt.value}}">{{("Drone Types." + opt.display) | translate}}</option>
         </select>
@@ -18,7 +18,7 @@
         <div class="form-control-feedback">
           <span class="text-danger align-middle" *ngIf="droneTypeInput.errors && $submitted">
             <p [hidden]="!droneTypeInput.errors.required" class="validation-error">
-              <i class="fa fa-close"></i> This field is required
+              <i class="fa fa-close"></i> {{"Form Validation.Field Is Required" | translate}}
             </p>
           </span>
         </div>
@@ -26,7 +26,8 @@
 
       <div class="form-group">
         <label for="maxAvailableWeigthInput">{{"Add Filter Modal.Form.Max Available Weigth" | translate}}</label>
-        <input type="number" class="form-control" id="maxAvailableWeigthInput" placeholder="Enter max available weight"
+        <input type="number" class="form-control" id="maxAvailableWeigthInput"
+               placeholder="{{'Add Filter Modal.Placeholders.Max Available Weigth' | translate}}"
                name="maxAvailableWeigthInputName" #maxAvailableWeigthInput="ngModel" [(ngModel)]="entity.maxAvailableWeigth" required>
 
         <div class="form-control-feedback">
@@ -40,7 +41,8 @@
 
       <div class="form-group">
         <label for="weigthInput">{{"Add Filter Modal.Form.Drone Weigth" | translate}}</label>
-        <input type="number" class="form-control" id="weigthInput" placeholder="Enter drone weigth"
+        <input type="number" class="form-control" id="weigthInput"
+               placeholder="{{'Add Filter Modal.Placeholders.Max Drone Weigth' | translate}}"
                name="weigthInputName" #weigthInput="ngModel" [(ngModel)]="entity.maxDroneWeigth" required>
 
         <div class="form-control-feedback">
@@ -54,7 +56,8 @@
 
       <div class="form-group">
         <label for="weigthInput">{{"Add Filter Modal.Form.Max Drone Speed" | translate}}</label>
-        <input type="number" class="form-control" id="maxSpeeedInput" placeholder="Enter max speed"
+        <input type="number" class="form-control" id="maxSpeeedInput"
+               placeholder="{{'Add Filter Modal.Placeholders.Max Speed' | translate}}"
                name="maxSpeeedInputName" #maxSpeeedInput="ngModel" [(ngModel)]="entity.maxDroneSpeed" required>
 
         <div class="form-control-feedback">

@@ -13,7 +13,8 @@
     <form #addDroneForm="ngForm">
       <div class="form-group">
         <label for="nameInput"><strong>{{"Attach Drone Page.Form.Drone Code" | translate}}</strong></label>
-        <input type="text" class="form-control" id="nameInput" placeholder="Enter code attached to your drone"
+        <input type="text" class="form-control" id="nameInput"
+               placeholder="{{'Attach Drone Page.Placeholders.Code' | translate}}"
                name="nameInputName" #nameInput="ngModel" [(ngModel)]="droneCode" required>
 
         <br/>

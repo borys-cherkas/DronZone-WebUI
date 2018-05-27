@@ -5,6 +5,8 @@ import {AuthService} from "../../services/authService";
 import {IUserInfo} from "../../../models/interfaces/IUserInfo";
 import {AppEnums} from "../../../app.constants";
 import {TranslateService} from "@ngx-translate/core";
+import {StorageService} from "../../services/storageService";
+import {LanguageService} from "../../services/languageService";
 
 // Do not forget to register Components in Declarations sections of App.module
 @Component({
@@ -15,9 +17,17 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class ProfileTopBarComponent implements OnDestroy, OnInit {
   constructor(private userService: UserService,
-              private translate: TranslateService,
+              private languageService: LanguageService,
+              private translateService: TranslateService,
+              private storageService: StorageService,
               private authService: AuthService) {
+    LanguageService.onLanguageChanged.subscribe(_ => {
+      this.translateService.use(languageService.currentLanguage);
+    });
+  }
 
+  private switchLanguage(language: string) {
+    this.languageService.setLanguage(language);
   }
 
   public get isAuthenticated(): boolean {

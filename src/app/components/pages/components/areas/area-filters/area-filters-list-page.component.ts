@@ -99,7 +99,7 @@ export class AreaFiltersListPageComponent implements OnInit {
       this.area = response;
     }, err => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showError("Some error occurred while deleting filter.  See console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
   }
 
@@ -111,7 +111,7 @@ export class AreaFiltersListPageComponent implements OnInit {
       this.filters = response;
     }, err => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showError("Some error occurred while deleting filter.  See console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
   }
 }

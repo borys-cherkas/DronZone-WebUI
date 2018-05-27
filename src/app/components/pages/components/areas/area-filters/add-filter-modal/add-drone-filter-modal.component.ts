@@ -71,11 +71,11 @@ export class AddDroneFilterModalComponent extends BaseModalComponent<any> {
     this.preloaderService.showGlobalPreloader();
     return this.areaFilterResource.update(this.entity).then((response: any) => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showSuccess("Filter has been updated successfully.");
+      this.notificationService.showSuccess(AppEnums.notifications.success.filterUpdatedSuccess);
       this.successClose();
     }, err => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showError("Unknown error. See console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
       console.error(err);
       this.cancelClose();
     });
@@ -85,11 +85,11 @@ export class AddDroneFilterModalComponent extends BaseModalComponent<any> {
     this.preloaderService.showGlobalPreloader();
     return this.areaFilterResource.create(this.entity).then((response: any) => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showSuccess("Filter has been added successfully.");
+      this.notificationService.showSuccess(AppEnums.notifications.success.filterAddedSuccess);
       this.successClose();
     }, err => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showError("Unknown error. See console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
       console.error(err);
       this.cancelClose();
     });

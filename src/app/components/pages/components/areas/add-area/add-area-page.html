@@ -13,7 +13,7 @@
     <form #addZoneForm="ngForm">
       <div class="form-group">
         <label for="nameInput"><strong>{{'Add Area Page.Add Area Form.Area Name' | translate}}</strong></label>
-        <input type="text" class="form-control" id="nameInput" placeholder="Enter area name"
+        <input type="text" class="form-control" id="nameInput" placeholder="{{'Add Area Page.Placeholders.Area Name'| translate}}"
                name="nameInputName" #nameInput="ngModel" [(ngModel)]="entity.zoneName" required>
 
         <div class="form-control-feedback">

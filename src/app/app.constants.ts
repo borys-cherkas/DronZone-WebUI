@@ -32,6 +32,36 @@ export let AppEnums = {
     localStorage: 'localStorage'
   },
 
+  storageKeys: {
+    language: 'language'
+  },
+
+
+  language: {
+    russian: 'ru',
+    ukranian: 'ua',
+    english: 'en'
+  },
+
+
+  notifications: {
+    errors: {
+      cannotDetermineLocation: "CannotDetermineLocation",
+      wrongDroneCode: "WrongDroneCode",
+      wrongUsernameOrPassword: "WrongUsernameOrPassword",
+
+      unknownError: "UnknownError"
+    },
+    success: {
+      zoneAddedSuccess: "ZoneAddedSuccess",
+
+      filterAddedSuccess: "FilterAddedSuccess",
+      filterUpdatedSuccess: "FilterUpdatedSuccess",
+
+      registrationSuccess: "RegistrationSuccess",
+    }
+  },
+
   roles: {
     admin: 'Administrator',
     user: 'User'

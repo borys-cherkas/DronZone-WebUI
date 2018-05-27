@@ -42,11 +42,10 @@ export class RegistrationComponent {
     return this.userService.register(this.entity)
       .then((response: any) => {
           this.preloaderService.hideGlobalPreloader();
-          this.notificationService.showSuccess(
-            "Registration has been finished successfully. Login using your username and password.");
+          this.notificationService.showSuccess(AppEnums.notifications.success.registrationSuccess);
           this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.login]);
       }, err => {
-        this.notificationService.showError(err.statusText);
+        this.notificationService.showError(AppEnums.notifications.errors.unknownError);
         this.preloaderService.hideGlobalPreloader();
       });
   }

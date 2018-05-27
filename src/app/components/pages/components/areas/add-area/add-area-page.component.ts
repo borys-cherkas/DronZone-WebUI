@@ -68,7 +68,7 @@ export class AddAreaPageComponent implements OnInit {
         });
         self.rectangle.setMap(self.map);
       }, function() {
-        self.notificationService.showError("Didn't get location");
+        self.notificationService.showError(AppEnums.notifications.errors.cannotDetermineLocation);
       });
     }
   }
@@ -85,12 +85,12 @@ export class AddAreaPageComponent implements OnInit {
     this.preloaderService.showGlobalPreloader();
     return this.areaResource.create(this.entity).then(resp => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showSuccess("Zone has been added successfully.");
+      this.notificationService.showSuccess(AppEnums.notifications.success.zoneAddedSuccess);
       this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.list]);
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
-      this.notificationService.showError("Some error has been occured. Check console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     })
 
   }

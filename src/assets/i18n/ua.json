@@ -1,8 +1,178 @@
 {
-  "TableHeader": {
-    "Id": "Ідентифікатор"
+  "Table Header": {
+    "Id": "Ідентифікатор",
+    "Name": "Ім'я",
+    "Confirmed": "Підтвержено",
+    "Actions": "Дії",
+
+    "Drone Type": "Тип дрона",
+    "Max Available Weigth": "Макс. вантажопідйомність",
+    "Drone Weigth": "Макс. вага",
+    "Max Speed": "Макс. швидкість"
   },
 
-  "Area List Title": "Список зон",
-  "Create New": "Створити"
+  "Menu Items": {
+    "Home": "Домашня сторінка",
+
+    "Areas": "Сектори",
+    "Your Areas": "Ваші сектори",
+    "Add Area": "Додати сектор",
+
+    "Drones": "Дрони",
+    "Your Drones": "Ваші дрони",
+    "Attach Drone": "Додати дрона",
+    "Generate Drones": "Створити дронів"
+  },
+
+  "Top Bar": {
+    "Home Button Title": "Домашня сторінка",
+    "Profile Button Title": "Профіль",
+    "Logout Button Title": "Вихід",
+    "Login Button Title": "Авторизація",
+    "Language Button Title": "Мова"
+  },
+
+
+  "Langs": {
+    "English": "Англійська",
+    "Ukranian": "Українська",
+    "Russian": "Російська"
+  },
+
+  "Add Area Page": {
+    "Page Title": "Запит на додання сектору",
+    "Add Area Form": {
+      "Area Name": "Ім'я сектору",
+      "Zone Name": "Сектор на мапі",
+      "Save Button": "Зберегти сектор"
+    },
+    "Placeholders": {
+      "Area Name": "Введіть ім'я сектору"
+    }
+  },
+
+  "Area Details Page": {
+    "Page Title": "Детали сектору",
+    "Go To Area Filters": "Перейти до фильтрів сектору",
+    "Area Details": {
+      "Area Name": "Назва сектору",
+      "Zone Name": "Сектор на мапі"
+    }
+  },
+
+  "Filter List Page": {
+    "Page Title": "Список фільтрів",
+    "Area Name Title": "Назва сектору",
+    "Go To Area": "Перейти до сектора"
+  },
+
+  "Add Filter Modal": {
+    "Page Title": "Додати/змінити фільтр",
+    "Form": {
+      "Drone Type": "Тип дрону",
+      "Max Available Weigth": "Макс. вантажопідйомність",
+      "Drone Weigth": "Макс. вага",
+      "Max Drone Speed": "Макс. швидкість",
+      "Zone Name": "Сектор на мапі"
+    },
+    "Placeholders": {
+      "Max Available Weigth": "Введіть макс. вантажопідйомність дрону",
+      "Max Drone Weigth": "Введите макс. вагу дрону",
+      "Max Speed": "Введите макс. швидкість дрону"
+    }
+  },
+
+  "Drone List Page": {
+    "Page Title": "Список дронів",
+    "Add Drone": "Додати дрон",
+    "Detach": "Відв'язати",
+    "Form": {
+      "Drone Code": "Код дрону"
+    }
+  },
+
+  "Confirmation Modal": {
+    "Page Title": "Підтвердження"
+  },
+
+  "Attach Drone Page": {
+    "Page Title": "Додати дрон",
+    "Form": {
+      "Drone Code": "Код дрону"
+    },
+    "Placeholders": {
+      "Code": "Введіть код, що поставляється з вашим дроном"
+    }
+  },
+
+  "Login Page": {
+    "Page Title": "Авторизація",
+    "Form": {
+      "Email Address": "E-Mail",
+      "Password": "Пароль",
+      "Remember Me": "Запям'ятати мене"
+    },
+    "Placeholders": {
+      "Password": "Введіть пароль"
+    },
+    "Buttons": {
+      "Login": "Увійти",
+      "Registration": "Реєстрація"
+    }
+  },
+
+  "Registration Page": {
+    "Page Title": "Реєстрація",
+    "Form": {
+      "Email": "Email",
+      "Password": "Пароль",
+      "First Name": "Ім'я",
+      "Last Name": "Призвіще"
+    },
+    "Buttons": {
+      "Register": "Зареєструватися"
+    },
+    "Placeholders": {
+      "Email": "Введіть email",
+      "Password": "Введіть пароль",
+      "First Name": "Введіть ім'я",
+      "Last Name": "Введіть призвіще"
+    }
+  },
+
+  "Form Validation": {
+    "Field Is Required": "Це поле є обов'язковим!",
+    "Length More That 6": "Це поле повинно бути не меньш ніж 6 символів!",
+    "Valid Email Required": "Це поле повинно містити дійсний Email!"
+  },
+
+  "Notifications": {
+    "CannotDetermineLocation": "Неможливо визначити ваше  Невозможно определить ваше місцерозташування.",
+    "WrongDroneCode": "Невірний код дрону.",
+    "WrongUsernameOrPassword": "Невірний email або пароль.",
+    "UnknownError": "Виникла невідома помилка.",
+    "ZoneAddedSuccess": "Сектор був додан успішно.",
+    "FilterAddedSuccess": "Фільтр був додан успішно.",
+    "FilterUpdatedSuccess": "Фільтр був оновлений успішно.",
+    "RegistrationSuccess": "Реєстрація завершена! Авторизуйтесь за допомогою ваших email та паролю."
+  },
+
+  "Drone Types": {
+    "Individual": "Приватний",
+    "Military": "Військовий",
+    "Police": "Поліцейський",
+    "Delivery": "Служба доставки"
+  },
+
+  "Yes": "Так",
+  "No": "Ні",
+
+  "Details": "Деталі",
+  "Delete": "Видалити",
+  "Save": "Зберегти",
+  "Cancel": "Відмінити",
+
+  "Area List Title": "Список секторів",
+  "Create New": "Створити новий",
+  "Edit": "Редагувати"
 }

@@ -1,8 +1,178 @@
 {
-  "TableHeader": {
-    "Id": "Идентификатор"
+  "Table Header": {
+    "Id": "Идентификатор",
+    "Name": "Имя",
+    "Confirmed": "Подтвержден",
+    "Actions": "Действия",
+
+    "Drone Type": "Тип дрона",
+    "Max Available Weigth": "Макс. грузоподъемность",
+    "Drone Weigth": "Макс. вес",
+    "Max Speed": "Макс. скорость"
   },
 
-  "Area List Title": "Список зон",
-  "Create New": "Создать"
+  "Menu Items": {
+    "Home": "Домашная страница",
+
+    "Areas": "Сектора",
+    "Your Areas": "Ваши сектора",
+    "Add Area": "Добавить сектор",
+
+    "Drones": "Дроны",
+    "Your Drones": "Ваши дроны",
+    "Attach Drone": "Привязать дрона",
+    "Generate Drones": "Сгенерировать дронов"
+  },
+
+  "Top Bar": {
+    "Home Button Title": "Домашняя страница",
+    "Profile Button Title": "Профиль",
+    "Logout Button Title": "Выход",
+    "Login Button Title": "Авторизация",
+    "Language Button Title": "Язык"
+  },
+
+
+  "Langs": {
+    "English": "Английский",
+    "Ukranian": "Украинский",
+    "Russian": "Русский"
+  },
+
+  "Add Area Page": {
+    "Page Title": "Запрос на добавление сектора",
+    "Add Area Form": {
+      "Area Name": "Имя сектора",
+      "Zone Name": "Сектор на карте",
+      "Save Button": "Сохранить сектор"
+    },
+    "Placeholders": {
+      "Area Name": "Введите имя сектора"
+    }
+  },
+
+  "Area Details Page": {
+    "Page Title": "Детали сектора",
+    "Go To Area Filters": "Перейти к фильтрам сектора",
+    "Area Details": {
+      "Area Name": "Название сектора",
+      "Zone Name": "Сектор на карте"
+    }
+  },
+
+  "Filter List Page": {
+    "Page Title": "Список фильтров",
+    "Area Name Title": "Название сектора",
+    "Go To Area": "Перейти к сектору"
+  },
+
+  "Add Filter Modal": {
+    "Page Title": "Добавить/изменить фильтр",
+    "Form": {
+      "Drone Type": "Тип дрона",
+      "Max Available Weigth": "Макс. грузоподъемность",
+      "Drone Weigth": "Макс. вес",
+      "Max Drone Speed": "Макс. скорость",
+      "Zone Name": "Сектор на карте"
+    },
+    "Placeholders": {
+      "Max Available Weigth": "Введите макс. грузоподъемность дрона",
+      "Max Drone Weigth": "Введите макс. вес дрона",
+      "Max Speed": "Введите макс. скорость дрона"
+    }
+  },
+
+  "Drone List Page": {
+    "Page Title": "Список дронов",
+    "Add Drone": "Привязать дрона",
+    "Detach": "Отвязать",
+    "Form": {
+      "Drone Code": "Код дрона"
+    }
+  },
+
+  "Confirmation Modal": {
+    "Page Title": "Подтверждение"
+  },
+
+  "Attach Drone Page": {
+    "Page Title": "Привязать дрона",
+    "Form": {
+      "Drone Code": "Код дрона"
+    },
+    "Placeholders": {
+      "Code": "Введите код, поставляемый с вашим дроном"
+    }
+  },
+
+  "Login Page": {
+    "Page Title": "Авторизация",
+    "Form": {
+      "Email Address": "E-Mail",
+      "Password": "Пароль",
+      "Remember Me": "Запомнить меня"
+    },
+    "Placeholders": {
+      "Password": "Введите пароль"
+    },
+    "Buttons": {
+      "Login": "Войти",
+      "Registration": "Регистрация"
+    }
+  },
+
+  "Registration Page": {
+    "Page Title": "Регистрация",
+    "Form": {
+      "Email": "Email",
+      "Password": "Пароль",
+      "First Name": "Имя",
+      "Last Name": "Фамилия"
+    },
+    "Buttons": {
+      "Register": "Зарегистироваться"
+    },
+    "Placeholders": {
+      "Email": "Введите email",
+      "Password": "Введите пароль",
+      "First Name": "Введите имя",
+      "Last Name": "Введите фамилию"
+    }
+  },
+
+  "Form Validation": {
+    "Field Is Required": "Это поле является обязательным!",
+    "Length More That 6": "Это поле должно содержать не менее 6 символов!",
+    "Valid Email Required": "Это поле должно содержать действующий Email!"
+  },
+
+  "Notifications": {
+    "CannotDetermineLocation": "Невозможно определить ваше местоположение.",
+    "WrongDroneCode": "Неверный код дрона.",
+    "WrongUsernameOrPassword": "Неверное имя пользователя или пароль.",
+    "UnknownError": "Произошла неизвестная ошибка.",
+    "ZoneAddedSuccess": "Сектор был добавлен успешно.",
+    "FilterAddedSuccess": "Фильтр был добавлен успешно.",
+    "FilterUpdatedSuccess": "Фильтр был обновлен успешно.",
+    "RegistrationSuccess": "Регистрация завершена! Авторизуйтесь используя ваш email и пароль."
+  },
+
+  "Drone Types": {
+    "Individual": "Частный",
+    "Military": "Военный",
+    "Police": "Полицейский",
+    "Delivery": "Служба доставки"
+  },
+
+  "Yes": "Да",
+  "No": "Нет",
+
+  "Details": "Детали",
+  "Delete": "Удалить",
+  "Save": "Сохранить",
+  "Cancel": "Отменить",
+
+  "Area List Title": "Список секторов",
+  "Create New": "Создать новый",
+  "Edit": "Редактировать"
 }

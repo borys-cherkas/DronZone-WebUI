@@ -5,6 +5,7 @@ import {NotificationService} from "../../../../../common/services/notificationSe
 import {Subscription} from "rxjs/Subscription";
 import {Zone} from "../../../../../models/interfaces/area.models";
 import {DroneResource} from "../../../../../common/resources/drones.resource";
+import {AppEnums} from "../../../../../app.constants";
 
 @Component({
   selector: 'app-drone-details-page',
@@ -47,7 +48,7 @@ export class DroneDetailsPageComponent implements OnInit, OnDestroy {
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
-      this.notificationService.showError("Some error has been occured. Check console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
   }
 }

@@ -44,7 +44,7 @@ export class AttachDronePageComponent implements OnInit {
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       if (err._body == 'invalid_data') {
-        this.notificationService.showError("Wrong drone code!");
+        this.notificationService.showError(AppEnums.notifications.errors.wrongDroneCode);
       }
     });
   }

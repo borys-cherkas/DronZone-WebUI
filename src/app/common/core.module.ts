@@ -22,7 +22,8 @@ import {MomentFormatDateTimePipe} from "./pipes/momentDateTimeFormat.pipe";
 import {ConfirmationModalComponent} from "./components/confirmation-modal/confirmation-modal.component";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {LanguageService} from "./services/languageService";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
   providers: [
     MenuService,
     AppRouterService,
-    PreloaderService
+    PreloaderService,
+    LanguageService
   ],
   exports: [
     SidebarComponent,

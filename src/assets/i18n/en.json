@@ -28,7 +28,15 @@
     "Home Button Title": "Home",
     "Profile Button Title": "Profile",
     "Logout Button Title": "Logout",
-    "Login Button Title": "Login"
+    "Login Button Title": "Login",
+    "Language Button Title": "Language"
+  },
+
+
+  "Langs": {
+    "English": "English",
+    "Ukranian": "Ukranian",
+    "Russian": "Russian"
   },
 
   "Add Area Page": {
@@ -37,6 +45,9 @@
       "Area Name": "Area Name",
       "Zone Name": "Zone on the map",
       "Save Button": "Save Area"
+    },
+    "Placeholders": {
+      "Area Name": "Enter area name"
     }
   },
 
@@ -67,6 +78,11 @@
       "Drone Weigth": "Drone Weigth",
       "Max Drone Speed": "Max Drone Speed",
       "Zone Name": "Zone on the map"
+    },
+    "Placeholders": {
+      "Max Available Weigth": "Enter max available weight",
+      "Max Drone Weigth": "Enter max drone weigth",
+      "Max Speed": "Enter max speed"
     }
   },
 
@@ -87,11 +103,62 @@
     "Page Title": "Attach Drone",
     "Form": {
       "Drone Code": "Drone Code"
+    },
+    "Placeholders": {
+      "Code": "Enter code attached to your drone"
+    }
+  },
+
+  "Login Page": {
+    "Page Title": "Login",
+    "Form": {
+      "Email Address": "E-Mail Address",
+      "Password": "Password",
+      "Remember Me": "Remember Me"
+    },
+    "Placeholders": {
+      "Password": "Enter password"
+    },
+    "Buttons": {
+      "Login": "Login",
+      "Registration": "Registration"
+    }
+  },
+
+  "Registration Page": {
+    "Page Title": "Registration",
+    "Form": {
+      "Email": "Email address",
+      "Password": "Password",
+      "First Name": "First Name",
+      "Last Name": "Last Name"
+    },
+    "Buttons": {
+      "Register": "Register"
+    },
+    "Placeholders": {
+      "Email": "Enter email",
+      "Password": "Enter password",
+      "First Name": "Enter first name",
+      "Last Name": "Enter last name"
     }
   },
 
   "Form Validation": {
-    "Field Is Required": "This field is required}"
+    "Field Is Required": "This field is required",
+    "Length More That 6": "This field should has not less that 6 symbols",
+    "Valid Email Required": "This field should contain valid email"
+  },
+
+  "Notifications": {
+    "CannotDetermineLocation": "Cannot determine your location.",
+    "WrongDroneCode": "Wrong drone code.",
+    "WrongUsernameOrPassword": "Wrong username or password.",
+    "UnknownError": "Unknown error has been occured. Check console for details.",
+    "ZoneAddedSuccess": "Zone has been added successfully.",
+    "FilterAddedSuccess": "Filter has been added successfully.",
+    "FilterUpdatedSuccess": "Filter has been updated successfully.",
+    "RegistrationSuccess": "Registration has been finished successfully. Login using your username and password."
   },
 
   "Drone Types": {

@@ -30,7 +30,7 @@
           <tbody>
           <tr *ngFor="let filter of filters">
             <td>{{filter.id}}</td>
-            <td>{{getDroneTypePresentation(filter.droneType)}}</td>
+            <td>{{("Drone Types." + getDroneTypePresentation(filter.droneType)) | translate}}</td>
             <td>{{filter.maxAvailableWeigth}}</td>
             <td>{{filter.maxDroneWeigth}}</td>
             <td>{{filter.maxDroneSpeed}}</td>

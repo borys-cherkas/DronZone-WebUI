@@ -50,10 +50,9 @@ export class LoginComponent {
 
       let message = '';
       if (response.status === 400) {
-        message = 'Wrong username or password.';
+        message = AppEnums.notifications.errors.wrongUsernameOrPassword;
       } else {
-        const error = typeof response == 'string' ? response : 'Unknown error occured. See console for details.';
-        message = response.errorMessage ? response.errorMessage : error;
+        message = AppEnums.notifications.errors.unknownError;
       }
 
       this.notificationService.showError(message);

@@ -30,11 +30,6 @@ export class UserAreasListComponent implements OnInit {
   public ngOnInit() {
     this.loadAvailableAreas();
   }
-
-  private switchLanguage(language: string) {
-    this.translate.use(language);
-  }
-
   private loadAvailableAreas(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
     return this.areaResource.getAll().then(response => {
@@ -43,7 +38,7 @@ export class UserAreasListComponent implements OnInit {
       this.areas = response;
     }, err => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showError("Some error occurred while deleting filter.  See console for details.");
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
   }
 
@@ -76,7 +71,7 @@ export class UserAreasListComponent implements OnInit {
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
-      this.notificationService.showError("Some error has been occured. Check console for details.")
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError)
     })
   }
 }
