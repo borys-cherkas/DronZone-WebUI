@@ -19,14 +19,12 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>{{'Table Header.Id' | translate}}</td>
           <td>{{'Table Header.Name' | translate}}</td>
           <td>{{'Table Header.Confirmed' | translate}}</td>
           <td>{{'Table Header.Actions' | translate}}</td>
           </thead>
           <tbody>
           <tr *ngFor="let area of areas">
-            <td>{{area.id}}</td>
             <td>{{area.name}}</td>
             <td>{{(area.isConfirmed ? 'Yes' : 'No') | translate}}</td>
             <td>

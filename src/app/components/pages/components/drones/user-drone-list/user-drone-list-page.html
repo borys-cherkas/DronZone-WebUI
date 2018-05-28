@@ -19,13 +19,13 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>{{"Table Header.Id" | translate }}</td>
+          <td>{{"Table Header.Code" | translate }}</td>
           <td>{{"Table Header.Drone Type" | translate}}</td>
           <td>{{"Table Header.Actions" | translate}}</td>
           </thead>
           <tbody>
           <tr *ngFor="let drone  of drones">
-            <td>{{drone.id}}</td>
+            <td>{{drone.code}}</td>
             <td>{{("Drone Types." + getDroneTypePresentation(drone.type)) | translate}}</td>
             <td>
               <button class="btn btn-warning" (click)="delete(drone.id)">{{"Drone List Page.Detach" | translate}}</button>

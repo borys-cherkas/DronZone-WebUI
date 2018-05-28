@@ -5,6 +5,7 @@
     "Confirmed": "Confirmed",
     "Actions": "Actions",
 
+    "Code": "Code",
     "Drone Type": "Drone Type",
     "Max Available Weigth": "Max Available Weigth",
     "Drone Weigth": "Drone Weigth",
@@ -142,6 +143,11 @@
       "First Name": "Enter first name",
       "Last Name": "Enter last name"
     }
+  },
+
+  "Home Page": {
+    "Page Paragraph 1": "Hello world! This is the Home page and it is still in development.",
+    "Page Paragraph 2":  "Please, be patient and you will get it soon."
   },
 
   "Form Validation": {

@@ -20,7 +20,6 @@
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>{{"Table Header.Id" | translate}}</td>
           <td>{{"Table Header.Drone Type" | translate}}</td>
           <td>{{"Table Header.Max Available Weigth" | translate}}</td>
           <td>{{"Table Header.Drone Weigth" | translate}}</td>
@@ -29,7 +28,6 @@
           </thead>
           <tbody>
           <tr *ngFor="let filter of filters">
-            <td>{{filter.id}}</td>
             <td>{{("Drone Types." + getDroneTypePresentation(filter.droneType)) | translate}}</td>
             <td>{{filter.maxAvailableWeigth}}</td>
             <td>{{filter.maxDroneWeigth}}</td>
