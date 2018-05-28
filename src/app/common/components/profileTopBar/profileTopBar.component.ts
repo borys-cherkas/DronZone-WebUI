@@ -26,7 +26,7 @@ export class ProfileTopBarComponent implements OnDestroy, OnInit {
     });
   }
 
-  private switchLanguage(language: string) {
+  public switchLanguage(language: string) {
     this.languageService.setLanguage(language);
   }
 
