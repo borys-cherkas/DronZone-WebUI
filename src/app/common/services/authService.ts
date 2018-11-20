@@ -28,8 +28,6 @@ export class AuthService {
 
     const tokenRequestData = {
       grant_type: "password",
-      client_id: "mvc",
-      client_secret: "901564A5-E7FE-42CB-B10D-61EF6A8F3654",
       username: entity.username,
       password: entity.password
     };
