@@ -77,10 +77,10 @@ export class AddAreaPageComponent implements OnInit {
     this.$submitted = true;
 
     const userBounds = this.rectangle.bounds;
-    this.entity.west = userBounds.b.b;
-    this.entity.east = userBounds.b.f;
-    this.entity.south = userBounds.f.b;
-    this.entity.north = userBounds.f.f;
+    this.entity.west = userBounds.j.j;
+    this.entity.east = userBounds.j.l;
+    this.entity.south = userBounds.l.j;
+    this.entity.north = userBounds.l.l;
 
     this.preloaderService.showGlobalPreloader();
     return this.areaResource.create(this.entity).then(resp => {
@@ -91,7 +91,6 @@ export class AddAreaPageComponent implements OnInit {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
       this.notificationService.showError(AppEnums.notifications.errors.unknownError);
-    })
-
+    });
   }
 }
