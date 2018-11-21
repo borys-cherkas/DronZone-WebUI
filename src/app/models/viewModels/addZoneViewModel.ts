@@ -1,7 +1,8 @@
 export class AddZoneViewModel {
   zoneName: string;
-  north: string;
-  south: string;
-  east: string;
-  west: string;
+
+  topLeftLatitude: string;
+  topLeftLongitude: string;
+  bottomRightLatitude: string;
+  bottomRightLongitude: string;
 }

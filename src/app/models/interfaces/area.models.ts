@@ -10,10 +10,10 @@ export class Zone {
 export class MapRectangle {
   id: number;
 
-  west: number;
-  east: number;
-  south: number;
-  north: number;
-
   zoneId: string;
+
+  topLeftLatitude: number;
+  topLeftLongitude: number;
+  bottomRightLatitude: number;
+  bottomRightLongitude: number;
 }

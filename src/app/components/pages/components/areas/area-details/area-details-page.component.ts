@@ -1,11 +1,9 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ConfirmationModalComponent} from "../../../../../common/components/confirmation-modal/confirmation-modal.component";
 import {PreloaderService} from "../../../../../common/services/preloaderService";
 import {NotificationService} from "../../../../../common/services/notificationService";
 import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {} from "@types/googlemaps";
-import {AddZoneViewModel} from "../../../../../models/viewModels/addZoneViewModel";
 import {AppEnums} from "../../../../../app.constants";
 import {Subscription} from "rxjs/Subscription";
 import {Zone} from "../../../../../models/interfaces/area.models";
@@ -55,14 +53,14 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   public goToFilters() {
-    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaFilters, this.areaId])
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaFilters, this.areaId]);
   }
 
   private updateMap() {
-    const latitudeCenter = (this.area.mapRectangle.north + this.area.mapRectangle.south) / 2;
-    const longitudeCenter = (this.area.mapRectangle.east + this.area.mapRectangle.west) / 2;
+    const latitudeCenter = (this.area.mapRectangle.topLeftLongitude + this.area.mapRectangle.bottomRightLongitude) / 2;
+    const longitudeCenter = (this.area.mapRectangle.topLeftLatitude + this.area.mapRectangle.bottomRightLatitude) / 2;
 
-    var mapProp = {
+    const mapProp = {
       center: new google.maps.LatLng(latitudeCenter, longitudeCenter),
       zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -70,10 +68,10 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
     this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
 
     const bounds = {
-      north: this.area.mapRectangle.north,
-      south: this.area.mapRectangle.south,
-      east: this.area.mapRectangle.east,
-      west: this.area.mapRectangle.west
+      west: this.area.mapRectangle.topLeftLatitude,
+      north: this.area.mapRectangle.topLeftLongitude,
+      east: this.area.mapRectangle.bottomRightLatitude,
+      south: this.area.mapRectangle.bottomRightLongitude
     };
 
     // Define a rectangle and set its editable property to true.

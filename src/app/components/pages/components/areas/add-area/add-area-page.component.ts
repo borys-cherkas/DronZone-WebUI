@@ -20,7 +20,7 @@ export class AddAreaPageComponent implements OnInit {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
   @ViewChild('gmap') gmapElement: any;
 
-  public $submitted: boolean = false;
+  public $submitted = false;
   public entity: AddZoneViewModel = new AddZoneViewModel();
 
   private rectangle: any;
@@ -36,7 +36,7 @@ export class AddAreaPageComponent implements OnInit {
   }
 
   public ngOnInit() {
-    var mapProp = {
+    const mapProp = {
       center: new google.maps.LatLng(44.599, -78.443),
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -77,10 +77,16 @@ export class AddAreaPageComponent implements OnInit {
     this.$submitted = true;
 
     const userBounds = this.rectangle.bounds;
-    this.entity.west = userBounds.j.j;
-    this.entity.east = userBounds.j.l;
-    this.entity.south = userBounds.l.j;
-    this.entity.north = userBounds.l.l;
+
+    const topLeftLatitude = userBounds.j.j;
+    const topLeftLongitude = userBounds.l.l;
+    const bottomRightLatitude = userBounds.j.l;
+    const bottomRightLongitude = userBounds.l.j;
+
+    this.entity.topLeftLatitude = topLeftLatitude;
+    this.entity.topLeftLongitude = topLeftLongitude;
+    this.entity.bottomRightLatitude = bottomRightLatitude;
+    this.entity.bottomRightLongitude = bottomRightLongitude;
 
     this.preloaderService.showGlobalPreloader();
     return this.areaResource.create(this.entity).then(resp => {
