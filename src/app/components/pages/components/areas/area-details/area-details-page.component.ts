@@ -41,8 +41,6 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
       this.areaId = params['areaId'];
 
       return this.loadAreaById().then(() => {
-
-      }).then(() => {
         this.preloaderService.hideGlobalPreloader();
       });
     });
@@ -54,6 +52,10 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
 
   public goToFilters() {
     this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaFilters, this.areaId]);
+  }
+
+  public goToEdit() {
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit, this.areaId]);
   }
 
   private updateMap() {

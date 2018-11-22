@@ -89,14 +89,18 @@ export class AddAreaPageComponent implements OnInit {
     this.entity.bottomRightLongitude = bottomRightLongitude;
 
     this.preloaderService.showGlobalPreloader();
-    return this.areaResource.create(this.entity).then(resp => {
+    return this.areaResource.create(this.entity).then(nothing => {
       this.preloaderService.hideGlobalPreloader();
       this.notificationService.showSuccess(AppEnums.notifications.success.zoneAddedSuccess);
-      this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.list]);
+      this.goToAreasList();
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
       this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
+  }
+
+  private goToAreasList() {
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.list]);
   }
 }

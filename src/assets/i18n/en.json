@@ -52,6 +52,18 @@
     }
   },
 
+  "Edit Area Page": {
+    "Page Title": "Edit Area Request",
+    "Edit Area Form": {
+      "Area Name": "Area Name",
+      "Zone Name": "Zone on the map",
+      "Save Button": "Save Area"
+    },
+    "Placeholders": {
+      "Area Name": "Enter area name"
+    }
+  },
+
   "Area Details Page": {
     "Page Title": "Area Details",
     "Go To Area Filters": "Go to area filters",

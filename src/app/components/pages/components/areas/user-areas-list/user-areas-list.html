@@ -29,6 +29,7 @@
             <td>{{(area.isConfirmed ? 'Yes' : 'No') | translate}}</td>
             <td>
               <button class="btn btn-success" (click)="showDetails(area.id)">{{'Details' | translate}}</button>
+              <button class="btn btn-info" (click)="editZone(area.id)">{{'Edit' | translate}}</button>
               <button class="btn btn-danger" (click)="delete(area)">{{'Delete' | translate}}</button>
             </td>
           </tr>

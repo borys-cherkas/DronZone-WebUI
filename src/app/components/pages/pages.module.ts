@@ -22,6 +22,7 @@ import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {EditAreaPageComponent} from "./components/areas/edit-area/edit-area-page.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 
     UserAreasListComponent,
     AddAreaPageComponent,
+    EditAreaPageComponent,
     AreaDetailsPageComponent,
 
     AdminDroneListPageComponent,

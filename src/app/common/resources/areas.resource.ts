@@ -31,7 +31,7 @@ export class AreaResource extends ResourceBase  {
     return this.http.post(url, entity);
   }
 
-  public pdate(entity: any): Promise<any> {
+  public update(entity: any): Promise<any> {
     const url = this.buildUrl(this.urlOptions['update'], {});
     return this.http.put(url, entity);
   }

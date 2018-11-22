@@ -25,6 +25,7 @@ export let AppEnums = {
     details: 'details',
     list: 'list',
     edit: 'edit',
+    add: 'add'
   },
 
   storageTypes: {

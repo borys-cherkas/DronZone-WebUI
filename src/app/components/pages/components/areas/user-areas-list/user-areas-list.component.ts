@@ -49,7 +49,12 @@ export class UserAreasListComponent implements OnInit {
 
   public createNew() {
     this.router.navigate(
-      ['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit]);
+      ['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.add]);
+  }
+
+  public editZone(zoneId: string) {
+    this.router.navigate(
+      ['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit, zoneId]);
   }
 
   public delete(zone: Zone) {

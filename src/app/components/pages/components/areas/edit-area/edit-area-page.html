@@ -1,0 +1,41 @@
+<div id="app-edit-area-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>{{'Edit Area Page.Page Title' | translate}}</h2>
+      </div>
+    </div>
+
+    <br/>
+    <hr/>
+
+    <form #editZoneForm="ngForm">
+      <div class="form-group">
+        <label for="nameInput"><strong>{{'Edit Area Page.Edit Area Form.Area Name' | translate}}</strong></label>
+        <input type="text" class="form-control" id="nameInput" placeholder="{{'Edit Area Page.Placeholders.Area Name'| translate}}"
+               name="nameInputName" #nameInput="ngModel" [(ngModel)]="entity.zoneName" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="nameInput.errors && $submitted">
+            <p [hidden]="!nameInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> {{'Form Validation.Field Is Required' | translate}}
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="googleMap"><strong>{{ 'Edit Area Page.Edit Area Form.Zone Name' | translate }}</strong></label>
+        <div #gmap style="width:100%;height:400px" id="googleMap"></div>
+      </div>
+    </form>
+
+    <hr/>
+
+    <button class="btn btn-warning" (click)="saveArea()">{{'Edit Area Page.Edit Area Form.Save Button' | translate}}</button>
+
+  </div>
+</div>
+
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>

@@ -44,7 +44,7 @@ export const MENU = [
             }
           },
           {
-            path: r.edit,
+            path: r.add,
             data: {
               menu: {
                 title: 'Add Area',

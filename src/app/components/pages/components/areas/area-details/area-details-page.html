@@ -7,7 +7,14 @@
   </div>
 
   <hr/>
-  <button class="btn btn-info" (click)="goToFilters()">{{ 'Area Details Page.Go To Area Filters' | translate }}</button>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-info" (click)="goToFilters()">{{ 'Area Details Page.Go To Area Filters' | translate }}</button>
+      <button class="btn btn-info" (click)="goToEdit()">{{'Edit' | translate}}</button>
+    </div>
+  </div>
+
   <hr/>
 
   <div class="form-group">

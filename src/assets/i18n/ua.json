@@ -52,6 +52,18 @@
     }
   },
 
+  "Edit Area Page": {
+    "Page Title": "Запит на змiну сектору",
+    "Edit Area Form": {
+      "Area Name": "Ім'я сектору",
+      "Zone Name": "Сектор на мапі",
+      "Save Button": "Зберегти сектор"
+    },
+    "Placeholders": {
+      "Area Name": "Введіть ім'я сектору"
+    }
+  },
+
   "Area Details Page": {
     "Page Title": "Детали сектору",
     "Go To Area Filters": "Перейти до фильтрів сектору",

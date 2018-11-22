@@ -12,6 +12,7 @@ import {AttachDronePageComponent} from "./components/drones/add-drone/attach-dro
 import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
 import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
+import {EditAreaPageComponent} from "./components/areas/edit-area/edit-area-page.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
         path: r.areas,
         children: [
           {path: r.list, component: UserAreasListComponent},
-          {path: r.edit, component: AddAreaPageComponent},
+          {path: r.add, component: AddAreaPageComponent},
+          {path: r.edit + '/:areaId', component: EditAreaPageComponent},
           {path: r.details + '/:areaId', component: AreaDetailsPageComponent},
           {path: r.areaFilters + '/:areaId', component: AreaFiltersListPageComponent},
         ]
