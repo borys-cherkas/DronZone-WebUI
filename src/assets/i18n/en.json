@@ -174,6 +174,7 @@
     "WrongUsernameOrPassword": "Wrong username or password.",
     "UnknownError": "Unknown error has been occured. Check console for details.",
     "ZoneAddedSuccess": "Zone has been added successfully.",
+    "FiltersAlreadyApplied": "Filters have been already applied.",
     "FilterAddedSuccess": "Filter has been added successfully.",
     "FilterUpdatedSuccess": "Filter has been updated successfully.",
     "RegistrationSuccess": "Registration has been finished successfully. Login using your username and password."
@@ -196,5 +197,6 @@
 
   "Area List Title": "Area List",
   "Create New": "Create New",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Search": "Search"
 }

@@ -8,12 +8,43 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-3">
         <button class="btn btn-info" (click)="createNew()">{{'Create New' | translate}}</button>
       </div>
     </div>
-
     <br/>
+
+    <hr/>
+
+    <div class="row">
+
+      <div class="col-xl-8"
+           style="padding-bottom: 5px">
+        <label for="searchStringInput">Area name</label>
+        <input type="text" id="searchStringInput" class="form-control"
+               placeholder="{{'Add Area Page.Placeholders.Area Name'| translate}}"
+               name="searchStringInputName" #searchStringInput="ngModel" [(ngModel)]="searchString">
+      </div>
+      <div class="col-xl-2"
+           style="padding-bottom: 5px">
+
+        <div class="form-group">
+          <label for="isConfirmedDropDown">Confirmed:</label>
+          <select class="form-control" id="isConfirmedDropDown" #isConfirmedDropDown="ngModel" [(ngModel)]="confirmedFilter">
+            <option value="null" selected>All</option>
+            <option value="true">Confirmed</option>
+            <option value="false">Non-confirmed</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="col-xl-2"
+           style="padding-bottom: 5px">
+        <button class="btn btn-info" (click)="loadAvailableAreas()">{{'Search' | translate}}</button>
+      </div>
+    </div>
+
+    <hr/>
 
     <div class="row">
       <div class="col-md-12">

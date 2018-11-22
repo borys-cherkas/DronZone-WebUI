@@ -170,6 +170,7 @@
     "WrongUsernameOrPassword": "Невірний email або пароль.",
     "UnknownError": "Виникла невідома помилка.",
     "ZoneAddedSuccess": "Сектор був додан успішно.",
+    "FiltersAlreadyApplied": "Фільтри вже були застосовані",
     "FilterAddedSuccess": "Фільтр був додан успішно.",
     "FilterUpdatedSuccess": "Фільтр був оновлений успішно.",
     "RegistrationSuccess": "Реєстрація завершена! Авторизуйтесь за допомогою ваших email та паролю."
@@ -192,5 +193,6 @@
 
   "Area List Title": "Список секторів",
   "Create New": "Створити новий",
-  "Edit": "Редагувати"
+  "Edit": "Редагувати",
+  "Search": "Шукати"
 }

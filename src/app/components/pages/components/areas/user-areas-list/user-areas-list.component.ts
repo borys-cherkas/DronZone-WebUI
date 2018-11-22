@@ -7,7 +7,8 @@ import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {Zone} from "../../../../../models/interfaces/area.models";
 import {AppEnums} from "../../../../../app.constants";
 import {IAreaFilter} from "../../../../../models/interfaces/area-filter";
-import { TranslateService } from '@ngx-translate/core';
+import {TranslateService} from '@ngx-translate/core';
+import {ZoneListFilterViewModel} from "../../../../../models/interfaces/apiRequest/zoneListFilterViewModel";
 
 @Component({
   selector: 'app-user-areas-page',
@@ -17,7 +18,14 @@ import { TranslateService } from '@ngx-translate/core';
 export class UserAreasListComponent implements OnInit {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
 
+  // set "init" value to not skip first search
+  private appliedSearchString: string = "init";
+  private appliedConfirmedFilter: boolean = null;
+
+  public searchString: string;
+  public confirmedFilter: boolean = null;
   public areas: Array<Zone> = new Array<Zone>();
+  private zoneListFilter: ZoneListFilterViewModel = new ZoneListFilterViewModel();
 
   constructor(private router: Router,
               private preloaderService: PreloaderService,
@@ -30,9 +38,23 @@ export class UserAreasListComponent implements OnInit {
   public ngOnInit() {
     this.loadAvailableAreas();
   }
-  private loadAvailableAreas(): Promise<any> {
+
+  public loadAvailableAreas(): Promise<any> {
+    if (this.appliedSearchString === this.searchString
+      && this.appliedConfirmedFilter === this.confirmedFilter) {
+
+      this.notificationService.showSuccess(AppEnums.notifications.success.filtersAlreadyApplied);
+      return;
+    }
+
+    this.appliedSearchString = this.searchString;
+    this.appliedConfirmedFilter = this.confirmedFilter;
+
     this.preloaderService.showGlobalPreloader();
-    return this.areaResource.getAll().then(response => {
+    return this.areaResource.getAll({
+      zoneName: this.searchString,
+      confirmed: this.confirmedFilter
+    }).then(response => {
       this.preloaderService.hideGlobalPreloader();
 
       this.areas = response;
@@ -76,7 +98,7 @@ export class UserAreasListComponent implements OnInit {
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
-      this.notificationService.showError(AppEnums.notifications.errors.unknownError)
-    })
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
+    });
   }
 }

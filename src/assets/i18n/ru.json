@@ -170,6 +170,7 @@
     "WrongUsernameOrPassword": "Неверное имя пользователя или пароль.",
     "UnknownError": "Произошла неизвестная ошибка.",
     "ZoneAddedSuccess": "Сектор был добавлен успешно.",
+    "FiltersAlreadyApplied": "Фильтры уже были применены",
     "FilterAddedSuccess": "Фильтр был добавлен успешно.",
     "FilterUpdatedSuccess": "Фильтр был обновлен успешно.",
     "RegistrationSuccess": "Регистрация завершена! Авторизуйтесь используя ваш email и пароль."
@@ -192,5 +193,6 @@
 
   "Area List Title": "Список секторов",
   "Create New": "Создать новый",
-  "Edit": "Редактировать"
+  "Edit": "Редактировать",
+  "Search": "Искать"
 }

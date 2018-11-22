@@ -56,6 +56,8 @@ export let AppEnums = {
     success: {
       zoneAddedSuccess: "ZoneAddedSuccess",
 
+      filtersAlreadyApplied: "FiltersAlreadyApplied",
+
       filterAddedSuccess: "FilterAddedSuccess",
       filterUpdatedSuccess: "FilterUpdatedSuccess",
 

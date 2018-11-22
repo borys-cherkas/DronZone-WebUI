@@ -21,8 +21,8 @@ export class AreaResource extends ResourceBase  {
     return this.http.get(url);
   }
 
-  public getAll(): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['getAllUserZones'], {});
+  public getAll(searchParams): Promise<any> {
+    const url = this.buildUrlClassic(this.urlOptions['getAllUserZones'], searchParams);
     return this.http.get(url);
   }
 

@@ -124,7 +124,7 @@ export class HttpServiceWrapper {
   interceptAuthError(promise: Promise<Response>): Promise<Response> {
     return promise.catch(err => {
       console.error(err);
-      if (err.status === 401) {
+      if (err.status === 401 || err.url.toString().indexOf("Account/Login?ReturnUrl=")) {
         this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.login]);
         return;
       } else {

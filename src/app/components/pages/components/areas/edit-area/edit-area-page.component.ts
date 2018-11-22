@@ -5,7 +5,6 @@ import {PreloaderService} from "../../../../../common/services/preloaderService"
 import {NotificationService} from "../../../../../common/services/notificationService";
 import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {} from "@types/googlemaps";
-import {AddZoneViewModel} from "../../../../../models/viewModels/addZoneViewModel";
 import {AppEnums} from "../../../../../app.constants";
 import {TranslateService} from "@ngx-translate/core";
 import {EditZoneViewModel} from "../../../../../models/viewModels/editZoneViewModel";
