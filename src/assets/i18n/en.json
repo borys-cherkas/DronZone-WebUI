@@ -101,6 +101,11 @@
 
   "Drone List Page": {
     "Page Title": "Drones List",
+    "Message": "You have",
+    "Drones": "Drone(s)",
+    "Drone Code": "Drone Code",
+    "Drone Type": "Drone Type",
+    "Search Placeholder": "Enter drone code",
     "Add Drone": "Add drone by code",
     "Detach": "Detach",
     "Form": {
@@ -198,5 +203,8 @@
   "Area List Title": "Area List",
   "Create New": "Create New",
   "Edit": "Edit",
-  "Search": "Search"
+  "Search": "Search",   
+  "All": "All",
+  "Confirmed":"Confirmed",
+  "Not Confirmed":"Non-confirmed"
 }

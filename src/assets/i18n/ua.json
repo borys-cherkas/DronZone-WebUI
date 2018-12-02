@@ -90,14 +90,19 @@
     },
     "Placeholders": {
       "Max Available Weigth": "Введіть макс. вантажопідйомність дрону",
-      "Max Drone Weigth": "Введите макс. вагу дрону",
-      "Max Speed": "Введите макс. швидкість дрону"
+      "Max Drone Weigth": "Введіть макс. вагу дрону",
+      "Max Speed": "Введіть макс. швидкість дрону"
     }
   },
 
   "Drone List Page": {
     "Page Title": "Список дронів",
-    "Add Drone": "Додати дрон",
+    "Add Drone": "Додати дрон", 
+    "Message": "У Вас",
+    "Drones": "дрон(ів)",
+    "Drone Code": "Код дрона",
+    "Drone Type": "Тип дрона",
+    "Search Placeholder": "Введіть код дрона",
     "Detach": "Відв'язати",
     "Form": {
       "Drone Code": "Код дрону"
@@ -194,5 +199,8 @@
   "Area List Title": "Список секторів",
   "Create New": "Створити новий",
   "Edit": "Редагувати",
-  "Search": "Шукати"
+  "Search": "Шукати",
+  "All": "Усі",
+  "Confirmed":"Підтверджені",
+  "Not Confirmed":"Не підтверджені"
 }

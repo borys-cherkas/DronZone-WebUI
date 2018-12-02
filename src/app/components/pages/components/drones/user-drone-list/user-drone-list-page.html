@@ -1,36 +1,74 @@
 <div id="app-user-drone-list-page">
   <div class="container">
+
+    <img src="../../../../../../assets/img/app/drone.png" width="20%" height="20%" />
+
     <div class="row">
       <div class="col-md-12">
-        <br/><br/>
+        <br /><br />
         <h2> {{"Drone List Page.Page Title" | translate }}</h2>
+        <h3></h3>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-xl-9">
         <button class="btn btn-info" (click)="createNew()">{{"Drone List Page.Add Drone" | translate }}</button>
       </div>
+      <div class="col-xl-3">
+        <h5> {{"Drone List Page.Message" | translate }} {{drones.length}} {{"Drone List Page.Drones" | translate }}</h5>
+      </div>
     </div>
 
-    <br/>
+    <br />
+
+    <div class="row">
+
+      <div class="col-xl-8" style="padding-bottom: 5px">
+        <label for="searchStringInput">{{'Drone List Page.Drone Code' | translate}}</label>
+        <input type="text" id="searchStringInput" class="form-control" placeholder="{{'Drone List Page.Search Placeholder' | translate}}"
+          name="searchStringInputName" #searchStringInput="ngModel" [(ngModel)]="searchString">
+      </div>
+      <div class="col-xl-2" style="padding-bottom: 5px">
+
+        <div class="form-group">
+          <label for="droneTypeDropDown">{{'Drone List Page.Drone Type' | translate}}:</label>
+          <select class="form-control" id="droneTypeDropDown" #droneTypeDropDown="ngModel" [(ngModel)]="typeFilter">
+            <option value="null" selected>{{"All" | translate}}</option>
+            <option value="0">{{("Drone Types." + getDroneTypePresentation(0)) | translate}}</option>
+            <option value="1">{{("Drone Types." + getDroneTypePresentation(1)) | translate}}</option>
+            <option value="2">{{("Drone Types." + getDroneTypePresentation(2)) | translate}}</option>
+            <option value="3">{{("Drone Types." + getDroneTypePresentation(3)) | translate}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="col-xl-2" style="padding-bottom: 5px; margin-top:30px;">
+        <button class="btn btn-info" (click)="loadAvailableDrones()">{{'Search' | translate}}</button>
+      </div>
+    </div>
+    <br />
 
     <div class="row">
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>{{"Table Header.Code" | translate }}</td>
-          <td>{{"Table Header.Drone Type" | translate}}</td>
-          <td>{{"Table Header.Actions" | translate}}</td>
+            <td>{{"Table Header.Code" | translate }}</td>
+            <td>{{"Table Header.Drone Weigth" | translate }}</td>
+            <td>{{"Table Header.Max Speed" | translate }}</td>
+            <td>{{"Table Header.Drone Type" | translate}}</td>
+            <td>{{"Table Header.Actions" | translate}}</td>
           </thead>
           <tbody>
-          <tr *ngFor="let drone  of drones">
-            <td>{{drone.code}}</td>
-            <td>{{("Drone Types." + getDroneTypePresentation(drone.type)) | translate}}</td>
-            <td>
-              <button class="btn btn-warning" (click)="delete(drone.id)">{{"Drone List Page.Detach" | translate}}</button>
-            </td>
-          </tr>
+            <tr *ngFor="let drone  of drones">
+              <td>{{drone.code}}</td>
+              <td>{{roundDecimal(drone.weigth)}}</td>
+              <td>{{roundDecimal(drone.maxSpeed)}}</td>
+              <td>{{("Drone Types." + getDroneTypePresentation(drone.type)) | translate}}</td>
+              <td>
+                <button class="btn btn-warning" (click)="delete(drone.id)">{{"Drone List Page.Detach" | translate}}</button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
