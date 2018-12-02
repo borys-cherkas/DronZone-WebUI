@@ -97,7 +97,12 @@
 
   "Drone List Page": {
     "Page Title": "Список дронов",
-    "Add Drone": "Привязать дрона",
+    "Add Drone": "Привязать дрона",    
+    "Message": "У Вас",
+    "Drones": "дрон(ов)",
+    "Drone Code": "Код дрона",
+    "Drone Type": "Тип дрона",
+    "Search Placeholder": "Введите код дрона",
     "Detach": "Отвязать",
     "Form": {
       "Drone Code": "Код дрона"
@@ -194,5 +199,8 @@
   "Area List Title": "Список секторов",
   "Create New": "Создать новый",
   "Edit": "Редактировать",
-  "Search": "Искать"
+  "Search": "Искать",  
+  "All": "Все",
+  "Confirmed":"Подтвержденные",
+  "Not Confirmed":"Не подтвержденные"
 }

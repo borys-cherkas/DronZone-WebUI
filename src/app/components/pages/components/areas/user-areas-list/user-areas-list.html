@@ -20,7 +20,7 @@
 
       <div class="col-xl-8"
            style="padding-bottom: 5px">
-        <label for="searchStringInput">Area name</label>
+        <label for="searchStringInput">{{'Table Header.Name' | translate}}</label>
         <input type="text" id="searchStringInput" class="form-control"
                placeholder="{{'Add Area Page.Placeholders.Area Name'| translate}}"
                name="searchStringInputName" #searchStringInput="ngModel" [(ngModel)]="searchString">
@@ -29,17 +29,17 @@
            style="padding-bottom: 5px">
 
         <div class="form-group">
-          <label for="isConfirmedDropDown">Confirmed:</label>
+          <label for="isConfirmedDropDown">{{'Table Header.Confirmed' | translate}}:</label>
           <select class="form-control" id="isConfirmedDropDown" #isConfirmedDropDown="ngModel" [(ngModel)]="confirmedFilter">
-            <option value="null" selected>All</option>
-            <option value="true">Confirmed</option>
-            <option value="false">Non-confirmed</option>
+            <option value="null" selected>{{'All'| translate}}</option>
+            <option value="true">{{'Confirmed'| translate}}</option>
+            <option value="false">{{'Not Confirmed'| translate}}</option>
           </select>
         </div>
 
       </div>
       <div class="col-xl-2"
-           style="padding-bottom: 5px">
+           style="padding-bottom: 5px; margin-top:30px;">
         <button class="btn btn-info" (click)="loadAvailableAreas()">{{'Search' | translate}}</button>
       </div>
     </div>

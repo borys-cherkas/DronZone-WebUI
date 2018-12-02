@@ -23,8 +23,8 @@ export class DroneResource extends ResourceBase  {
     return this.http.get(url);
   }
 
-  public getUserDrones(): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['getUserDrones'], {});
+  public getUserDrones(searchParams): Promise<any> {
+    const url = this.buildUrlClassic(this.urlOptions['getUserDrones'], searchParams);
     return this.http.get(url);
   }
 
