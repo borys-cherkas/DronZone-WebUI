@@ -17,6 +17,9 @@
 
     "Areas": "Areas",
     "Your Areas": "Your Areas",
+
+    "Area Requests": "Area Requests",
+    "Your Requests": "Your Requests",
     "Add Area": "Add Area",
 
     "Drones": "Drones",
@@ -40,24 +43,49 @@
     "Russian": "Russian"
   },
 
-  "Add Area Page": {
-    "Page Title": "Add Area Request",
-    "Add Area Form": {
+  "Area Request Type": {
+    "100": "Creation",
+    "200": "Modifying"
+  },
+
+  "Area Request Status": {
+    "100": "Waiting For Administrator",
+    "200": "In Progress",
+    "300": "Declined",
+    "400": "Confirmed",
+    "500": "Canceled"
+  },
+
+  "Area Requests List Page": {
+    "Page Title": "Area Requests List",
+    "Create New": "Create request to add new area",
+    "Table": {
+      "Zone Name": "Zone Name",
+      "Status": "Status",
+      "Type": "Type"
+    }
+  },
+
+  "Create Area Adding Request Page": {
+    "Page Title": "Area Creating Request",
+    "Form": {
       "Area Name": "Area Name",
+      "Additional Info": "Additional information",
       "Zone Name": "Zone on the map",
-      "Save Button": "Save Area"
+      "Save Button": "Send Request"
     },
     "Placeholders": {
       "Area Name": "Enter area name"
     }
   },
 
-  "Edit Area Page": {
-    "Page Title": "Edit Area Request",
-    "Edit Area Form": {
+  "Create Area Editing Request Page": {
+    "Page Title": "Area Editing Request",
+    "Form": {
       "Area Name": "Area Name",
+      "Additional Info": "Additional information",
       "Zone Name": "Zone on the map",
-      "Save Button": "Save Area"
+      "Save Button": "Send Request"
     },
     "Placeholders": {
       "Area Name": "Enter area name"
@@ -178,7 +206,8 @@
     "WrongDroneCode": "Wrong drone code.",
     "WrongUsernameOrPassword": "Wrong username or password.",
     "UnknownError": "Unknown error has been occured. Check console for details.",
-    "ZoneAddedSuccess": "Zone has been added successfully.",
+    "AddingZoneRequestAddedSuccess": "Adding area request has been sent successfully.",
+    "EditingZoneRequestAddedSuccess": "Editing area request has been sent successfully.",
     "FiltersAlreadyApplied": "Filters have been already applied.",
     "FilterAddedSuccess": "Filter has been added successfully.",
     "FilterUpdatedSuccess": "Filter has been updated successfully.",
@@ -206,5 +235,6 @@
   "Search": "Search",   
   "All": "All",
   "Confirmed":"Confirmed",
-  "Not Confirmed":"Non-confirmed"
+  "Not Confirmed":"Non-confirmed",
+  "Open Editing Request": "Open Editing Request"
 }

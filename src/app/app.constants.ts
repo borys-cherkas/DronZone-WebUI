@@ -54,7 +54,8 @@ export let AppEnums = {
       unknownError: "UnknownError"
     },
     success: {
-      zoneAddedSuccess: "ZoneAddedSuccess",
+      addingZoneRequestAddedSuccess: "AddingZoneRequestAddedSuccess",
+      editingZoneRequestAddedSuccess: "EditingZoneRequestAddedSuccess",
 
       filtersAlreadyApplied: "FiltersAlreadyApplied",
 

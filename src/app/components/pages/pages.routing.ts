@@ -6,13 +6,14 @@ import {RegistrationComponent} from "./components/register/registration.componen
 import {PagesComponent} from "./pages.component";
 import {AreaFiltersListPageComponent} from "./components/areas/area-filters/area-filters-list-page.component";
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
-import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
+import {CreateAreaAddingRequestPageComponent} from "./components/areas/area-requests/create-area-creating-request-page/create-area-adding-request-page.component";
 import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
 import {AttachDronePageComponent} from "./components/drones/add-drone/attach-drone-page.component";
 import {UserDroneListPageComponent} from "./components/drones/user-drone-list/user-drone-list-page.component";
 import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone-details-page.component";
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
-import {EditAreaPageComponent} from "./components/areas/edit-area/edit-area-page.component";
+import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-requests/create-area-editing-request-page/create-area-editing-request-page.component";
+import {UserAreaRequestsListComponent} from "./components/areas/area-requests/user-area-requests-list/user-area-requests-list.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -25,14 +26,22 @@ const routes: Routes = [
       {path: r.home, component: HomeComponent},
       {path: r.login, component: LoginComponent},
       {path: r.register, component: RegistrationComponent},
-
+      {
+        path: r.areaRequests,
+        children: [
+          {path: r.list, component: UserAreaRequestsListComponent},
+          {path: r.add, component: CreateAreaAddingRequestPageComponent},
+          {path: r.edit + '/:areaId', component: CreateAreaEditingRequestPageComponent},
+        ]
+      },
       {
         path: r.areas,
         children: [
+          // areas
           {path: r.list, component: UserAreasListComponent},
-          {path: r.add, component: AddAreaPageComponent},
-          {path: r.edit + '/:areaId', component: EditAreaPageComponent},
           {path: r.details + '/:areaId', component: AreaDetailsPageComponent},
+
+          // area filters
           {path: r.areaFilters + '/:areaId', component: AreaFiltersListPageComponent},
         ]
       },

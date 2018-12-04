@@ -42,6 +42,45 @@ export const MENU = [
                 roles: [AppEnums.roles.user]
               }
             }
+          }
+        ]
+      },
+      {
+        path: r.areaRequests,
+        data: {
+          menu: {
+            title: 'Area Requests',
+            icon: null,
+            selected: true,
+            expanded: false,
+            order: 0,
+            roles: [AppEnums.roles.user, AppEnums.roles.admin]
+          }
+        },
+        children: [
+          {
+            path: r.list,
+            data: {
+              menu: {
+                title: 'Your Requests',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.user]
+              }
+            }
+          },
+          {
+            path: r.list,
+            data: {
+              menu: {
+                title: 'Untaken Requests',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.admin]
+              }
+            }
           },
           {
             path: r.add,

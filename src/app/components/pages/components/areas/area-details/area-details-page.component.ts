@@ -6,7 +6,7 @@ import {AreaResource} from "../../../../../common/resources/areas.resource";
 import {} from "@types/googlemaps";
 import {AppEnums} from "../../../../../app.constants";
 import {Subscription} from "rxjs/Subscription";
-import {Zone} from "../../../../../models/interfaces/area.models";
+import {ZoneDetailedViewModel} from "../../../../../models/interfaces/area.models";
 import {TranslateService} from "@ngx-translate/core";
 
 declare const google;
@@ -22,7 +22,7 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
   private rectangle: any;
   private map: google.maps.Map;
 
-  public area: Zone = new Zone();
+  public area: ZoneDetailedViewModel = new ZoneDetailedViewModel();
   private areaId: string;
   private subscription: Subscription;
 
@@ -55,7 +55,15 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   public goToEdit() {
-    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit, this.areaId]);
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areaRequests, AppEnums.routes.edit, this.areaId]);
+  }
+
+  public goToEditingRequest() {
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areaRequests, AppEnums.routes.details, this.area.validationRequestId]);
+  }
+
+  public hasActiveEditRequest() {
+    return this.area.validationRequestId != null;
   }
 
   private updateMap() {

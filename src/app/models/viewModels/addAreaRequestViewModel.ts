@@ -1,5 +1,5 @@
-export class EditZoneViewModel {
-  zoneId: string;
+export class AddAreaRequestViewModel {
+  reason: string;
   zoneName: string;
 
   topLeftLatitude: string;

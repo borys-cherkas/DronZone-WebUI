@@ -1,27 +1,28 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
-import {ConfirmationModalComponent} from "../../../../../common/components/confirmation-modal/confirmation-modal.component";
-import {PreloaderService} from "../../../../../common/services/preloaderService";
-import {NotificationService} from "../../../../../common/services/notificationService";
-import {AreaResource} from "../../../../../common/resources/areas.resource";
+import {ConfirmationModalComponent} from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
+import {PreloaderService} from "../../../../../../common/services/preloaderService";
+import {NotificationService} from "../../../../../../common/services/notificationService";
+import {AreaResource} from "../../../../../../common/resources/areas.resource";
 import {} from "@types/googlemaps";
-import {AddZoneViewModel} from "../../../../../models/viewModels/addZoneViewModel";
-import {AppEnums} from "../../../../../app.constants";
+import {AddAreaRequestViewModel} from "../../../../../../models/viewModels/addAreaRequestViewModel";
+import {AppEnums} from "../../../../../../app.constants";
 import {TranslateService} from "@ngx-translate/core";
+import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
 
 declare const google;
 
 @Component({
-  selector: 'app-add-drone-page',
-  styleUrls: ['./add-area-page.scss'],
-  templateUrl: './add-area-page.html'
+  selector: 'app-create-area-adding-request-page',
+  styleUrls: ['./create-area-adding-request-page.scss'],
+  templateUrl: './create-area-adding-request-page.html'
 })
-export class AddAreaPageComponent implements OnInit {
+export class CreateAreaAddingRequestPageComponent implements OnInit {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
   @ViewChild('gmap') gmapElement: any;
 
   public $submitted = false;
-  public entity: AddZoneViewModel = new AddZoneViewModel();
+  public entity: AddAreaRequestViewModel = new AddAreaRequestViewModel();
 
   private rectangle: any;
 
@@ -29,10 +30,9 @@ export class AddAreaPageComponent implements OnInit {
 
   constructor(private router: Router,
               private preloaderService: PreloaderService,
-              private areaResource: AreaResource,
+              private areaRequestsResource: AreaRequestsResource,
               private translate: TranslateService,
               private notificationService: NotificationService) {
-    // translate.setDefaultLang("en");
   }
 
   public ngOnInit() {
@@ -73,7 +73,7 @@ export class AddAreaPageComponent implements OnInit {
     }
   }
 
-  public saveArea() {
+  public sendRequest() {
     this.$submitted = true;
 
     const userBounds = this.rectangle.bounds;
@@ -89,10 +89,10 @@ export class AddAreaPageComponent implements OnInit {
     this.entity.bottomRightLongitude = bottomRightLongitude;
 
     this.preloaderService.showGlobalPreloader();
-    return this.areaResource.create(this.entity).then(nothing => {
+    return this.areaRequestsResource.createAddingRequest(this.entity).then(nothing => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showSuccess(AppEnums.notifications.success.zoneAddedSuccess);
-      this.goToAreasList();
+      this.notificationService.showSuccess(AppEnums.notifications.success.addingZoneRequestAddedSuccess);
+      this.goToAreaRequestsList();
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
@@ -100,7 +100,7 @@ export class AddAreaPageComponent implements OnInit {
     });
   }
 
-  private goToAreasList() {
-    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.list]);
+  private goToAreaRequestsList() {
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaRequests, AppEnums.routes.list]);
   }
 }

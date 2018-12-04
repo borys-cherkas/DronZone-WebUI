@@ -13,7 +13,6 @@ import {AreaFiltersListPageComponent} from "./components/areas/area-filters/area
 import {AddDroneFilterModalComponent} from "./components/areas/area-filters/add-filter-modal/add-drone-filter-modal.component";
 import {UserAreasListComponent} from "./components/areas/user-areas-list/user-areas-list.component";
 import {AreaResource} from "../../common/resources/areas.resource";
-import {AddAreaPageComponent} from "./components/areas/add-area/add-area-page.component";
 import {AreaDetailsPageComponent} from "./components/areas/area-details/area-details-page.component";
 import {AttachDronePageComponent} from "./components/drones/add-drone/attach-drone-page.component";
 import {DroneResource} from "../../common/resources/drones.resource";
@@ -22,7 +21,10 @@ import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {EditAreaPageComponent} from "./components/areas/edit-area/edit-area-page.component";
+import {UserAreaRequestsListComponent} from "./components/areas/area-requests/user-area-requests-list/user-area-requests-list.component";
+import {AreaRequestsResource} from "../../common/resources/area-requests.resource";
+import {CreateAreaAddingRequestPageComponent} from "./components/areas/area-requests/create-area-creating-request-page/create-area-adding-request-page.component";
+import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-requests/create-area-editing-request-page/create-area-editing-request-page.component";
 
 @NgModule({
   declarations: [
@@ -33,8 +35,9 @@ import {EditAreaPageComponent} from "./components/areas/edit-area/edit-area-page
     RegistrationComponent,
 
     UserAreasListComponent,
-    AddAreaPageComponent,
-    EditAreaPageComponent,
+    UserAreaRequestsListComponent,
+    CreateAreaAddingRequestPageComponent,
+    CreateAreaEditingRequestPageComponent,
     AreaDetailsPageComponent,
 
     AdminDroneListPageComponent,
@@ -67,6 +70,7 @@ import {EditAreaPageComponent} from "./components/areas/edit-area/edit-area-page
   providers: [
     AreaFilterResource,
     AreaResource,
+    AreaRequestsResource,
     DroneResource
   ]
 })

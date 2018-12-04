@@ -4,6 +4,19 @@ export class Zone {
   mapRectangle: MapRectangle;
   ownerId: string;
   isConfirmed: boolean;
+}
+
+export class ZoneListItemViewModel {
+  id: string;
+  name: string;
+  validationRequestId: string;
+}
+
+export class ZoneDetailedViewModel {
+  id: string;
+  name: string;
+  validationRequestId: string;
+  mapRectangle: MapRectangle;
   settingsId: number;
 }
 
@@ -16,4 +29,9 @@ export class MapRectangle {
   topLeftLongitude: number;
   bottomRightLatitude: number;
   bottomRightLongitude: number;
+}
+
+export class UpdateAreaNameViewModel {
+  zoneId: string;
+  zoneName: string;
 }

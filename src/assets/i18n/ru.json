@@ -17,7 +17,10 @@
 
     "Areas": "Сектора",
     "Your Areas": "Ваши сектора",
-    "Add Area": "Добавить сектор",
+
+    "Area Requests": "Запросы",
+    "Your Requests": "Ваши запросы",
+    "Add Area": "Создать сектор",
 
     "Drones": "Дроны",
     "Your Drones": "Ваши дроны",
@@ -40,24 +43,49 @@
     "Russian": "Русский"
   },
 
-  "Add Area Page": {
+  "Area Request Type": {
+    "100": "Создание",
+    "200": "Изменение"
+  },
+
+  "Area Request Status": {
+    "100": "В ожидании администратора",
+    "200": "На рассмотрении",
+    "300": "Отказано",
+    "400": "Подтверждено",
+    "500": "Отменено"
+  },
+
+  "Area Requests List Page": {
+    "Page Title": "Список запросов на добавление/изменение секторов",
+    "Create New": "Создать запрос для добавления сектора",
+    "Table": {
+      "Zone Name": "Название сектора",
+      "Status": "Статус",
+      "Type": "Тип"
+    }
+  },
+
+  "Create Area Adding Request Page": {
     "Page Title": "Запрос на добавление сектора",
-    "Add Area Form": {
+    "Form": {
       "Area Name": "Имя сектора",
+      "Additional Info": "Дополнительная информация",
       "Zone Name": "Сектор на карте",
-      "Save Button": "Сохранить сектор"
+      "Save Button": "Отправить запрос"
     },
     "Placeholders": {
       "Area Name": "Введите имя сектора"
     }
   },
 
-  "Edit Area Page": {
+  "Create Area Editing Request Page": {
     "Page Title": "Запрос на изменение сектора",
-    "Edit Area Form": {
+    "Form": {
       "Area Name": "Имя сектора",
+      "Additional Info": "Дополнительная информация",
       "Zone Name": "Сектор на карте",
-      "Save Button": "Сохранить сектор"
+      "Save Button": "Отправить запрос"
     },
     "Placeholders": {
       "Area Name": "Введите имя сектора"
@@ -174,7 +202,8 @@
     "WrongDroneCode": "Неверный код дрона.",
     "WrongUsernameOrPassword": "Неверное имя пользователя или пароль.",
     "UnknownError": "Произошла неизвестная ошибка.",
-    "ZoneAddedSuccess": "Сектор был добавлен успешно.",
+    "AddingZoneRequestAddedSuccess": "Запрос на создание нового сектора был отправлен успешно.",
+    "EditingZoneRequestAddedSuccess": "Запрос на изменение сектора был отправлен успешно.",
     "FiltersAlreadyApplied": "Фильтры уже были применены",
     "FilterAddedSuccess": "Фильтр был добавлен успешно.",
     "FilterUpdatedSuccess": "Фильтр был обновлен успешно.",
@@ -202,5 +231,6 @@
   "Search": "Искать",  
   "All": "Все",
   "Confirmed":"Подтвержденные",
-  "Not Confirmed":"Не подтвержденные"
+  "Not Confirmed":"Не подтвержденные",
+  "Open Editing Request": "Открыть текущий запрос редактирования"
 }

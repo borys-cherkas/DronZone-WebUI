@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PreloaderService} from "../../../../../common/services/preloaderService";
 import {NotificationService} from "../../../../../common/services/notificationService";
@@ -17,7 +17,7 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./area-filters-list-page.scss'],
   templateUrl: './area-filters-list-page.html'
 })
-export class AreaFiltersListPageComponent implements OnInit {
+export class AreaFiltersListPageComponent implements OnInit, OnDestroy {
   @ViewChild('addFitlerModal') public addFitlerModal: AddDroneFilterModalComponent;
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
 

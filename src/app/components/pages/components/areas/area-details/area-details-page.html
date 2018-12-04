@@ -11,7 +11,8 @@
   <div class="row">
     <div class="col-md-12">
       <button class="btn btn-info" (click)="goToFilters()">{{ 'Area Details Page.Go To Area Filters' | translate }}</button>
-      <button class="btn btn-info" (click)="goToEdit()">{{'Edit' | translate}}</button>
+      <button class="btn btn-info" *ngIf="!hasActiveEditRequest()" (click)="goToEdit()">{{'Edit' | translate}}</button>
+      <button class="btn btn-info" *ngIf="hasActiveEditRequest()" (click)="goToEditingRequest()">{{'Open Editing Request' | translate}}</button>
     </div>
   </div>
 

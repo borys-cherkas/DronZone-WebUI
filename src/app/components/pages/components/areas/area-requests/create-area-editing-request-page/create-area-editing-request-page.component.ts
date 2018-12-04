@@ -1,29 +1,30 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ConfirmationModalComponent} from "../../../../../common/components/confirmation-modal/confirmation-modal.component";
-import {PreloaderService} from "../../../../../common/services/preloaderService";
-import {NotificationService} from "../../../../../common/services/notificationService";
-import {AreaResource} from "../../../../../common/resources/areas.resource";
+import {ConfirmationModalComponent} from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
+import {PreloaderService} from "../../../../../../common/services/preloaderService";
+import {NotificationService} from "../../../../../../common/services/notificationService";
+import {AreaResource} from "../../../../../../common/resources/areas.resource";
 import {} from "@types/googlemaps";
-import {AppEnums} from "../../../../../app.constants";
+import {AppEnums} from "../../../../../../app.constants";
 import {TranslateService} from "@ngx-translate/core";
-import {EditZoneViewModel} from "../../../../../models/viewModels/editZoneViewModel";
+import {EditAreaRequestViewModel} from "../../../../../../models/viewModels/editAreaRequestViewModel";
 import {Subscription} from "rxjs/Subscription";
-import {Zone} from "../../../../../models/interfaces/area.models";
+import {Zone} from "../../../../../../models/interfaces/area.models";
+import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
 
 declare const google;
 
 @Component({
-  selector: 'app-edit-drone-page',
-  styleUrls: ['./edit-area-page.scss'],
-  templateUrl: './edit-area-page.html'
+  selector: 'app-create-area-editing-request-page',
+  styleUrls: ['./create-area-editing-request-page.scss'],
+  templateUrl: './create-area-editing-request-page.html'
 })
-export class EditAreaPageComponent implements OnInit, OnDestroy {
+export class CreateAreaEditingRequestPageComponent implements OnInit, OnDestroy {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
   @ViewChild('gmap') gmapElement: any;
 
   public $submitted = false;
-  public entity: EditZoneViewModel = new EditZoneViewModel();
+  public entity: EditAreaRequestViewModel = new EditAreaRequestViewModel();
   private subscription: Subscription;
   private areaId: string;
   public area: Zone = new Zone();
@@ -35,6 +36,7 @@ export class EditAreaPageComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private preloaderService: PreloaderService,
               private areaResource: AreaResource,
+              private areaRequestsResource: AreaRequestsResource,
               private route: ActivatedRoute,
               private translate: TranslateService,
               private notificationService: NotificationService) {
@@ -86,7 +88,7 @@ export class EditAreaPageComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  public saveArea() {
+  public sendRequest() {
     this.$submitted = true;
 
     const userBounds = this.rectangle.bounds;
@@ -103,10 +105,10 @@ export class EditAreaPageComponent implements OnInit, OnDestroy {
     this.entity.bottomRightLongitude = bottomRightLongitude;
 
     this.preloaderService.showGlobalPreloader();
-    return this.areaResource.update(this.entity).then(resp => {
+    return this.areaRequestsResource.createEditingRequest(this.entity).then(resp => {
       this.preloaderService.hideGlobalPreloader();
-      this.notificationService.showSuccess(AppEnums.notifications.success.zoneAddedSuccess);
-      this.goToAreaDetails();
+      this.notificationService.showSuccess(AppEnums.notifications.success.editingZoneRequestAddedSuccess);
+      this.goToAreaRequestDetails();
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);
@@ -114,7 +116,7 @@ export class EditAreaPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  private goToAreaDetails() {
+  private goToAreaRequestDetails() {
     this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.details, this.areaId]);
   }
 

@@ -1,0 +1,46 @@
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>
+
+<div id="app-user-area-requests-list">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>{{ 'Area Requests List Page.Page Title' | translate }}</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-info" (click)="createNew()">{{'Area Requests List Page.Create New' | translate}}</button>
+      </div>
+    </div>
+    <br/>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <td>{{'Area Requests List Page.Table.Zone Name' | translate}}</td>
+          <td>{{'Area Requests List Page.Table.Type' | translate}}</td>
+          <td>{{'Area Requests List Page.Table.Status' | translate}}</td>
+          <td>{{'Table Header.Actions' | translate}}</td>
+          </thead>
+          <tbody>
+          <tr *ngFor="let request of areaRequestList">
+            <td>{{request.zoneName}}</td>
+            <td>{{('Area Request Type.' + request.requestType) | translate}}</td>
+            <td>{{('Area Request Status.' + request.status) | translate}}</td>
+            <td>
+              <button class="btn btn-info" (click)="showDetails(request.id)">{{'Details' | translate}}</button>
+              <button class="btn btn-info" *ngIf="shouldShowOpenZoneOrNot(request)" (click)="goToArea(request)">{{'Filter List Page.Go To Area' | translate}}</button>
+              <button class="btn btn-danger" *ngIf="shouldShowCancelButtonOrNot(request)" (click)="cancelRequest(request)">{{'Cancel' | translate}}</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

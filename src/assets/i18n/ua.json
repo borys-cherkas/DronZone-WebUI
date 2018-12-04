@@ -17,7 +17,10 @@
 
     "Areas": "Сектори",
     "Your Areas": "Ваші сектори",
-    "Add Area": "Додати сектор",
+
+    "Area Requests": "Запити",
+    "Your Requests": "Ваші запити",
+    "Add Area": "Створити сектор",
 
     "Drones": "Дрони",
     "Your Drones": "Ваші дрони",
@@ -40,24 +43,49 @@
     "Russian": "Російська"
   },
 
-  "Add Area Page": {
+  "Area Request Type": {
+    "100": "Створення",
+    "200": "Зміна"
+  },
+
+  "Area Request Status": {
+    "100": "Очікування адміністратора",
+    "200": "На розгляді",
+    "300": "Відмова",
+    "400": "Підтвержено",
+    "500": "Скасовано"
+  },
+
+  "Area Requests List Page": {
+    "Page Title": "Список запитів на додавання/зміну секторів",
+    "Create New": "Створити запит на додавання сектору",
+    "Table": {
+      "Zone Name": "Назва сектору",
+      "Status": "Статус",
+      "Type": "Тип"
+    }
+  },
+
+  "Create Area Adding Request Page": {
     "Page Title": "Запит на додання сектору",
-    "Add Area Form": {
+    "Form": {
       "Area Name": "Ім'я сектору",
+      "Additional Info": "Додаткова інформація",
       "Zone Name": "Сектор на мапі",
-      "Save Button": "Зберегти сектор"
+      "Save Button": "Відправити запит"
     },
     "Placeholders": {
       "Area Name": "Введіть ім'я сектору"
     }
   },
 
-  "Edit Area Page": {
-    "Page Title": "Запит на змiну сектору",
-    "Edit Area Form": {
+  "Create Area Editing Request Page": {
+    "Page Title": "Запит на зміну сектору",
+    "Form": {
       "Area Name": "Ім'я сектору",
+      "Additional Info": "Додаткова інформація",
       "Zone Name": "Сектор на мапі",
-      "Save Button": "Зберегти сектор"
+      "Save Button": "Відправити запит"
     },
     "Placeholders": {
       "Area Name": "Введіть ім'я сектору"
@@ -174,7 +202,8 @@
     "WrongDroneCode": "Невірний код дрону.",
     "WrongUsernameOrPassword": "Невірний email або пароль.",
     "UnknownError": "Виникла невідома помилка.",
-    "ZoneAddedSuccess": "Сектор був додан успішно.",
+    "AddingZoneRequestAddedSuccess": "Запит на створення сектору був відправлен успішно.",
+    "EditingZoneRequestAddedSuccess": "Запит на зміну сектору був відправлен успішно.",
     "FiltersAlreadyApplied": "Фільтри вже були застосовані",
     "FilterAddedSuccess": "Фільтр був додан успішно.",
     "FilterUpdatedSuccess": "Фільтр був оновлений успішно.",
@@ -202,5 +231,6 @@
   "Search": "Шукати",
   "All": "Усі",
   "Confirmed":"Підтверджені",
-  "Not Confirmed":"Не підтверджені"
+  "Not Confirmed":"Не підтверджені",
+  "Open Editing Request": "Перейти до активного запиту редагування"
 }
