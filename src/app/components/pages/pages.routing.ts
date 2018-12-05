@@ -14,6 +14,7 @@ import {DroneDetailsPageComponent} from "./components/drones/drone-details/drone
 import {AdminDroneListPageComponent} from "./components/drones/admin-drone-list/admin-drone-list-page.component";
 import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-requests/create-area-editing-request-page/create-area-editing-request-page.component";
 import {UserAreaRequestsListComponent} from "./components/areas/area-requests/user-area-requests-list/user-area-requests-list.component";
+import {AreaRequestDetailsPageComponent} from "./components/areas/area-requests/area-request-details/area-request-details-page.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
           {path: r.list, component: UserAreaRequestsListComponent},
           {path: r.add, component: CreateAreaAddingRequestPageComponent},
           {path: r.edit + '/:areaId', component: CreateAreaEditingRequestPageComponent},
+          {path: r.details + '/:requestId', component: AreaRequestDetailsPageComponent},
         ]
       },
       {

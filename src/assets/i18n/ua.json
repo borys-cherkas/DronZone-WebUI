@@ -93,11 +93,22 @@
   },
 
   "Area Details Page": {
-    "Page Title": "Детали сектору",
+    "Page Title": "Деталі сектору",
     "Go To Area Filters": "Перейти до фильтрів сектору",
     "Area Details": {
       "Area Name": "Назва сектору",
       "Zone Name": "Сектор на мапі"
+    }
+  },
+
+  "Area Request Details Page": {
+    "Page Title": "Деталі запиту",
+    "Form Headers": {
+      "Area Name": "Iм'я зв'язаного сектору",
+      "Status": "Статус",
+      "Request Type": "Тип запиту",
+      "Description": "Опис",
+      "Map": "Сектор на мапі"
     }
   },
 
@@ -244,5 +255,6 @@
   "All": "Усі",
   "Confirmed":"Підтверджені",
   "Not Confirmed":"Не підтверджені",
-  "Open Editing Request": "Перейти до активного запиту редагування"
+  "Open Editing Request": "Перейти до активного запиту редагування",
+  "Open Area": "Перейти до сектору"
 }

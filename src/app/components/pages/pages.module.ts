@@ -26,6 +26,7 @@ import {AreaRequestsResource} from "../../common/resources/area-requests.resourc
 import {CreateAreaAddingRequestPageComponent} from "./components/areas/area-requests/create-area-creating-request-page/create-area-adding-request-page.component";
 import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-requests/create-area-editing-request-page/create-area-editing-request-page.component";
 import {ChangeAreaNameModalComponent} from "./components/areas/area-details/change-area-name-modal/change-area-name-modal.component";
+import {AreaRequestDetailsPageComponent} from "./components/areas/area-requests/area-request-details/area-request-details-page.component";
 
 @NgModule({
   declarations: [
@@ -36,10 +37,12 @@ import {ChangeAreaNameModalComponent} from "./components/areas/area-details/chan
     RegistrationComponent,
 
     UserAreasListComponent,
+    AreaDetailsPageComponent,
+
     UserAreaRequestsListComponent,
     CreateAreaAddingRequestPageComponent,
     CreateAreaEditingRequestPageComponent,
-    AreaDetailsPageComponent,
+    AreaRequestDetailsPageComponent,
 
     AdminDroneListPageComponent,
     AttachDronePageComponent,

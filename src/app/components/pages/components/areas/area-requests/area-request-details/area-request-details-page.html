@@ -1,0 +1,47 @@
+<div id="app-area-request-details-page">
+  <div class="row">
+    <div class="col-md-12">
+      <br/><br/>
+      <h2>
+        {{ 'Area Request Details Page.Page Title' | translate }}
+        <button class="btn btn-info" *ngIf="isEditRequest()"
+                (click)="goToRelatedArea()">{{'Open Area' | translate}}</button>
+        <button class="btn btn-danger" *ngIf="shouldShowCancelButtonOrNot(request)"
+                (click)="cancelRequest(request)">{{'Cancel' | translate}}</button>
+      </h2>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="form-group">
+    <label for="areaName"><strong>{{ 'Area Request Details Page.Form Headers.Area Name' | translate }}</strong></label>
+    <p id="areaName">{{request?.zoneName}}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="status"><strong>{{ 'Area Request Details Page.Form Headers.Status' | translate }}</strong></label>
+    <p id="status">{{("Area Request Status." + request?.status) | translate}}</p>
+  </div>
+
+  <div class="form-group">
+    <label
+      for="requestType"><strong>{{ 'Area Request Details Page.Form Headers.Request Type' | translate }}</strong></label>
+    <p id="requestType">{{("Area Request Type." + request?.requestType) | translate}}</p>
+  </div>
+
+  <div class="form-group">
+    <label
+      for="description"><strong>{{ 'Area Request Details Page.Form Headers.Description' | translate }}</strong></label>
+    <p id="description">{{request?.description}}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="googleMap"><strong>{{ 'Area Request Details Page.Form Headers.Map' | translate }}</strong></label>
+    <div #gmap style="width:100%;height:400px" id="googleMap"></div>
+  </div>
+
+
+</div>
+
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>

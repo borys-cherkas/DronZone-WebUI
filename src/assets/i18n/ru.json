@@ -101,6 +101,17 @@
     }
   },
 
+  "Area Request Details Page": {
+    "Page Title": "Детали запроса",
+    "Form Headers": {
+      "Area Name": "Имя связанного сектора",
+      "Status": "Статус",
+      "Request Type": "Тип запроса",
+      "Description": "Описание",
+      "Map": "Сектор на карте"
+    }
+  },
+
   "Filter List Page": {
     "Page Title": "Список фильтров",
     "Area Name Title": "Название сектора",
@@ -244,5 +255,6 @@
   "All": "Все",
   "Confirmed":"Подтвержденные",
   "Not Confirmed":"Не подтвержденные",
-  "Open Editing Request": "Открыть текущий запрос редактирования"
+  "Open Editing Request": "Открыть текущий запрос редактирования",
+  "Open Area": "Открыть связанный сектор"
 }

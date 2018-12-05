@@ -7,10 +7,9 @@ import {NotificationService} from "../../../../../../common/services/notificatio
 import {AppEnums} from "../../../../../../app.constants";
 import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
 import {
-  AreaRequestListItemViewModel,
-  ZoneValidationStatus,
-  ZoneValidationType
+  AreaRequestListItemViewModel
 } from "../../../../../../models/viewModels/areaRequestListItemViewModel";
+import {ZoneValidationStatus, ZoneValidationType} from "../../../../../../models/viewModels/area-request.models";
 
 @Component({
   selector: 'app-user-area-requests-list',

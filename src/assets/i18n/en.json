@@ -101,6 +101,17 @@
     }
   },
 
+  "Area Request Details Page": {
+    "Page Title": "Area Request Details",
+    "Form Headers": {
+      "Area Name": "Related Area Name",
+      "Status": "Status",
+      "Request Type": "Request Type",
+      "Description": "Description",
+      "Map": "Zone on the map"
+    }
+  },
+
   "Filter List Page": {
     "Page Title": "Area Filter List",
     "Area Name Title": "Area Name",
@@ -248,5 +259,6 @@
   "All": "All",
   "Confirmed":"Confirmed",
   "Not Confirmed":"Non-confirmed",
-  "Open Editing Request": "Open Editing Request"
+  "Open Editing Request": "Open Editing Request",
+  "Open Area": "Open Related Area"
 }
