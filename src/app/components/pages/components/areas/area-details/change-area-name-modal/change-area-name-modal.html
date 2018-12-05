@@ -1,0 +1,43 @@
+<ng-template #modalContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{"Change Area Name Modal.Page Title" | translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="cancelClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #changeNameForm="ngForm">
+
+      <div class="form-group">
+        <label for="nameInput">{{"Change Area Name Modal.Form.Area Name" | translate}}</label>
+        <input type="text" class="form-control" id="nameInput"
+               placeholder="{{'Change Area Name Modal.Placeholders.Area Name' | translate}}"
+               name="nameInputName" #nameInput="ngModel" [(ngModel)]="entity.zoneName" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="nameIsUsedError && $submitted">
+            <p class="validation-error">
+              <i class="fa fa-close"></i> {{ nameIsUsedError + " " + ("Form Validation.Name Is In Use" | translate)}}
+            </p>
+          </span>
+        </div>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="nameInput.errors && $submitted">
+            <p class="validation-error">
+              <i class="fa fa-close"></i> {{"Form Validation.Field Is Required" | translate}}
+            </p>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="save(changeNameForm)">
+      {{"Save" | translate}}
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="cancelClose()">{{"Cancel" | translate}}</button>
+  </div>
+</ng-template>

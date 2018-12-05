@@ -141,6 +141,16 @@
     "Page Title": "Подтверждение"
   },
 
+  "Change Area Name Modal": {
+    "Page Title": "Изменить название сектора",
+    "Form": {
+      "Zone Name": "Название сектора"
+    },
+    "Placeholders": {
+      "Area Name": "Введите имя сектора"
+    }
+  },
+
   "Attach Drone Page": {
     "Page Title": "Привязать дрона",
     "Form": {
@@ -194,7 +204,8 @@
   "Form Validation": {
     "Field Is Required": "Это поле является обязательным!",
     "Length More That 6": "Это поле должно содержать не менее 6 символов!",
-    "Valid Email Required": "Это поле должно содержать действующий Email!"
+    "Valid Email Required": "Это поле должно содержать действующий Email!",
+    "Name Is In Use": "уже используется."
   },
 
   "Notifications": {
@@ -207,6 +218,7 @@
     "FiltersAlreadyApplied": "Фильтры уже были применены",
     "FilterAddedSuccess": "Фильтр был добавлен успешно.",
     "FilterUpdatedSuccess": "Фильтр был обновлен успешно.",
+    "AreaNameUpdatedSuccess": "Iмя сектора было оновлено успешно.",
     "RegistrationSuccess": "Регистрация завершена! Авторизуйтесь используя ваш email и пароль."
   },
 

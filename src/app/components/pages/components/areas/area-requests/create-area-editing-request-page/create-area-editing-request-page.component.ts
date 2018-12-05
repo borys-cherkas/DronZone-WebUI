@@ -11,6 +11,7 @@ import {EditAreaRequestViewModel} from "../../../../../../models/viewModels/edit
 import {Subscription} from "rxjs/Subscription";
 import {Zone} from "../../../../../../models/interfaces/area.models";
 import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
+import {NgForm} from "@angular/forms";
 
 declare const google;
 
@@ -88,8 +89,12 @@ export class CreateAreaEditingRequestPageComponent implements OnInit, OnDestroy 
     this.subscription.unsubscribe();
   }
 
-  public sendRequest() {
+  public sendRequest(form: NgForm) {
     this.$submitted = true;
+
+    if (!form.valid) {
+      return;
+    }
 
     const userBounds = this.rectangle.bounds;
 
@@ -125,7 +130,6 @@ export class CreateAreaEditingRequestPageComponent implements OnInit, OnDestroy 
     return this.areaResource.getById(this.areaId).then(response => {
       this.preloaderService.hideGlobalPreloader();
       this.area = response;
-      this.entity.zoneName = this.area.name;
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);

@@ -8,6 +8,7 @@ import {AppEnums} from "../../../../../app.constants";
 import {Subscription} from "rxjs/Subscription";
 import {ZoneDetailedViewModel} from "../../../../../models/interfaces/area.models";
 import {TranslateService} from "@ngx-translate/core";
+import {ChangeAreaNameModalComponent} from "./change-area-name-modal/change-area-name-modal.component";
 
 declare const google;
 
@@ -17,6 +18,7 @@ declare const google;
   templateUrl: './area-details-page.html'
 })
 export class AreaDetailsPageComponent implements OnInit, OnDestroy {
+  @ViewChild('updateAreaNameModal') public updateAreaNameModal: ChangeAreaNameModalComponent;
   @ViewChild('gmap') gmapElement: any;
 
   private rectangle: any;
@@ -52,6 +54,15 @@ export class AreaDetailsPageComponent implements OnInit, OnDestroy {
 
   public goToFilters() {
     this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaFilters, this.areaId]);
+  }
+
+  public openEditAreaNameModal() {
+    return this.updateAreaNameModal.show().then(() => {
+      // success
+      return this.loadAreaById();
+    }, err => {
+      // err
+    });
   }
 
   public goToEdit() {

@@ -25,6 +25,7 @@ import {UserAreaRequestsListComponent} from "./components/areas/area-requests/us
 import {AreaRequestsResource} from "../../common/resources/area-requests.resource";
 import {CreateAreaAddingRequestPageComponent} from "./components/areas/area-requests/create-area-creating-request-page/create-area-adding-request-page.component";
 import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-requests/create-area-editing-request-page/create-area-editing-request-page.component";
+import {ChangeAreaNameModalComponent} from "./components/areas/area-details/change-area-name-modal/change-area-name-modal.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-req
 
     AreaFiltersListPageComponent,
 
-    AddDroneFilterModalComponent
+    AddDroneFilterModalComponent,
+    ChangeAreaNameModalComponent
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,7 @@ export class AreaResource extends ResourceBase  {
     super(config, http, {
       'getById': 'zones/getById/{zoneId}',
       'getAllUserZones': 'zones/getAllUserZones',
+      'checkIfNameAvailable': 'zones/checkIfNameAvailable',
       'updateZoneName': 'zones/updateZoneName',
       'create': 'zones/add',
       'update': 'zones/update',
@@ -28,8 +29,13 @@ export class AreaResource extends ResourceBase  {
     return this.http.get(url);
   }
 
+  public checkIfNameAvailable(entity: any): Promise<any> {
+    const url = this.buildUrlClassic(this.urlOptions['checkIfNameAvailable'], entity);
+    return this.http.get(url);
+  }
+
   public updateAreaName(entity: any): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['updateAreaName'], {});
+    const url = this.buildUrl(this.urlOptions['updateZoneName'], {});
     return this.http.put(url, entity);
   }
 }

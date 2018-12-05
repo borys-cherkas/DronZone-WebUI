@@ -9,6 +9,7 @@ import {AddAreaRequestViewModel} from "../../../../../../models/viewModels/addAr
 import {AppEnums} from "../../../../../../app.constants";
 import {TranslateService} from "@ngx-translate/core";
 import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
+import {NgForm} from "@angular/forms";
 
 declare const google;
 
@@ -45,7 +46,7 @@ export class CreateAreaAddingRequestPageComponent implements OnInit {
 
     if (navigator.geolocation) {
       const self = this;
-      navigator.geolocation.getCurrentPosition(function(position) {
+      navigator.geolocation.getCurrentPosition(function (position) {
         const currentPosition = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
@@ -67,14 +68,18 @@ export class CreateAreaAddingRequestPageComponent implements OnInit {
           draggable: true
         });
         self.rectangle.setMap(self.map);
-      }, function() {
+      }, function () {
         self.notificationService.showError(AppEnums.notifications.errors.cannotDetermineLocation);
       });
     }
   }
 
-  public sendRequest() {
+  public sendRequest(form: NgForm) {
     this.$submitted = true;
+
+    if (!form.valid) {
+      return;
+    }
 
     const userBounds = this.rectangle.bounds;
 

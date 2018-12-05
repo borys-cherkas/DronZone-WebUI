@@ -145,6 +145,16 @@
     "Page Title": "Confirmation"
   },
 
+  "Change Area Name Modal": {
+    "Page Title": "Change area name",
+    "Form": {
+      "Area Name": "Area name"
+    },
+    "Placeholders": {
+      "Area Name": "Enter area name"
+    }
+  },
+
   "Attach Drone Page": {
     "Page Title": "Attach Drone",
     "Form": {
@@ -198,7 +208,8 @@
   "Form Validation": {
     "Field Is Required": "This field is required",
     "Length More That 6": "This field should has not less that 6 symbols",
-    "Valid Email Required": "This field should contain valid email"
+    "Valid Email Required": "This field should contain valid email",
+    "Name Is In Use": "is already in use."
   },
 
   "Notifications": {
@@ -211,6 +222,7 @@
     "FiltersAlreadyApplied": "Filters have been already applied.",
     "FilterAddedSuccess": "Filter has been added successfully.",
     "FilterUpdatedSuccess": "Filter has been updated successfully.",
+    "AreaNameUpdatedSuccess": "Area name has been updated successfully.",
     "RegistrationSuccess": "Registration has been finished successfully. Login using your username and password."
   },
 

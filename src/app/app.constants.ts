@@ -62,6 +62,8 @@ export let AppEnums = {
       filterAddedSuccess: "FilterAddedSuccess",
       filterUpdatedSuccess: "FilterUpdatedSuccess",
 
+      areaNameUpdatedSuccess: "AreaNameUpdatedSuccess",
+
       registrationSuccess: "RegistrationSuccess",
     }
   },

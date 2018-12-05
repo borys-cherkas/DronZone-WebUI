@@ -58,13 +58,8 @@ export class UserAreaRequestsListComponent implements OnInit {
 
   public createNew() {
     this.router.navigate(
-      ['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.add]);
+      ['/', AppEnums.routes.content, AppEnums.routes.areaRequests, AppEnums.routes.add]);
   }
-
-  // public editZone(zoneId: string) {
-  //   this.router.navigate(
-  //     ['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.edit, zoneId]);
-  // }
 
   public cancelRequest(requestListItem: AreaRequestListItemViewModel) {
     return this.confirmationModal.showConfirmation("Are you sure you want to cancel this request?").then(isDiscarded => {
@@ -92,6 +87,7 @@ export class UserAreaRequestsListComponent implements OnInit {
     return requestListItem.status === ZoneValidationStatus.InProgress
       || requestListItem.status === ZoneValidationStatus.WaitingForAdministrator;
   }
+
   public shouldShowOpenZoneOrNot(requestListItem: AreaRequestListItemViewModel) {
     return requestListItem.requestType === ZoneValidationType.Modifying;
   }

@@ -20,7 +20,9 @@
 
   <div class="form-group">
     <label for="name"><strong>{{ 'Area Details Page.Area Details.Area Name' | translate }}</strong></label>
-    <p id="name">{{area.name}}</p>
+    <p id="name">{{area.name}}
+      <button class="btn" (click)="openEditAreaNameModal()"><i class="fas fa-pencil-alt"></i></button>
+    </p>
   </div>
 
   <div class="form-group">
@@ -31,4 +33,5 @@
 
 </div>
 
+<app-update-area-name-modal #updateAreaNameModal [area]="area"></app-update-area-name-modal>
 <app-confirmation-modal #confirmationModal></app-confirmation-modal>
