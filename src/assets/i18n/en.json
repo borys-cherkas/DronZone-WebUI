@@ -19,6 +19,8 @@
     "Your Areas": "Your Areas",
 
     "Area Requests": "Area Requests",
+    "Assigned Requests": "Assigned Requests",
+    "Untaken Requests": "Untaken Requests",
     "Your Requests": "Your Requests",
     "Add Area": "Add Area",
 
@@ -61,6 +63,25 @@
     "Create New": "Create request to add new area",
     "Table": {
       "Zone Name": "Zone Name",
+      "Status": "Status",
+      "Type": "Type"
+    }
+  },
+
+  "Untaken Area Requests List Page": {
+    "Page Title": "Untaken Area Requests List",
+    "Assign Button": "Assign to me",
+    "Table": {
+      "Requester Name": "Requester Name",
+      "Status": "Status",
+      "Type": "Type"
+    }
+  },
+
+  "Admin Assigned Area Requests List Page": {
+    "Page Title": "Assigned Area Requests List",
+    "Table": {
+      "Requester Name": "Requester Name",
       "Status": "Status",
       "Type": "Type"
     }
@@ -252,12 +273,15 @@
   "Save": "Save",
   "Cancel": "Cancel",
 
+  "Confirm": "Confirm",
+  "Decline": "Decline",
+  "Confirmed":"Confirmed",
+
   "Area List Title": "Area List",
   "Create New": "Create New",
   "Edit": "Edit",
   "Search": "Search",   
   "All": "All",
-  "Confirmed":"Confirmed",
   "Not Confirmed":"Non-confirmed",
   "Open Editing Request": "Open Editing Request",
   "Open Area": "Open Related Area"

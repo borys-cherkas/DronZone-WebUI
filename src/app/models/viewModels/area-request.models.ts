@@ -6,6 +6,8 @@ export class ZoneValidationRequestDetailedViewModel {
   status: ZoneValidationStatus;
   requestType: ZoneValidationType;
 
+  canConfirmReject: boolean;
+
   topLeftLatitude: number;
   topLeftLongitude: number;
   bottomRightLatitude: number;

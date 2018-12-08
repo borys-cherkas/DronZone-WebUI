@@ -10,6 +10,11 @@ export let AppEnums = {
 
     home: 'home',
 
+    // requests
+    assignedList: 'assigned-list',
+    untakenList: 'untaken-list',
+    // untakenDetails: 'untaken-details',
+
     // areas
     areaRequests: 'area-requests',
     areaFilters: 'area-filters',

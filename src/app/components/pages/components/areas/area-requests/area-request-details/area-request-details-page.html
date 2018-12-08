@@ -4,17 +4,27 @@
       <br/><br/>
       <h2>
         {{ 'Area Request Details Page.Page Title' | translate }}
-        <button class="btn btn-info" *ngIf="isEditRequest()"
+
+        <button class="btn btn-info" *ngIf="isInUserRole && isEditRequest()"
                 (click)="goToRelatedArea()">{{'Open Area' | translate}}</button>
-        <button class="btn btn-danger" *ngIf="shouldShowCancelButtonOrNot(request)"
+        <button class="btn btn-danger" *ngIf="isInUserRole && shouldShowCancelButtonOrNot(request)"
                 (click)="cancelRequest(request)">{{'Cancel' | translate}}</button>
+
+        <button class="btn btn-warning" *ngIf="isInAdminRole && isRequestUntaken"
+                (click)="assignRequestToCurrentUser(request)">{{'Untaken Area Requests List Page.Assign Button' | translate}}</button>
+
+
+        <button class="btn btn-info" *ngIf="isInAdminRole && isRequestTakenByMe"
+                (click)="confirmRequest(request)">{{'Confirm' | translate}}</button>
+        <button class="btn btn-danger " *ngIf="isInAdminRole && isRequestTakenByMe"
+                (click)="declineRequest(request)">{{'Decline' | translate}}</button>
       </h2>
     </div>
   </div>
 
   <hr/>
 
-  <div class="form-group">
+  <div class="form-group" *ngIf="isInUserRole">
     <label for="areaName"><strong>{{ 'Area Request Details Page.Form Headers.Area Name' | translate }}</strong></label>
     <p id="areaName">{{request?.zoneName}}</p>
   </div>
@@ -40,7 +50,6 @@
     <label for="googleMap"><strong>{{ 'Area Request Details Page.Form Headers.Map' | translate }}</strong></label>
     <div #gmap style="width:100%;height:400px" id="googleMap"></div>
   </div>
-
 
 </div>
 

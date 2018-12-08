@@ -27,6 +27,8 @@ import {CreateAreaAddingRequestPageComponent} from "./components/areas/area-requ
 import {CreateAreaEditingRequestPageComponent} from "./components/areas/area-requests/create-area-editing-request-page/create-area-editing-request-page.component";
 import {ChangeAreaNameModalComponent} from "./components/areas/area-details/change-area-name-modal/change-area-name-modal.component";
 import {AreaRequestDetailsPageComponent} from "./components/areas/area-requests/area-request-details/area-request-details-page.component";
+import {AdminUntakenAreaRequestsListComponent} from "./components/areas/area-requests/admin-untaken-area-requests-list/admin-untaken-area-requests-list.component";
+import {AdminAssignedToMeAreaRequestsListComponent} from "./components/areas/area-requests/admin-assigned-to-me-area-requests-list/admin-assigned-to-me-area-requests-list.component";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import {AreaRequestDetailsPageComponent} from "./components/areas/area-requests/
     CreateAreaAddingRequestPageComponent,
     CreateAreaEditingRequestPageComponent,
     AreaRequestDetailsPageComponent,
+    AdminUntakenAreaRequestsListComponent,
+    AdminAssignedToMeAreaRequestsListComponent,
 
     AdminDroneListPageComponent,
     AttachDronePageComponent,

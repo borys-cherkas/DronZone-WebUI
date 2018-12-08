@@ -12,9 +12,14 @@ export class AreaRequestsResource extends ResourceBase  {
     super(config, http, {
       'getById': 'zoneModifications/GetRequestById/{requestId}',
       'getUserRequests': 'zoneModifications/getUserRequests',
+      'getUntakenRequests': 'zoneModifications/getUntakenRequests',
+      'getTakenByMeActiveRequests': 'zoneModifications/getTakenByMeActiveRequests',
       'createAddingRequest': 'zoneModifications/createAddingZoneRequest',
       'createEditingRequest': 'zoneModifications/createModifyingZoneRequest',
-      'cancelRequest': 'zoneModifications/cancelRequest'
+      'confirmRequest': 'zoneModifications/confirmRequest',
+      'declineRequest': 'zoneModifications/declineRequest',
+      'cancelRequest': 'zoneModifications/cancelRequest',
+      'assignRequestToCurrentUser': 'zoneModifications/assignRequestToCurrentUser'
     });
   }
 
@@ -28,6 +33,16 @@ export class AreaRequestsResource extends ResourceBase  {
     return this.http.get(url);
   }
 
+  public getUntakenRequests(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getUntakenRequests'], {});
+    return this.http.get(url);
+  }
+
+  public getTakenByMeActiveRequests(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getTakenByMeActiveRequests'], {});
+    return this.http.get(url);
+  }
+
   public createAddingRequest(entity: AddAreaRequestViewModel): Promise<any> {
     const url = this.buildUrl(this.urlOptions['createAddingRequest'], {});
     return this.http.post(url, entity);
@@ -38,8 +53,25 @@ export class AreaRequestsResource extends ResourceBase  {
     return this.http.post(url, entity);
   }
 
+  public confirmRequest(requestId: string): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['confirmRequest'], {});
+    return this.http.post(url, {requestId: requestId});
+  }
+
+
+  public declineRequest(requestId: string): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['declineRequest'], {});
+    return this.http.post(url, {requestId: requestId});
+  }
+
+
   public cancelRequest(requestId: string): Promise<any> {
     const url = this.buildUrl(this.urlOptions['cancelRequest'], {});
+    return this.http.post(url, {requestId: requestId});
+  }
+
+  public assignRequestToCurrentUser(requestId: string): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['assignRequestToCurrentUser'], {});
     return this.http.post(url, {requestId: requestId});
   }
 }

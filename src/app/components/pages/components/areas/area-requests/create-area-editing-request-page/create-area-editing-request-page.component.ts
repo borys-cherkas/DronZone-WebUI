@@ -122,7 +122,7 @@ export class CreateAreaEditingRequestPageComponent implements OnInit, OnDestroy 
   }
 
   private goToAreaRequestDetails() {
-    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.details, this.areaId]);
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areaRequests, AppEnums.routes.list]);
   }
 
   public loadAreaById() {

@@ -19,6 +19,8 @@
     "Your Areas": "Ваші сектори",
 
     "Area Requests": "Запити",
+    "Assigned Requests": "Розгляд",
+    "Untaken Requests": "Нові запити",
     "Your Requests": "Ваші запити",
     "Add Area": "Створити сектор",
 
@@ -61,6 +63,25 @@
     "Create New": "Створити запит на додавання сектору",
     "Table": {
       "Zone Name": "Назва сектору",
+      "Status": "Статус",
+      "Type": "Тип"
+    }
+  },
+
+  "Untaken Area Requests List Page": {
+    "Page Title": "Список вільних запитів на додавання/зміну секторів",
+    "Assign Button": "Назначити на мене",
+    "Table": {
+      "Requester Name": "Iм'я користувача",
+      "Status": "Статус",
+      "Type": "Тип"
+    }
+  },
+
+  "Admin Assigned Area Requests List Page": {
+    "Page Title": "Список назначених на розгляд запитів на додавання/зміну секторів",
+    "Table": {
+      "Requester Name": "Iм'я користувача",
       "Status": "Статус",
       "Type": "Тип"
     }
@@ -247,6 +268,10 @@
   "Delete": "Видалити",
   "Save": "Зберегти",
   "Cancel": "Відмінити",
+
+  "Confirm": "Підтвердити",
+  "Decline": "Відхилити",
+  "Confirmed":"Підтверджені",
 
   "Area List Title": "Список секторів",
   "Create New": "Створити новий",

@@ -71,10 +71,22 @@ export const MENU = [
             }
           },
           {
-            path: r.list,
+            path: r.untakenList,
             data: {
               menu: {
                 title: 'Untaken Requests',
+                icon: null,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.admin]
+              }
+            }
+          },
+          {
+            path: r.assignedList,
+            data: {
+              menu: {
+                title: 'Assigned Requests',
                 icon: null,
                 expanded: false,
                 order: 0,

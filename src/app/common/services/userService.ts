@@ -26,10 +26,18 @@ export class UserService {
   }
 
   public get isInAdminRole() {
-    if(!this.isAuthenticated) return false;
+    if(!this.isAuthenticated()) return false;
 
     const roles = this.userInfo.roles.split(',');
     const isAdmin = roles.indexOf(AppEnums.roles.admin) !== -1;
+    return isAdmin;
+  }
+
+  public get isInUserRole() {
+    if(!this.isAuthenticated()) return false;
+
+    const roles = this.userInfo.roles.split(',');
+    const isAdmin = roles.indexOf(AppEnums.roles.user) !== -1;
     return isAdmin;
   }
 

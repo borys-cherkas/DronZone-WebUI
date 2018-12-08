@@ -106,6 +106,6 @@ export class CreateAreaAddingRequestPageComponent implements OnInit {
   }
 
   private goToAreaRequestsList() {
-    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areas, AppEnums.routes.areaRequests, AppEnums.routes.list]);
+    this.router.navigate(['/', AppEnums.routes.content, AppEnums.routes.areaRequests, AppEnums.routes.list]);
   }
 }

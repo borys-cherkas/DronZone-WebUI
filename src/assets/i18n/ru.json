@@ -19,6 +19,8 @@
     "Your Areas": "Ваши сектора",
 
     "Area Requests": "Запросы",
+    "Assigned Requests": "Рассмотрение",
+    "Untaken Requests": "Новые запросы",
     "Your Requests": "Ваши запросы",
     "Add Area": "Создать сектор",
 
@@ -61,6 +63,25 @@
     "Create New": "Создать запрос для добавления сектора",
     "Table": {
       "Zone Name": "Название сектора",
+      "Status": "Статус",
+      "Type": "Тип"
+    }
+  },
+
+  "Untaken Area Requests List Page": {
+    "Page Title": "Список запросов на добавление/изменение секторов",
+    "Assign Button": "Назначить на меня",
+    "Table": {
+      "Requester Name": "Имя пользователя",
+      "Status": "Статус",
+      "Type": "Тип"
+    }
+  },
+
+  "Admin Assigned Area Requests List Page": {
+    "Page Title": "Список назначеных на меня запросов на добавление/изменение секторов",
+    "Table": {
+      "Requester Name": "Имя пользователя",
       "Status": "Статус",
       "Type": "Тип"
     }
@@ -248,12 +269,15 @@
   "Save": "Сохранить",
   "Cancel": "Отменить",
 
+  "Confirm": "Подтвердить",
+  "Decline": "Отклонить",
+  "Confirmed":"Подтвержденные",
+
   "Area List Title": "Список секторов",
   "Create New": "Создать новый",
   "Edit": "Редактировать",
   "Search": "Искать",  
   "All": "Все",
-  "Confirmed":"Подтвержденные",
   "Not Confirmed":"Не подтвержденные",
   "Open Editing Request": "Открыть текущий запрос редактирования",
   "Open Area": "Открыть связанный сектор"

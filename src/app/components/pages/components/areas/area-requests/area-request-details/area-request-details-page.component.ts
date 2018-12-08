@@ -13,6 +13,7 @@ import {
 import {AppEnums} from "../../../../../../app.constants";
 import {AreaRequestListItemViewModel} from "../../../../../../models/viewModels/areaRequestListItemViewModel";
 import {ConfirmationModalComponent} from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
+import {UserService} from "../../../../../../common/services/userService";
 
 declare const google;
 
@@ -34,6 +35,7 @@ export class AreaRequestDetailsPageComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private preloaderService: PreloaderService,
+              private userService: UserService,
               private areaRequestResource: AreaRequestsResource,
               private route: ActivatedRoute,
               private translate: TranslateService,
@@ -50,6 +52,22 @@ export class AreaRequestDetailsPageComponent implements OnInit, OnDestroy {
         this.preloaderService.hideGlobalPreloader();
       });
     });
+  }
+
+  public get isInAdminRole() {
+    return this.userService.isInAdminRole;
+  }
+
+  public get isRequestUntaken() {
+    return this.request != null && this.request.status === ZoneValidationStatus.WaitingForAdministrator;
+  }
+
+  public get isRequestTakenByMe() {
+    return this.request != null && this.request.canConfirmReject;
+  }
+
+  public get isInUserRole() {
+    return this.userService.isInUserRole;
   }
 
   public ngOnDestroy() {
@@ -92,6 +110,74 @@ export class AreaRequestDetailsPageComponent implements OnInit, OnDestroy {
       this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
   }
+
+  public assignRequestToCurrentUser(requestListItem: AreaRequestListItemViewModel) {
+    return this.confirmationModal.showConfirmation("Are you sure you want to assign this request to yourself?").then(isDiscarded => {
+      if (!isDiscarded) {
+        return this.performAssignment(requestListItem.id);
+      }
+    }, err => {
+      // clicked on backdrop
+    });
+  }
+
+  public performAssignment(id: string) {
+    this.preloaderService.showGlobalPreloader();
+    return this.areaRequestResource.assignRequestToCurrentUser(id).then(_ => {
+      this.preloaderService.hideGlobalPreloader();
+      return this.loadRequestById();
+    }, err => {
+      this.preloaderService.hideGlobalPreloader();
+      console.error(err);
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
+    });
+  }
+
+
+  public confirmRequest(requestListItem: AreaRequestListItemViewModel) {
+    return this.confirmationModal.showConfirmation("Are you sure you want to confirm this request?").then(isDiscarded => {
+      if (!isDiscarded) {
+        return this.performConfirmation(requestListItem.id);
+      }
+    }, err => {
+      // clicked on backdrop
+    });
+  }
+
+  public declineRequest(requestListItem: AreaRequestListItemViewModel) {
+    return this.confirmationModal.showConfirmation("Are you sure you want to decline this request?").then(isDiscarded => {
+      if (!isDiscarded) {
+        return this.performRejection(requestListItem.id);
+      }
+    }, err => {
+      // clicked on backdrop
+    });
+  }
+
+  public performConfirmation(id: string) {
+    this.preloaderService.showGlobalPreloader();
+    return this.areaRequestResource.confirmRequest(id).then(_ => {
+      this.preloaderService.hideGlobalPreloader();
+      return this.loadRequestById();
+    }, err => {
+      this.preloaderService.hideGlobalPreloader();
+      console.error(err);
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
+    });
+  }
+
+  public performRejection(id: string) {
+    this.preloaderService.showGlobalPreloader();
+    return this.areaRequestResource.declineRequest(id).then(_ => {
+      this.preloaderService.hideGlobalPreloader();
+      return this.loadRequestById();
+    }, err => {
+      this.preloaderService.hideGlobalPreloader();
+      console.error(err);
+      this.notificationService.showError(AppEnums.notifications.errors.unknownError);
+    });
+  }
+
 
   private updateMap() {
     const latitudeCenter = (this.request.topLeftLongitude + this.request.bottomRightLongitude) / 2;

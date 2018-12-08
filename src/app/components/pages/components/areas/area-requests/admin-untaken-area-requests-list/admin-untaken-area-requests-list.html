@@ -1,0 +1,38 @@
+<div id="app-admin-untaken-area-requests-list">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>{{ 'Untaken Area Requests List Page.Page Title' | translate }}</h2>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <td>{{'Untaken Area Requests List Page.Table.Requester Name' | translate}}</td>
+          <td>{{'Untaken Area Requests List Page.Table.Type' | translate}}</td>
+          <td>{{'Untaken Area Requests List Page.Table.Status' | translate}}</td>
+          <td>{{'Table Header.Actions' | translate}}</td>
+          </thead>
+          <tbody>
+          <tr *ngFor="let request of untakenAreaRequestList">
+            <td>{{request.requesterName}}</td>
+            <td>{{('Area Request Type.' + request.requestType) | translate}}</td>
+            <td>{{('Area Request Status.' + request.status) | translate}}</td>
+            <td>
+              <button class="btn btn-info" (click)="showDetails(request.id)">{{'Details' | translate}}</button>
+              <button class="btn btn-warning" (click)="assignRequestToCurrentUser(request)">{{'Untaken Area Requests List Page.Assign Button' | translate}}</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirmation-modal #confirmationModal></app-confirmation-modal>

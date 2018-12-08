@@ -1,0 +1,35 @@
+<div id="app-admin-assigned-to-me-area-requests-list-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br/><br/>
+        <h2>{{ 'Admin Assigned Area Requests List Page.Page Title' | translate }}</h2>
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <td>{{'Admin Assigned Area Requests List Page.Table.Requester Name' | translate}}</td>
+          <td>{{'Admin Assigned Area Requests List Page.Table.Type' | translate}}</td>
+          <td>{{'Admin Assigned Area Requests List Page.Table.Status' | translate}}</td>
+          <td>{{'Table Header.Actions' | translate}}</td>
+          </thead>
+          <tbody>
+          <tr *ngFor="let request of areaRequestList">
+            <td>{{request.requesterName}}</td>
+            <td>{{('Area Request Type.' + request.requestType) | translate}}</td>
+            <td>{{('Area Request Status.' + request.status) | translate}}</td>
+            <td>
+              <button class="btn btn-info" (click)="showDetails(request.id)">{{'Details' | translate}}</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
