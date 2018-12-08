@@ -8,6 +8,7 @@ import {AreaRequestsResource} from "../../../../../../common/resources/area-requ
 import {
   AreaRequestListItemViewModel
 } from "../../../../../../models/viewModels/areaRequestListItemViewModel";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-admin-assigned-to-me-area-requests-list',
@@ -44,5 +45,9 @@ export class AdminAssignedToMeAreaRequestsListComponent implements OnInit {
       this.preloaderService.hideGlobalPreloader();
       this.notificationService.showError(AppEnums.notifications.errors.unknownError);
     });
+  }
+
+  public getFormattedDate(date: Date) {
+    return moment(moment.utc(date).toDate()).local().format('YYYY-MM-DD HH:mm:ss');
   }
 }

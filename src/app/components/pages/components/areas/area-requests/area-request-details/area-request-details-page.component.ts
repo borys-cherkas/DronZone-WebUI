@@ -1,19 +1,21 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {Subscription} from "rxjs/Subscription";
-import {TranslateService} from "@ngx-translate/core";
-import {PreloaderService} from "../../../../../../common/services/preloaderService";
-import {NotificationService} from "../../../../../../common/services/notificationService";
-import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { Subscription } from "rxjs/Subscription";
+import { TranslateService } from "@ngx-translate/core";
+import { PreloaderService } from "../../../../../../common/services/preloaderService";
+import { NotificationService } from "../../../../../../common/services/notificationService";
+import { AreaRequestsResource } from "../../../../../../common/resources/area-requests.resource";
 import {
   ZoneValidationRequestDetailedViewModel,
   ZoneValidationStatus,
   ZoneValidationType
 } from "../../../../../../models/viewModels/area-request.models";
-import {AppEnums} from "../../../../../../app.constants";
-import {AreaRequestListItemViewModel} from "../../../../../../models/viewModels/areaRequestListItemViewModel";
-import {ConfirmationModalComponent} from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
-import {UserService} from "../../../../../../common/services/userService";
+import { AppEnums } from "../../../../../../app.constants";
+import { AreaRequestListItemViewModel } from "../../../../../../models/viewModels/areaRequestListItemViewModel";
+import { ConfirmationModalComponent } from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
+import { UserService } from "../../../../../../common/services/userService";
+import { AreaResource } from '../../../../../../common/resources/areas.resource';
+import { ZoneDetailedViewModel } from '../../../../../../models/interfaces/area.models';
 
 declare const google;
 
@@ -25,21 +27,25 @@ declare const google;
 export class AreaRequestDetailsPageComponent implements OnInit, OnDestroy {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
   @ViewChild('gmap') gmapElement: any;
+  @ViewChild('oldgmap') oldgmapElement: any;
 
   private rectangle: any;
   private map: google.maps.Map;
   private requestId: string;
   private request: ZoneValidationRequestDetailedViewModel;
+  private oldZone: ZoneDetailedViewModel;
+  public isModify: boolean = false;
 
   private subscription: Subscription;
 
   constructor(private router: Router,
-              private preloaderService: PreloaderService,
-              private userService: UserService,
-              private areaRequestResource: AreaRequestsResource,
-              private route: ActivatedRoute,
-              private translate: TranslateService,
-              private notificationService: NotificationService) {
+    private preloaderService: PreloaderService,
+    private userService: UserService,
+    private areaRequestResource: AreaRequestsResource,
+    private route: ActivatedRoute,
+    private translate: TranslateService,
+    private notificationService: NotificationService,
+    private areaResource: AreaResource) {
 
   }
 
@@ -112,7 +118,7 @@ export class AreaRequestDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   public assignRequestToCurrentUser(requestListItem: AreaRequestListItemViewModel) {
-    return this.confirmationModal.showConfirmation("Are you sure you want to assign this request to yourself?").then(isDiscarded => {
+    return this.confirmationModal.showConfirmation(this.translate.instant('Request Confirmation Take To Yourself')).then(isDiscarded => {
       if (!isDiscarded) {
         return this.performAssignment(requestListItem.id);
       }
@@ -206,12 +212,48 @@ export class AreaRequestDetailsPageComponent implements OnInit, OnDestroy {
     this.rectangle.setMap(this.map);
   }
 
+  private updateOldMap() {
+    const latitudeCenter = (this.oldZone.mapRectangle.topLeftLongitude + this.oldZone.mapRectangle.bottomRightLongitude) / 2;
+    const longitudeCenter = (this.oldZone.mapRectangle.topLeftLatitude + this.oldZone.mapRectangle.bottomRightLatitude) / 2;
+
+    const mapProp = {
+      center: new google.maps.LatLng(latitudeCenter, longitudeCenter),
+      zoom: 14,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.oldgmapElement.nativeElement, mapProp);
+
+    const bounds = {
+      west: this.oldZone.mapRectangle.topLeftLatitude,
+      north: this.oldZone.mapRectangle.topLeftLongitude,
+      east: this.oldZone.mapRectangle.bottomRightLatitude,
+      south: this.oldZone.mapRectangle.bottomRightLongitude
+    };
+
+    // Define a rectangle and set its editable property to true.
+    this.rectangle = new google.maps.Rectangle({
+      bounds: bounds,
+      editable: false,
+      draggable: false
+    });
+    this.rectangle.setMap(this.map);
+  }
+
   public loadRequestById() {
     this.preloaderService.showGlobalPreloader();
     return this.areaRequestResource.getById(this.requestId).then((response: any) => {
       this.preloaderService.hideGlobalPreloader();
       this.request = response;
-      return this.updateMap();
+      this.updateMap();
+      if (response.targetZoneId) {
+        this.preloaderService.showGlobalPreloader();
+        return this.areaResource.getById(response.targetZoneId).then((areaResponse: any) => {
+          this.preloaderService.hideGlobalPreloader();
+          this.oldZone = areaResponse;
+          this.isModify = true;
+          return this.updateOldMap();
+        })
+      }
     }, err => {
       this.preloaderService.hideGlobalPreloader();
       console.error(err);

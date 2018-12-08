@@ -2,42 +2,43 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <br/><br/>
-        <h2>  {{ "Filter List Page.Page Title"| translate }}</h2>
+        <br /><br />
+        <h2> {{ "Filter List Page.Page Title"| translate }}</h2>
         <h6>{{ "Filter List Page.Area Name Title"| translate }}: <strong>{{area?.name}}</strong></h6>
       </div>
     </div>
 
-    <hr/>
+    <hr />
 
     <button class="btn btn-info" (click)="createNew()">{{"Create New" | translate}}</button>
-    <button class="btn btn-info" (click)="goToArea()">{{"Filter List Page.Go To Area" | translate}}</button>
+    <button class="btn btn-info" (click)="goToArea()">
+      {{"Filter List Page.Go To Area" | translate}}</button>
 
-    <br/>
-    <br/>
+    <br />
+    <br />
 
     <div class="row">
       <div class="col-md-12">
         <table class="table table-striped">
           <thead>
-          <td>{{"Table Header.Drone Type" | translate}}</td>
-          <td>{{"Table Header.Max Available Weigth" | translate}}</td>
-          <td>{{"Table Header.Drone Weigth" | translate}}</td>
-          <td>{{"Table Header.Max Speed" | translate}}</td>
-          <td>{{"Table Header.Actions" | translate}}</td>
+            <td>{{"Table Header.Drone Type" | translate}}</td>
+            <td>{{"Table Header.Max Available Weigth" | translate}}</td>
+            <td>{{"Table Header.Drone Weigth" | translate}}</td>
+            <td>{{"Table Header.Max Speed" | translate}}</td>
+            <td>{{"Table Header.Actions" | translate}}</td>
           </thead>
           <tbody>
-          <tr *ngFor="let filter of filters">
-            <td>{{("Drone Types." + getDroneTypePresentation(filter.droneType)) | translate}}</td>
-            <td>{{filter.maxAvailableWeigth}}</td>
-            <td>{{filter.maxDroneWeigth}}</td>
-            <td>{{filter.maxDroneSpeed}}</td>
-            <td>
-              <!--<button class="btn btn-success" (click)="showDetails(filter)">Details</button>-->
-              <button class="btn btn-warning" (click)="edit(filter)">{{"Edit" | translate}}</button>
-              <button class="btn btn-danger" (click)="delete(filter)">{{"Delete" | translate}}</button>
-            </td>
-          </tr>
+            <tr *ngFor="let filter of filters">
+              <td>{{("Drone Types." + getDroneTypePresentation(filter.droneType)) | translate}}</td>
+              <td>{{filter.maxAvailableWeigth}}</td>
+              <td>{{filter.maxDroneWeigth}}</td>
+              <td>{{filter.maxDroneSpeed}}</td>
+              <td>
+                <!--<button class="btn btn-success" (click)="showDetails(filter)">Details</button>-->
+                <button class="btn btn-warning" (click)="edit(filter)">{{"Edit" | translate}}</button>
+                <button class="btn btn-danger" (click)="delete(filter)">{{"Delete" | translate}}</button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -48,4 +49,3 @@
 <app-confirmation-modal #confirmationModal></app-confirmation-modal>
 
 <app-add-drone-filter-modal #addFitlerModal [area]="area"></app-add-drone-filter-modal>
-

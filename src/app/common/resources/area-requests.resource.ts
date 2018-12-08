@@ -1,12 +1,12 @@
-import {Injectable} from "@angular/core";
-import {ResourceBase} from "../base/resourceBase";
-import {SysConfig} from "../../../environments/sysConfig";
-import {HttpServiceWrapper} from "../base/httpServiceWrapper";
-import {AddAreaRequestViewModel} from "../../models/viewModels/addAreaRequestViewModel";
-import {EditAreaRequestViewModel} from "../../models/viewModels/editAreaRequestViewModel";
+import { Injectable } from "@angular/core";
+import { ResourceBase } from "../base/resourceBase";
+import { SysConfig } from "../../../environments/sysConfig";
+import { HttpServiceWrapper } from "../base/httpServiceWrapper";
+import { AddAreaRequestViewModel } from "../../models/viewModels/addAreaRequestViewModel";
+import { EditAreaRequestViewModel } from "../../models/viewModels/editAreaRequestViewModel";
 
 @Injectable()
-export class AreaRequestsResource extends ResourceBase  {
+export class AreaRequestsResource extends ResourceBase {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
@@ -28,8 +28,8 @@ export class AreaRequestsResource extends ResourceBase  {
     return this.http.get(url);
   }
 
-  public getUserRequests(): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['getUserRequests'], {});
+  public getUserRequests(searchParams): Promise<any> {
+    const url = this.buildUrlClassic(this.urlOptions['getUserRequests'], searchParams);
     return this.http.get(url);
   }
 
@@ -55,23 +55,23 @@ export class AreaRequestsResource extends ResourceBase  {
 
   public confirmRequest(requestId: string): Promise<any> {
     const url = this.buildUrl(this.urlOptions['confirmRequest'], {});
-    return this.http.post(url, {requestId: requestId});
+    return this.http.post(url, { requestId: requestId });
   }
 
 
   public declineRequest(requestId: string): Promise<any> {
     const url = this.buildUrl(this.urlOptions['declineRequest'], {});
-    return this.http.post(url, {requestId: requestId});
+    return this.http.post(url, { requestId: requestId });
   }
 
 
   public cancelRequest(requestId: string): Promise<any> {
     const url = this.buildUrl(this.urlOptions['cancelRequest'], {});
-    return this.http.post(url, {requestId: requestId});
+    return this.http.post(url, { requestId: requestId });
   }
 
   public assignRequestToCurrentUser(requestId: string): Promise<any> {
     const url = this.buildUrl(this.urlOptions['assignRequestToCurrentUser'], {});
-    return this.http.post(url, {requestId: requestId});
+    return this.http.post(url, { requestId: requestId });
   }
 }

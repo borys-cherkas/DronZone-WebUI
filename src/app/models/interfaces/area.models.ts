@@ -3,7 +3,6 @@ export class Zone {
   name: string;
   mapRectangle: MapRectangle;
   ownerId: string;
-  isConfirmed: boolean;
 }
 
 export class ZoneListItemViewModel {

@@ -51,6 +51,11 @@
     <div #gmap style="width:100%;height:400px" id="googleMap"></div>
   </div>
 
+  <div class="form-group">
+    <label for="oldGoogleMap" *ngIf="isModify"><strong>{{ 'Area Request Details Page.Form Headers.Old map' | translate }}</strong></label>
+    <div #oldgmap style="width:100%;height:400px" id="oldGoogleMap"></div>
+  </div>
+
 </div>
 
 <app-confirmation-modal #confirmationModal></app-confirmation-modal>

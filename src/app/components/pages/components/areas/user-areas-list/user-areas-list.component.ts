@@ -1,15 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from "@angular/router";
-import {PreloaderService} from "../../../../../common/services/preloaderService";
-import {NotificationService} from "../../../../../common/services/notificationService";
-import {ConfirmationModalComponent} from "../../../../../common/components/confirmation-modal/confirmation-modal.component";
-import {AreaResource} from "../../../../../common/resources/areas.resource";
-import {Zone, ZoneListItemViewModel} from "../../../../../models/interfaces/area.models";
-import {AppEnums} from "../../../../../app.constants";
-import {IAreaFilter} from "../../../../../models/interfaces/area-filter";
-import {TranslateService} from '@ngx-translate/core';
-import {ZoneListFilterViewModel} from "../../../../../models/interfaces/apiRequest/zoneListFilterViewModel";
-import {AreaRequestListItemViewModel} from "../../../../../models/viewModels/areaRequestListItemViewModel";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from "@angular/router";
+import { PreloaderService } from "../../../../../common/services/preloaderService";
+import { NotificationService } from "../../../../../common/services/notificationService";
+import { ConfirmationModalComponent } from "../../../../../common/components/confirmation-modal/confirmation-modal.component";
+import { AreaResource } from "../../../../../common/resources/areas.resource";
+import { Zone, ZoneListItemViewModel } from "../../../../../models/interfaces/area.models";
+import { AppEnums } from "../../../../../app.constants";
+import { IAreaFilter } from "../../../../../models/interfaces/area-filter";
+import { TranslateService } from '@ngx-translate/core';
+import { ZoneListFilterViewModel } from "../../../../../models/interfaces/apiRequest/zoneListFilterViewModel";
+import { AreaRequestListItemViewModel } from "../../../../../models/viewModels/areaRequestListItemViewModel";
 
 @Component({
   selector: 'app-user-areas-page',
@@ -21,17 +21,16 @@ export class UserAreasListComponent implements OnInit {
 
   // set "init" value to not skip first search
   private appliedSearchString = "init";
-  private appliedConfirmedFilter: boolean = null;
 
   public searchString: string;
   public confirmedFilter: boolean = null;
   public areas: Array<ZoneListItemViewModel> = new Array<ZoneListItemViewModel>();
 
   constructor(private router: Router,
-              private preloaderService: PreloaderService,
-              private areaResource: AreaResource,
-              private translate: TranslateService,
-              private notificationService: NotificationService) {
+    private preloaderService: PreloaderService,
+    private areaResource: AreaResource,
+    private translate: TranslateService,
+    private notificationService: NotificationService) {
     translate.setDefaultLang('en');
   }
 
@@ -44,20 +43,17 @@ export class UserAreasListComponent implements OnInit {
   }
 
   public loadAvailableAreas(): Promise<any> {
-    if (this.appliedSearchString === this.searchString
-      && this.appliedConfirmedFilter === this.confirmedFilter) {
+    if (this.appliedSearchString === this.searchString) {
 
       this.notificationService.showSuccess(AppEnums.notifications.success.filtersAlreadyApplied);
       return;
     }
 
     this.appliedSearchString = this.searchString;
-    this.appliedConfirmedFilter = this.confirmedFilter;
 
     this.preloaderService.showGlobalPreloader();
     return this.areaResource.getAll({
-      zoneName: this.searchString,
-      confirmed: this.confirmedFilter
+      zoneName: this.searchString
     }).then(response => {
       this.preloaderService.hideGlobalPreloader();
 

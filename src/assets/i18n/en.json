@@ -60,6 +60,7 @@
 
   "Area Requests List Page": {
     "Page Title": "Area Requests List",
+    "Request Status": "Request Status",
     "Create New": "Create request to add new area",
     "Table": {
       "Zone Name": "Zone Name",
@@ -129,7 +130,8 @@
       "Status": "Status",
       "Request Type": "Request Type",
       "Description": "Description",
-      "Map": "Zone on the map"
+      "Map": "Zone on the map",
+      "Old map": "Previous Zone on the map"
     }
   },
 
@@ -284,5 +286,8 @@
   "All": "All",
   "Not Confirmed":"Non-confirmed",
   "Open Editing Request": "Open Editing Request",
-  "Open Area": "Open Related Area"
+  "Open Area": "Open Related Area",
+  "No Results": "There is no results",
+  "Updated": "Last Updated",
+  "Request Confirmation Take To Yourself": "Are you sure you want to assign this request to yourself?"
 }

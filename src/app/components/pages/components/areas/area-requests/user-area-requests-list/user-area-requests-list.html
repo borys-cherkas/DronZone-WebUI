@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <br/><br/>
+        <br /><br />
         <h2>{{ 'Area Requests List Page.Page Title' | translate }}</h2>
       </div>
     </div>
@@ -14,30 +14,48 @@
         <button class="btn btn-info" (click)="createNew()">{{'Area Requests List Page.Create New' | translate}}</button>
       </div>
     </div>
-    <br/>
+    <br />
 
-    <hr/>
+    <hr />
+
+    <div class="row">
+      <div class="form-group">
+        <label for="requestStatusDropDown">{{'Area Requests List Page.Request Status' | translate}}:</label>
+        <select class="form-control" id="requestStatusDropDown" #requestStatusDropDown="ngModel" [(ngModel)]="requestStatusFilter"
+          (change)="loadAreaRequests()">
+          <option value="100">{{'Area Request Status.100' | translate}}</option>
+          <option value="200">{{'Area Request Status.200' | translate}}</option>
+          <option value="300">{{'Area Request Status.300' | translate}}</option>
+          <option value="400">{{'Area Request Status.400' | translate}}</option>
+          <option value="500">{{'Area Request Status.500' | translate}}</option>
+        </select>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-striped">
+        <h3 *ngIf="isListEmpty()">{{'No Results' | translate}}</h3>
+        <table class="table table-striped" *ngIf="!isListEmpty()">
           <thead>
-          <td>{{'Area Requests List Page.Table.Zone Name' | translate}}</td>
-          <td>{{'Area Requests List Page.Table.Type' | translate}}</td>
-          <td>{{'Area Requests List Page.Table.Status' | translate}}</td>
-          <td>{{'Table Header.Actions' | translate}}</td>
+            <td>{{'Area Requests List Page.Table.Zone Name' | translate}}</td>
+            <td>{{'Area Requests List Page.Table.Type' | translate}}</td>
+            <td>{{'Area Requests List Page.Table.Status' | translate}}</td>
+            <td>{{'Updated' | translate}}</td>
+            <td>{{'Table Header.Actions' | translate}}</td>
           </thead>
           <tbody>
-          <tr *ngFor="let request of areaRequestList">
-            <td>{{request.zoneName}}</td>
-            <td>{{('Area Request Type.' + request.requestType) | translate}}</td>
-            <td>{{('Area Request Status.' + request.status) | translate}}</td>
-            <td>
-              <button class="btn btn-info" (click)="showDetails(request.id)">{{'Details' | translate}}</button>
-              <button class="btn btn-info" *ngIf="shouldShowOpenZoneOrNot(request)" (click)="goToArea(request)">{{'Filter List Page.Go To Area' | translate}}</button>
-              <button class="btn btn-danger" *ngIf="shouldShowCancelButtonOrNot(request)" (click)="cancelRequest(request)">{{'Cancel' | translate}}</button>
-            </td>
-          </tr>
+            <tr *ngFor="let request of areaRequestList">
+              <td>{{request.zoneName}}</td>
+              <td>{{('Area Request Type.' + request.requestType) | translate}}</td>
+              <td>{{('Area Request Status.' + request.status) | translate}}</td>
+              <td>{{ getFormattedDate(request.updated)}}</td>
+              <td>
+                <button class="btn btn-info" (click)="showDetails(request.id)">{{'Details' | translate}}</button>
+                <button class="btn btn-info" *ngIf="shouldShowOpenZoneOrNot(request)" (click)="goToArea(request)">{{'Filter List Page.Go To Area' | translate}}</button>
+                <button class="btn btn-danger" *ngIf="shouldShowCancelButtonOrNot(request)" (click)="cancelRequest(request)">{{'Cancel'
+                  | translate}}</button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

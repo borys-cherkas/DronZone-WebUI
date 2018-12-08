@@ -1,15 +1,16 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from "@angular/router";
-import {ConfirmationModalComponent} from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
-import {PreloaderService} from "../../../../../../common/services/preloaderService";
-import {TranslateService} from "@ngx-translate/core";
-import {NotificationService} from "../../../../../../common/services/notificationService";
-import {AppEnums} from "../../../../../../app.constants";
-import {AreaRequestsResource} from "../../../../../../common/resources/area-requests.resource";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from "@angular/router";
+import { ConfirmationModalComponent } from "../../../../../../common/components/confirmation-modal/confirmation-modal.component";
+import { PreloaderService } from "../../../../../../common/services/preloaderService";
+import { TranslateService } from "@ngx-translate/core";
+import { NotificationService } from "../../../../../../common/services/notificationService";
+import { AppEnums } from "../../../../../../app.constants";
+import { AreaRequestsResource } from "../../../../../../common/resources/area-requests.resource";
 import {
   AreaRequestListItemViewModel
 } from "../../../../../../models/viewModels/areaRequestListItemViewModel";
-import {ZoneValidationStatus, ZoneValidationType} from "../../../../../../models/viewModels/area-request.models";
+import { ZoneValidationStatus, ZoneValidationType } from "../../../../../../models/viewModels/area-request.models";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-user-area-requests-list',
@@ -19,13 +20,14 @@ import {ZoneValidationStatus, ZoneValidationType} from "../../../../../../models
 export class UserAreaRequestsListComponent implements OnInit {
   @ViewChild('confirmationModal') public confirmationModal: ConfirmationModalComponent;
 
+  public requestStatusFilter: number = 100;
   public areaRequestList: Array<AreaRequestListItemViewModel> = new Array<AreaRequestListItemViewModel>();
 
   constructor(private router: Router,
-              private preloaderService: PreloaderService,
-              private areaRequestsResource: AreaRequestsResource,
-              private translate: TranslateService,
-              private notificationService: NotificationService) {
+    private preloaderService: PreloaderService,
+    private areaRequestsResource: AreaRequestsResource,
+    private translate: TranslateService,
+    private notificationService: NotificationService) {
     translate.setDefaultLang('en');
   }
 
@@ -40,7 +42,9 @@ export class UserAreaRequestsListComponent implements OnInit {
 
   public loadAreaRequests(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
-    return this.areaRequestsResource.getUserRequests().then(response => {
+    return this.areaRequestsResource.getUserRequests({
+      requestStatus: this.requestStatusFilter
+    }).then(response => {
       this.preloaderService.hideGlobalPreloader();
 
       this.areaRequestList = response;
@@ -89,5 +93,13 @@ export class UserAreaRequestsListComponent implements OnInit {
 
   public shouldShowOpenZoneOrNot(requestListItem: AreaRequestListItemViewModel) {
     return requestListItem.requestType === ZoneValidationType.Modifying;
+  }
+
+  public isListEmpty() {
+    return !this.areaRequestList || !this.areaRequestList.length;
+  }
+
+  public getFormattedDate(date: Date) {
+    return moment(moment.utc(date).toDate()).local().format('YYYY-MM-DD HH:mm:ss');
   }
 }

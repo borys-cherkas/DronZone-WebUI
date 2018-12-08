@@ -55,7 +55,7 @@ export class AdminUntakenAreaRequestsListComponent implements OnInit {
   }
 
   public assignRequestToCurrentUser(requestListItem: AreaRequestListItemViewModel) {
-    return this.confirmationModal.showConfirmation("Are you sure you want to assign this request to yourself?").then(isDiscarded => {
+    return this.confirmationModal.showConfirmation(this.translate.instant('Request Confirmation Take To Yourself')).then(isDiscarded => {
       if (!isDiscarded) {
         return this.performAssignment(requestListItem.id);
       }
