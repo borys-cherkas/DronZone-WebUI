@@ -83,10 +83,10 @@ export class CreateAreaAddingRequestPageComponent implements OnInit {
 
     const userBounds = this.rectangle.bounds;
 
-    const topLeftLatitude = userBounds.j.j;
-    const topLeftLongitude = userBounds.l.l;
-    const bottomRightLatitude = userBounds.j.l;
-    const bottomRightLongitude = userBounds.l.j;
+    const topLeftLatitude = userBounds.ga.j;
+    const topLeftLongitude = userBounds.ma.l;
+    const bottomRightLatitude = userBounds.ga.l;
+    const bottomRightLongitude = userBounds.ma.j;
 
     this.entity.topLeftLatitude = topLeftLatitude;
     this.entity.topLeftLongitude = topLeftLongitude;
