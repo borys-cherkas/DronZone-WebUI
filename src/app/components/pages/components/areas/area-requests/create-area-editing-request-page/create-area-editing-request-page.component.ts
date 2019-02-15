@@ -98,10 +98,10 @@ export class CreateAreaEditingRequestPageComponent implements OnInit, OnDestroy 
 
     const userBounds = this.rectangle.bounds;
 
-    const topLeftLatitude = userBounds.j.j;
-    const topLeftLongitude = userBounds.l.l;
-    const bottomRightLatitude = userBounds.j.l;
-    const bottomRightLongitude = userBounds.l.j;
+    const topLeftLatitude = userBounds.ga.j;
+    const topLeftLongitude = userBounds.ma.l;
+    const bottomRightLatitude = userBounds.ga.l;
+    const bottomRightLongitude = userBounds.ma.j;
 
     this.entity.zoneId = this.areaId;
     this.entity.topLeftLatitude = topLeftLatitude;
